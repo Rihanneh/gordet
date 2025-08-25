@@ -1,1 +1,8 @@
+# Environment
 **/.DS_Store
+Makefile
+compose.yaml
+docker/*
+
+# Libraries
+front/node_modules/*
