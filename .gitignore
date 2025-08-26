@@ -5,4 +5,6 @@ compose.yaml
 docker/*
 
 # Libraries
-front/node_modules/*
+node_modules/*
+backend/node_modules/*
+database
