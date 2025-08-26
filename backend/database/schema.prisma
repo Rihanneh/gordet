@@ -1,0 +1,23 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model services {
+    id Int @id @default(autoincrement())
+    title String @db.VarChar(50)
+    slug String @db.VarChar(50)
+    content String @db.Text
+    created_at DateTime @db.DateTime(0) @default(now())
+    updated_at DateTime @db.DateTime(0) @default(now())
+    image images?
+}
+
+model images {
+    id Int @id @default(autoincrement())
+    path String @db.VarChar(255)
+    service services @relation(fields: [service_id], references: [id])
+    service_id Int @unique
+    created_at DateTime @db.DateTime(0) @default(now())
+    updated_at DateTime @db.DateTime(0) @default(now())
+}
