@@ -1,3 +1,5 @@
+// fichier de Alexandre
+
 datasource db {
     provider = "mysql"
     url      = env("DATABASE_URL")
@@ -9,40 +11,40 @@ model Project {
     slug String @db.VarChar(50)
     description String @db.Text
     date DateTime @db.DateTime(0)
-    created_at DateTime @default(now()) @db.DateTime(0)
-    updated_at DateTime @updatedAt 
-    images Image[] @relation("project_images")
+    createdAt DateTime @default(now()) @db.DateTime(0) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+    images ProjectImages[]
 
     @@map("projects")
 }
 
 model Message {
     id Int @id @default(autoincrement())
-    first_name String @db.VarChar(150)
-    last_name String @db.VarChar(150)
-    company_name String? @db.VarChar(150)
+    firstName String @db.VarChar(150) @map("first_name")
+    lastName String @db.VarChar(150) @map("last_name")
+    companyName String? @db.VarChar(150) @map("company_name")
     email String @db.VarChar(150)
     subject String @db.VarChar(255)
     message String @db.Text
-    created_at DateTime @default(now()) @db.DateTime(0)
-    updated_at DateTime @default(now()) @db.DateTime(0)
+    createdAt DateTime @default(now()) @db.DateTime(0) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
 
     @@map("messages")
 }
 
 model Appointment {
     id Int @id @default(autoincrement())
-    first_name String @db.VarChar(150)
-    last_name String @db.VarChar(150)
-    company_name String? @db.VarChar(150)
+    firstName String @db.VarChar(150) @map("first_name")
+    lastName String @db.VarChar(150) @map("last_name")
+    companyName String? @db.VarChar(150) @map("company_name")
     email String @db.VarChar(150)
-    appointment_date DateTime @db.DateTime(0)
-    appointment_time DateTime @db.DateTime(0)
+    appointmentDate DateTime @db.DateTime(0) @map("appointment_date")
+    appointmentTime DateTime @db.DateTime(0) @map("appointment_time")
     subject String @db.VarChar(255)
     message String @db.Text
     status Status @default(PENDING)
-    created_at DateTime @default(now()) @db.DateTime(0)
-    updated_at DateTime @default(now()) @db.DateTime(0)
+    createdAt DateTime @default(now()) @db.DateTime(0) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
 
     @@map("appointments")
 }
@@ -51,8 +53,8 @@ model User {
     id Int @id @default(autoincrement())
     email String @db.VarChar(150) @unique
     password String @db.VarChar(255)
-    created_at DateTime @default(now()) @db.DateTime(0)
-    updated_at DateTime @default(now()) @db.DateTime(0)
+    createdAt DateTime @default(now()) @db.DateTime(0) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
 
     @@map("users")
 }
@@ -60,12 +62,24 @@ model User {
 model Image {
     id Int @id @default(autoincrement())
     path String @db.VarChar(255)
-    created_at DateTime @default(now()) @db.DateTime(0)
-    updated_at DateTime @default(now()) @db.DateTime(0)
-    service Service
-    projects Project[] @relation("project_images")
+    createdAt DateTime @default(now()) @db.DateTime(0) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+    service Service?
+    projects ProjectImages[]
 
     @@map("images")
+}
+
+model ProjectImages {
+    projectId Int @map("id_project")
+    imageId Int @map("id_image")
+    project Project @relation(fields: [projectId], references: [id])
+    image Image @relation(fields: [imageId], references: [id])
+
+    @@id([projectId, imageId])
+    @@index([projectId])
+    @@index([imageId])
+    @@map("project_images")
 }
 
 model Service {
@@ -73,10 +87,10 @@ model Service {
     title String @db.VarChar(50)
     slug String @db.VarChar(50)
     content String @db.Text
-    created_at DateTime @default(now()) @db.DateTime(0)
-    updated_at DateTime @default(now()) @db.DateTime(0)
-    id_image Int @unique(map: "id_image")
-    image Image @relation(fields: [id_image], references: [id], onDelete: Cascade, onUpdate: NoAction)
+    createdAt DateTime @default(now()) @db.DateTime(0) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
+    imageId Int @unique(map: "id_image") @map("id_image")
+    image Image @relation(fields: [imageId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
     @@map("services")
 }
