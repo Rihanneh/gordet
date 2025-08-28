@@ -1,0 +1,87 @@
+
+
+<!--  Use case Diagram-->
+
+1. Use Case Diagram (Agenda + Site vitrine Gordet)
+
+Acteurs :
+  Visiteur
+  Admin Gordet
+
+Cas d’utilisation principaux :
+  Visiteur :
+    Voir prestations
+    Voir réalisations
+    Contacter via formulaire
+    Réserver un rendez-vous (en ligne / en personne)
+
+  Admin : 
+    Se connecter à l’espace sécurisé
+    Gérer réalisations
+    Gérer historique des messages
+    Visionner rendez-vous réservés
+    Recevoir email (formulaire / réservation)
+
+<!-- Diagramme (PlantUML) -->
+@startuml
+actor "Visiteur" as V
+actor "Admin Gordet" as A
+
+rectangle "Site Gordet" {
+  V --> (Voir prestations)
+  V --> (Voir réalisations)
+  V --> (Contacter via formulaire)
+  V --> (Réserver un rendez-vous)
+
+  A --> (Se connecter à l'espace d'administration)
+  A --> (Gérer réalisations)
+  A --> (Gérer historique des messages)
+  A --> (Visionner rendez-vous réservés)
+  (Contacter via formulaire) --> (Recevoir email contact) : <<include>>
+  (Réserver un rendez-vous) --> (Recevoir email réservation) : <<include>>
+}
+
+@enduml
+
+<!-- ============================================================================== -->
+
+<!-- Sequence Diagram -->
+
+2. Sequence Diagram (Réservation d’un rendez-vous)
+
+Scénario choisi : Un visiteur réserve un rendez-vous via l’agenda
+
+Étapes :
+    Le visiteur ouvre l’agenda sur le site.
+    Le système affiche les créneaux disponibles.
+    Le visiteur choisit une date/heure + type de rendez-vous (en ligne / en personne).
+    Le visiteur confirme la réservation en remplissant ses infos.
+    Le système enregistre le rendez-vous.
+    Le système envoie un email de confirmation au visiteur + un email à l’admin.
+    L’admin pourra consulter la réservation dans son espace sécurisé.
+
+<!-- Diagramme (PlantUML)  -->
+
+@startuml
+actor Visiteur
+participant "Site Web Gordet" as Site
+participant "Agenda" as Agenda
+participant "Email Service" as Mail
+actor "Admin Gordet" as Admin
+
+Visiteur -> Site : Accéder à l'agenda
+Site -> Agenda : Demander créneaux disponibles
+Agenda --> Site : Retourne créneaux
+Site -> Visiteur : Affiche créneaux
+
+Visiteur -> Site : Choisir créneau + infos RDV
+Site -> Agenda : Enregistrer réservation
+Agenda --> Site : Confirmation
+
+Site -> Mail : Envoyer email confirmation visiteur
+Site -> Mail : Envoyer email notification admin
+Mail --> Visiteur : Email confirmation RDV
+Mail --> Admin : Email notification nouvelle réservation
+
+Admin -> Agenda : Consulter rendez-vous réservés
+@enduml
