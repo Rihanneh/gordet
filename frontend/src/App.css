@@ -1,0 +1,128 @@
+:root {
+  --color-primary-text: black;
+  --color-secondory-text: white;
+  --color-primary-btn: #fed00e
+  --color-secondory-btn: #443dfc
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--color-primary-text);
+}
+
+.bar{
+  text-align: center;
+  padding: 10px;
+  background-color: #443dfc;
+  color: lightgray;
+  font-weight: 700;
+}
+
+.navbar {
+display: flex;
+position: absolute;
+padding:30px ;
+}
+
+.navbar_logo {
+    color: black;
+    font-weight: 1000;
+    font-size: 20px;
+}
+
+.navbar_menu {
+  display: flex;
+margin-left: 200px;}
+
+.navbar_menu li{
+  /* border: 1px solid red; */
+  display: flex;
+  width: 500px;
+  justify-content: space-between; 
+}
+
+.navbar_menu li ul {
+float: left;
+
+}
+
+.navbar_menu a {
+      color: black;
+
+  
+}
+
+.hero_banner {
+  display: block;
+  background-image: url("https://picsum.photos/seed/picsum/1920/1800") ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 840px;
+  position: relative;
+}
+
+.hero_content {
+  /* border: red 1px solid; */
+    padding: 150px 80px;
+}
+
+.hero_content p {
+  font-size: 24px;
+}
+
+.hero_content h1 {
+  font-weight: 800;
+font-size: 65px;
+padding-top: 50px ;}
+
+.hero_btn {
+  margin-top: 45px;
+  padding: 25px 25px;
+  border-radius: 50px;
+font-weight:1000;
+}
+
+.hero_btn-call {
+  color: black;
+  background-color: #fed00e;
+}
+
+.hero_btn-appointment {
+  background-color: #443dfc;
+  margin-left: 20px;
+}
+
+.hero_labels {
+  background-color: white;
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
