@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import mainLogo from "../assets/sarl_gordet_logo.jpg";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,44 +14,43 @@ function App() {
           <p>Lorem ipsum dolor sit?</p>
           <a href="#"> 📞 Call Us: +1 984 432 4875</a>
         </div>
-        <header className="header">
-          {/* Navbar */}
-          <nav className="navbar">
-            <div className="navbar_logo">
-              <img src="/frontend/assets/sarl_gordet_logo.jpg" alt="" />
-              <span className="text">GORDET</span>
-            </div>
-            <ul className="navbar_links">
-              <li>
-                <a href="#">About Us</a>
-              </li>
-              <li>
-                <a href="#">Servicees</a>
-              </li>
-              <li>
-                <a href="#">Projects</a>
-              </li>
-              <li>
-                <a href="#">chez Pas</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </ul>
-            <button className="navbar_btn">Make An Appointment</button>
-
-            {/*---- burger menu -----------------------------*/}
-            <span className="nav_burgerMenu">
-              <a href="#">
-                <img src="/frontend/assets/icons/bar.png" alt="" />
-              </a>
-            </span>
-          </nav>
-        </header>
         {/* Hero Section */}
         <div className="hero_banner">
+            <header className="container header">
+              {/* Navbar */}
+              <nav className="navbar">
+                <div className="navbar_logo">
+                  <img src={ mainLogo } alt="Logo de l'entreprise Gordet spécialisé en revêtement de sol" />
+                </div>
+                <ul className="navbar_links">
+                  <li>
+                    <a href="#">About Us</a>
+                  </li>
+                  <li>
+                    <a href="#">Servicees</a>
+                  </li>
+                  <li>
+                    <a href="#">Projects</a>
+                  </li>
+                  <li>
+                    <a href="#">chez Pas</a>
+                  </li>
+                  <li>
+                    <a href="#">Contact</a>
+                  </li>
+                </ul>
+                <button className="navbar_btn">Make An Appointment</button>
+
+                {/*---- burger menu -----------------------------*/}
+                <span className="nav_burgerMenu">
+                  <a href="#">
+                    <img src="/frontend/assets/icons/bar.png" alt="" />
+                  </a>
+                </span>
+              </nav>
+            </header>
           {/* content-text */}
-          <div className="hero_content">
+          <div className="container hero_content">
             <p>Lorem ipsum dolor Lorem sit amet.</p>
             <h1>
               Lorem Ipsum Oolor Sit amet <br />
@@ -80,7 +80,7 @@ function App() {
       </section>
       {/* About-Us section */}
       <section>
-        <div className="aboutUs">
+        <div className="container aboutUs">
           <div className="aboutUs-left">
             <p>Lorem ipsum dolor sit amet.</p>
             <br />
@@ -103,7 +103,7 @@ function App() {
             </p>
           </div>
         </div>
-        <div className="aboutUs-services">
+        <div className="container aboutUs-services">
           <div className="box service-dur">
             <p className="icon">🏠</p>
             <p className="text">
