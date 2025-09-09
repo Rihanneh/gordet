@@ -14,63 +14,93 @@
 
 body {
   color: var(--color-primary-text);
+  position: relative;
+  background-color: white;
+  
+  
 }
 
-.bar{
+.hero-topBar{
   text-align: center;
-  padding: 10px;
   background-color: #443dfc;
-  color: lightgray;
+  color: var(--color-secondory-text);
   font-weight: 700;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  gap: 20px;
+}
+
+.top_bar a {
+  color: var(--color-secondory-text);
+  margin-left: 20px;
+  font-size: large;
+  font-weight: 700;  
+}
+
+.header {
+z-index: 1;
+width: 100vw;
 }
 
 .navbar {
 display: flex;
-position: absolute;
-padding:30px ;
+justify-content: space-between;
+align-items: center;
+padding:45px 0px;
 }
 
 .navbar_logo {
-    color: black;
+    color: var(--color-primary-text);
     font-weight: 1000;
     font-size: 20px;
+    display: flex;   
 }
 
-.navbar_menu {
-  display: flex;
-margin-left: 200px;}
-
-.navbar_menu li{
-  /* border: 1px solid red; */
-  display: flex;
-  width: 500px;
-  justify-content: space-between; 
+.navbar_logo img {
+  border: 3px blue solid;
+margin-right: 10px;
+padding: 10px;
 }
 
-.navbar_menu li ul {
+.navbar_links {
+  list-style: none;
+}
+
+.navbar_links li {
 float: left;
-
+padding-inline: 15px;
 }
 
-.navbar_menu a {
-      color: black;
+.navbar_links a {
+      color: var(--color-primary-text);
+      text-decoration: none;
+}
 
+.navbar_btn {
+  background-color: #443dfc;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight:1000;
   
 }
-
 .hero_banner {
-  display: block;
+      border: 1px solid red;
+
+  position: relative;
   background-image: url("https://picsum.photos/seed/picsum/1920/1800") ;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 840px;
-  position: relative;
+  width: 100vw;
 }
 
 .hero_content {
-  /* border: red 1px solid; */
-    padding: 150px 80px;
+    padding: 150px 0px;
 }
 
 .hero_content p {
@@ -80,13 +110,17 @@ float: left;
 .hero_content h1 {
   font-weight: 800;
 font-size: 65px;
-padding-top: 50px ;}
+padding-top: 50px;}
 
 .hero_btn {
   margin-top: 45px;
   padding: 25px 25px;
   border-radius: 50px;
-font-weight:1000;
+  font-weight:1000;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
 }
 
 .hero_btn-call {
@@ -100,18 +134,95 @@ font-weight:1000;
 }
 
 .hero_labels {
-  background-color: white;
-  width: 500px;
-  height: 200px;
   position: absolute;
   left: 0;
   bottom: 0;
+  width: 500px;
+  height: 200px;
+background-color: white;
+}
+
+.hero_labels img {
+  width: 100px;
+  height: auto;
+  margin: 10px;
+  border: 2px solid red;
+}
+
+.aboutUs {
+display: flex;
+align-items: center;
+padding: 100px 0;
+
+}
+
+
+.aboutUs .aboutUs-left {
+    width: 50%;
+
+}
+.aboutUs .aboutUs-left p {
+  color: blue;
+ text-transform: uppercase;
+ font-weight: 500;
+}
+
+.aboutUs .aboutUs-left h2 {
+font-size: 42px;
+}
+
+.aboutUs .aboutUs-right {
+        width: 50%;
+        font-size: 18px;
+        font-weight: 500;
+}
+ 
+
+.aboutUs-services {
+   display: flex; 
+}
+
+.aboutUs-services hr {
+color: rgb(211, 211, 211, 0.3);
+height: 150px;
+margin-top: auto;
+margin-bottom: auto;}
+
+.aboutUs-services .box {
+      width: 33%;
+      display: flex;
+      flex-direction: column;   
+}
+
+.aboutUs-services .box p{
+        transform: translateX(30%);
+        font-size: 24px;
+}
+.aboutUs-services .box p:nth-child(1){
+  font-size: 50px;
+}
+.aboutUs-services .box p:nth-child(2){
+      font-weight: 700;
+      padding: 15px 0;
+}
+
+.aboutUs-services .box p:nth-child(3){
+  font-size: 18px;
 }
 
 
 
 
-@keyframes logo-spin {
+
+
+
+
+
+
+
+
+
+/* @keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -124,5 +235,5 @@ font-weight:1000;
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
+} */
 
