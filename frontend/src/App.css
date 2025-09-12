@@ -1,10 +1,11 @@
 :root {
   --color-primary-text: black;
   --color-secondory-text: white;
-  --color-primary-btn: #fed00e
-  --color-secondory-btn: #443dfc
+  --color-primary-btn: #fed00e;
+  --color-secondory-btn: #443dfc;
+  --font-size-h2: 50px;
+  --font-size-p: 18px;
 }
-
 
 * {
   box-sizing: border-box;
@@ -19,11 +20,11 @@ body {
 }
 
 .container {
-    margin: 0 auto;
-    max-width: 80%;
+  margin: 0 auto;
+  max-width: 80%;
 }
 
-.hero-topBar{
+.hero-topBar {
   text-align: center;
   background-color: #443dfc;
   color: var(--color-secondory-text);
@@ -36,76 +37,107 @@ body {
   gap: 20px;
 }
 
-.top_bar a {
+.hero-topBar a {
   color: var(--color-secondory-text);
   margin-left: 20px;
   font-size: large;
   font-weight: 700;
 }
 
+/* ==================================================================
+header start
+===================================================================== */
 .header {
-z-index: 1;
+  z-index: 1;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 150px;
 }
 
 .navbar_logo {
-    color: var(--color-primary-text);
-    font-weight: 1000;
-    font-size: 20px;
-    display: flex;
+  color: var(--color-primary-text);
+  font-weight: 1000;
+  font-size: 20px;
+  display: flex;
 }
 
 .navbar_logo img {
-    border: 3px blue solid;
-    margin-right: 10px;
-    padding: 10px;
-    max-height: 100px;
-    width: auto;
+  margin-right: 10px;
+  padding: 10px;
+  max-height: 100px;
+  width: auto;
 }
 
 .navbar_links {
-    list-style: none;
+  list-style: none;
 }
 
 .navbar_links li {
-    float: left;
-    padding-inline: 15px;
+  float: left;
+  padding-inline: 15px;
 }
 
 .navbar_links a {
-      color: var(--color-primary-text);
-      text-decoration: none;
+  color: var(--color-primary-text);
+  text-decoration: none;
 }
 
 .navbar_btn {
-    background-color: #443dfc;
-    padding: 10px 15px;
-    border-radius: 50px;
-    font-weight:1000;
+  background-color: #443dfc;
+  padding: 10px 15px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.navbar_btn a {
+  color: var(--color-secondory-text);
+  font-weight: 1000;
+  z-index: 1;
+  display: inline-block;
+}
+
+.navbar_btn a::before {
+  content: "";
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  background-color: darkblue;
+  left: -100%;
+  bottom: -100%;
+  position: absolute;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+.navbar_btn a:hover::before {
+  left: 0;
+  bottom: 0;
 }
 
 .nav_burgerMenu {
-    display: none;
+  display: none;
 }
-
+/* ==================================================================
+hero-banner-content start
+===================================================================== */
 .hero_banner {
-    border: 1px solid red;
-    position: relative;
-    background-image: url("https://picsum.photos/seed/picsum/1920/1800") ;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 90vh;
+  position: relative;
+  background-image: url("https://picsum.photos/seed/picsum/1920/1800");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  z-index: 0;
 }
 
 .hero_content {
-    padding: 150px 0px;
+  padding: 60px 0px;
 }
 
 .hero_content p {
@@ -114,18 +146,15 @@ z-index: 1;
 
 .hero_content h1 {
   font-weight: 800;
-font-size: 65px;
-padding-top: 50px;}
+  font-size: 65px;
+  padding-top: 50px;
+}
 
 .hero_btn {
   margin-top: 45px;
   padding: 25px 25px;
   border-radius: 50px;
-  font-weight:1000;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  font-weight: 1000;
 }
 
 .hero_btn-call {
@@ -138,100 +167,234 @@ padding-top: 50px;}
   margin-left: 20px;
 }
 
-.hero_labels {
+.hero_labels-box {
+  z-index: -1;
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 500px;
+  width: 550px;
   height: 200px;
-background-color: white;
+  background-color: white;
 }
 
-.hero_labels img {
-  width: 100px;
-  height: auto;
-  margin: 10px;
-  border: 2px solid red;
+.hero_labels-logo {
+  padding-top: 150px;
 }
+
+.hero_labels-logo img {
+  width: 150px;
+}
+
+.hero_labels-logo img:nth-child(1) {
+  margin-right: 20px;
+}
+
+/* ==================================================================
+aboutUs start
+===================================================================== */
 
 .aboutUs {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 100px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 100px 0;
 }
 
 .aboutUs .aboutUs-left,
 .aboutUs .aboutUs-right {
-    width: 50%;
-    min-width: 300px;
+  width: 50%;
+  min-width: 300px;
 }
 
 .aboutUs .aboutUs-left p {
   color: blue;
- text-transform: uppercase;
- font-weight: 500;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .aboutUs .aboutUs-left h2 {
-font-size: 42px;
+  font-size: 42px;
 }
 
 .aboutUs .aboutUs-right {
-        /*width: 50%;*/
-        font-size: 18px;
-        font-weight: 500;
+  /*width: 50%;*/
+  font-size: 18px;
+  font-weight: 500;
+  padding-left: 30px;
 }
 
-
 .aboutUs-services {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-bottom: 120px;
 }
 
 .aboutUs-services hr {
-color: rgb(211, 211, 211, 0.3);
-height: 150px;
-margin-top: auto;
-margin-bottom: auto;}
+  color: rgb(211, 211, 211, 0.3);
+  height: 150px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
 
 .aboutUs-services .box {
-      /*width: 33%;*/
-      display: flex;
-      flex-direction: column;
+  /*width: 33%;*/
+  display: flex;
+  flex-direction: column;
 }
 
-.aboutUs-services .box p{
-        transform: translateX(30%);
-        font-size: 24px;
+.aboutUs-services .box p {
+  transform: translateX(30%);
+  font-size: 24px;
 }
-.aboutUs-services .box p:nth-child(1){
+.aboutUs-services .box p:nth-child(1) {
   font-size: 50px;
 }
-.aboutUs-services .box p:nth-child(2){
-      font-weight: 700;
-      padding: 15px 0;
+.aboutUs-services .box p:nth-child(2) {
+  font-weight: 700;
+  padding: 15px 0;
 }
 
-.aboutUs-services .box p:nth-child(3){
+.aboutUs-services .box p:nth-child(3) {
   font-size: 18px;
 }
 
 @media (max-width: 1250px) {
-    .nav_burgerMenu {
-        display: block;
-    }
+  .nav_burgerMenu {
+    display: block;
+  }
+}
+
+/* ==================================================================
+aboutUs whoWeAre :
+===================================================================== */
+
+.aboutUs_whoWeAre {
+  display: flex;
+  padding-bottom: 100px;
+  margin-bottom: 80px;
+}
+
+.aboutUs_whoWeAre-img {
+  width: 55%;
+    position: relative;
+
+}
+
+.aboutUs_whoWeAre-img-up {
+  width: 600px;
+  height: 500px;
+  border-radius: 5px;
+  background-image: url("/assets/projets/sol-foncé-vitre.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.aboutUs_whoWeAre-img-down {
+  background-image: url("/assets/projets/sol-bois-salon.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 450px;
+  height: 300px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -85px;
+  left: 300px;
+}
+
+.aboutUs_whoWeAre-content {
+  margin-left: auto;
+  width: 33%;
+}
+
+.aboutUs_whoWeAre-content-title {
+  color: blue;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.aboutUs_whoWeAre-content-header {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.aboutUs_whoWeAre-content-texte {
+  font-size: var(--font-size-p);
+}
+
+.aboutUs_whoWeAre-content-workingDays {
+  font-weight: 800;
+  font-size: var(--font-size-p);
+}
+
+.aboutUs_whoWeAre-content-cta {
+  color: black;
+  background-color: #fed00e;
+  margin-top: 30px;
+  padding: 25px 25px;
+  border-radius: 50px;
+  font-weight: 1000;
+}
+
+/* ==================================================================
+aboutUs weDo :
+===================================================================== */
+
+.aboutUs_weDo {
+  display: flex;
+}
+
+.aboutUs_weDo-content-up {
+border: 2px red solid;
+height: 687px;
+}
+
+.aboutUs_weDo-content-up .title {
+  color: blue;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 
 
+.aboutUs_weDo-content-up .header {
+  font-size: var(--font-size-h2);
+  font-weight: 800;
+}
 
+.aboutUs_weDo-content-up .text {
+  font-size: var(--font-size-p);
+}
 
+.aboutUs_weDo-img {
+  position: absolute;
+  right: 0;
+}
 
+.boutUs_weDo-content-down {
+  display: flex;
+  width: 60%;
+  height: 380px;
+  border: 1px red solid;
+  background-color: blue;
+  color: white;
+}
 
+.aboutUs_weDo-content-down-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+padding-left: 20px;  /* padding: 50px; */
+}
 
+.boutUs_weDo-content-down-img {
+  background-image: url('/assets/projets/murs-spa.jpg');
+  background-position: center;
+  width: 430px;
 
+}
 
 /* @keyframes logo-spin {
   from {
@@ -239,6 +402,10 @@ margin-bottom: auto;}
   }
   to {
     transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
 }
 }
 
