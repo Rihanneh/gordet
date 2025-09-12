@@ -4,6 +4,7 @@ import mainLogo from "../assets/logo-Gordet.jpg";
 import logoRSE from "../assets/label-RSE.avif";
 import logoRGE from "../assets/Label-RGE.jpg";
 import weDoImg from "../assets/projets/murs-spa.jpg";
+import spaImg from "../assets/projets/murs-spa.jpg";
 import escaliers from "../assets/projets/escaliers.jpg";
 
 function App() {
@@ -194,29 +195,29 @@ function App() {
                 non aspernatur similique aperiam perferendis modi sit nulla
                 labore enim molestiae quisquam, repellat id quidem deleniti quos
                 ullam, velit soluta tenetur?
-              </p>  
+              </p>
             </div>
               <div className="aboutUs_weDo-img">
               <img src={escaliers} alt="" />
             </div>
-
-          
-          </div>
-          <div className="boutUs_weDo-content-down">
-            <div className="boutUs_weDo-content-down-img"></div>
+            <div className="boutUs_weDo-content-down-img">
+                <img src={spaImg} alt="" />
+            </div>
             <div className="aboutUs_weDo-content-down-text">
-              <h3>Lorem, ipsum dolor.</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure,
-                vel voluptatum pariatur quod nobis nostrum.
-              </p>
-              <br />
-              <br />
-              <h3>Lorem, ipsum dolor.</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
-                culpa porro reprehenderit laboriosam.
-              </p>
+                <div>
+                    <h3>Lorem, ipsum dolor.</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure,
+                        vel voluptatum pariatur quod nobis nostrum.
+                    </p>
+                    <br />
+                    <br />
+                    <h3>Lorem, ipsum dolor.</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
+                        culpa porro reprehenderit laboriosam.
+                    </p>
+                </div>
             </div>
           </div>
         </div>

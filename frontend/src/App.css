@@ -343,12 +343,19 @@ aboutUs weDo :
 ===================================================================== */
 
 .aboutUs_weDo {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.2fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-rows: 1fr;
 }
 
 .aboutUs_weDo-content-up {
-border: 2px red solid;
-height: 687px;
+    grid-column-start: span 2;
+    border: 2px red solid;
+}
+
+.aboutUs_weDo-img {
+    grid-row-start: span 2;
 }
 
 .aboutUs_weDo-content-up .title {
@@ -356,8 +363,6 @@ height: 687px;
   text-transform: uppercase;
   font-weight: 500;
 }
-
-
 
 .aboutUs_weDo-content-up .header {
   font-size: var(--font-size-h2);
@@ -368,32 +373,23 @@ height: 687px;
   font-size: var(--font-size-p);
 }
 
-.aboutUs_weDo-img {
-  position: absolute;
-  right: 0;
+.aboutUs_weDo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: none;
 }
 
-.boutUs_weDo-content-down {
-  display: flex;
-  width: 60%;
-  height: 380px;
-  border: 1px red solid;
-  background-color: blue;
-  color: white;
+.boutUs_weDo-content-down-img img {
+    width: 100%;
+    height: 400px;
 }
 
 .aboutUs_weDo-content-down-text {
+  border: 1px red solid;
+  background-color: blue;
+  color: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-padding-left: 20px;  /* padding: 50px; */
-}
-
-.boutUs_weDo-content-down-img {
-  background-image: url('/assets/projets/murs-spa.jpg');
-  background-position: center;
-  width: 430px;
-
+  align-items: center;
 }
 
 /* @keyframes logo-spin {
