@@ -12,6 +12,7 @@ import solVert from "../assets/projets/sol-vert.jpg";
 import poseCarrelage from "../assets/projets/pose-carrelage-vector.png";
 import NavBar from "./Components/Header/NavBar";
 import Footer from "./Components/Footer/footer";
+import Button from "./Components/Button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,7 +21,7 @@ function App() {
     <>
       {/*---- hero_banner -----------------------------*/}
       <section>
-          <TopBar />
+        <TopBar />
         {/* Hero Section */}
         <div className="hero_banner">
           <header className="container header">
@@ -35,12 +36,10 @@ function App() {
               Lorem Ipsum Oolor Sit amet <br />
               Consectetur dolor sit.
             </h1>
-            <button className="hero_btn hero_btn-call">
-              Call: +1-342-342-3424
-            </button>
-            <button className="hero_btn hero_btn-appointment">
-              Make An Appointment
-            </button>
+            <div className="hero_btns">
+                <Button title="Call: +1-342-342-3424" href="#" extraClass="btn-secondary" />
+                <Button title="Make An Appointment" href="#" />
+            </div>
             {/* hero-labels */}
             <div className="hero_labels-box"><div className=" hero_labels-logo">
               <img src={logoRSE} alt="rse label" />

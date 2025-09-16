@@ -1,11 +1,15 @@
-export default function Button() {
+export default function Button({
+   title = "Make An Appointment",
+   href = '#',
+   extraClass = '',
+}) {
 
-    return (
-         <div className="navbar_btn">
-                        <div>Make An Appointment</div>
-                        <a href="#">
-                          <span>Make An Appointment</span>
-                        </a>
-                      </div>
+    return(
+        <div className={ "btn " + extraClass }>
+            <div>{ title }</div>
+            <a href={ href }>
+                <span>{ title }</span>
+            </a>
+        </div>
     )
 }

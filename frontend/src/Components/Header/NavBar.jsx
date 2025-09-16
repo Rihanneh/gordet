@@ -3,7 +3,7 @@ import mainLogo from "../../../assets/logo-Gordet.jpg"
 import Button from "../Button"
 
 export default function NavBar() {
-   
+
     return(
           <nav className="navbar">
                       <div className="navbar_logo">
@@ -29,7 +29,7 @@ export default function NavBar() {
                           <a href="#">Contact</a>
                         </li>
                       </ul>
-                     <Button />
+                     <Button title="Contact Us" href="#" extraClass="btn-small" />
                       {/*---- burger menu -----------------------------*/}
                       <span className="nav_burgerMenu">
                         <a href="#">
