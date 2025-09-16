@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import TopBar from "./Components/Header/TopBar";
 import mainLogo from "../assets/logo-Gordet.jpg";
 import logoRSE from "../assets/label-RSE.avif";
 import logoRGE from "../assets/Label-RGE.jpg";
@@ -10,6 +11,7 @@ import salleDeBain from "../assets/projets/carlage-salle-de-bain.jpg";
 import solbois from "../assets/projets/sol-bois-arkea.jpg";
 import solVert from "../assets/projets/sol-vert.jpg";
 import poseCarrelage from "../assets/projets/pose-carrelage-vector.png";
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -17,11 +19,7 @@ function App() {
     <>
       {/*---- hero_banner -----------------------------*/}
       <section>
-        {/* Top Bar */}
-        <div className="hero-topBar">
-          <p>Lorem ipsum dolor sit?</p>
-          <a href="#"> 📞 Call Us: +1 984 432 4875</a>
-        </div>
+          <TopBar />
         {/* Hero Section */}
         <div className="hero_banner">
           <header className="container header">
@@ -51,6 +49,7 @@ function App() {
                 </li>
               </ul>
               <div className="navbar_btn">
+                <div>Make An Appointment</div>
                 <a href="#">
                   <span>Make An Appointment</span>
                 </a>
@@ -82,7 +81,7 @@ function App() {
               <img src={logoRSE} alt="rse label" />
               <img src={logoRGE} alt="rge label" />
             </div></div>
-            
+
           </div>
         </div>
       </section>

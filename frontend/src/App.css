@@ -94,16 +94,25 @@ header start
   position: relative;
   overflow: hidden;
   display: inline-block;
+  cursor: pointer;
+}
+
+.navbar_btn * {
+    font-weight: 1000;
 }
 
 .navbar_btn a {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
   color: var(--color-secondory-text);
-  font-weight: 1000;
   z-index: 1;
   display: inline-block;
 }
 
-.navbar_btn a::before {
+.navbar_btn::before {
   content: "";
   border-radius: 50px;
   width: 100%;
@@ -116,7 +125,7 @@ header start
   z-index: 0;
 }
 
-.navbar_btn a:hover::before {
+.navbar_btn:hover::before {
   left: 0;
   bottom: 0;
 }
@@ -654,10 +663,10 @@ Footer start
   float: left;
 padding: 10px 85px;
 
-  
+
 }
 
-.footer .header { 
+.footer .header {
   font-size: 18px;
   font-weight: 800;
 }
@@ -670,6 +679,3 @@ list-style: none;
 .footer li a {
   color: rgba(255, 255, 255, 0.716);
 }
-
-
-
