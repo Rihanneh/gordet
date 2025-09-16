@@ -3,10 +3,13 @@ import "./App.css";
 import mainLogo from "../assets/logo-Gordet.jpg";
 import logoRSE from "../assets/label-RSE.avif";
 import logoRGE from "../assets/Label-RGE.jpg";
-import weDoImg from "../assets/projets/murs-spa.jpg";
 import spaImg from "../assets/projets/murs-spa.jpg";
-import escaliers from "../assets/projets/escaliers.jpg";
-
+import escaliers from "../assets/projets/escalier2.jpg";
+import arkea from "../assets/companies/arkea.jpg";
+import salleDeBain from "../assets/projets/carlage-salle-de-bain.jpg";
+import solbois from "../assets/projets/sol-bois-arkea.jpg";
+import solVert from "../assets/projets/sol-vert.jpg";
+import poseCarrelage from "../assets/projets/pose-carrelage-vector.png";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -75,11 +78,11 @@ function App() {
               Make An Appointment
             </button>
             {/* hero-labels */}
-            <div className="hero_labels-box"></div>
-            <div className=" hero_labels-logo">
+            <div className="hero_labels-box"><div className=" hero_labels-logo">
               <img src={logoRSE} alt="rse label" />
               <img src={logoRGE} alt="rge label" />
-            </div>
+            </div></div>
+            
           </div>
         </div>
       </section>
@@ -182,7 +185,8 @@ function App() {
       </section>
 
       {/* About Us part3 - what we do */}
-      <section>
+
+      {/* <section>
         <div className="">
           <div className="aboutUs_weDo">
             <div className="aboutUs_weDo-content-up container">
@@ -197,27 +201,215 @@ function App() {
                 ullam, velit soluta tenetur?
               </p>
             </div>
-              <div className="aboutUs_weDo-img">
+            <div className="aboutUs_weDo-side-img">
               <img src={escaliers} alt="" />
             </div>
-            <div className="boutUs_weDo-content-down-img">
-                <img src={spaImg} alt="" />
+            <div className="aboutUs_weDo-content-down">
+               <div className="boutUs_weDo-content-down-img">
+              <img src={spaImg} alt="" />
             </div>
             <div className="aboutUs_weDo-content-down-text">
-                <div>
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure,
-                        vel voluptatum pariatur quod nobis nostrum.
-                    </p>
-                    <br />
-                    <br />
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
-                        culpa porro reprehenderit laboriosam.
-                    </p>
+              <div>
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure,
+                  vel voluptatum pariatur quod nobis nostrum.
+                </p>
+                <br />
+                <br />
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Fugit culpa porro reprehenderit laboriosam.
+                </p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      <section>
+        <div className=" aboutUs_whatWeDo">
+          <div className="container aboutUs_whatWeDo-content">
+            <p className="title">WHAT WE DO</p>
+            <br />
+            <h2 className="header">
+              Lorem ipsumloup <br /> dolor sit amet consectetur
+            </h2>
+            <br />
+            <p className="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+              <br />
+              non aspernatur similique aperiam perferendis modi sit nulla
+              <br />
+              labore enim molestiae quisquam, repellat id quidem deleniti
+              <br /> quosullam, velit soluta tenetur?
+            </p>
+          </div>
+
+          <div className="aboutUs_whatWeDo-img">
+            <img src={escaliers} alt="" />
+          </div>
+        </div>
+        <div className="aboutUs_whatWeDo-box">
+          <div className="aboutUs_whatWeDo-box-img">
+            <img src={spaImg} alt="" />
+          </div>
+          <div className="aboutUs_whatWeDo-box-text">
+            <div>
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. br
+                Iure, vel voluptatum pariatur quod nobis nostrum.
+              </p>
+              <br />
+              <br />
+              <h3>Lorem, ipsum dolor.</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
+                culpa porro reprehenderit laboriosam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="carousel">
+          <div className="companies">
+            <div className="item1">
+              <img src={arkea} alt="" />{" "}
+            </div>
+            <div className="item1">
+              <img src={arkea} alt="" />{" "}
+            </div>
+            <div className="item1">
+              <img src={arkea} alt="" />{" "}
+            </div>
+            <div className="item1">
+              <img src={arkea} alt="" />{" "}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="projectBox">
+          <div className="project container">
+            <p className="title">Lorem ipsum</p>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <div className="project_box">
+              <div className="project_box-item">
+                <div className="project_box-item-img">
+                  <img src={salleDeBain} alt="" />
                 </div>
+                <div className="project_box-item-text">
+                  <p className="project_box-item-text-title">Appartment</p>
+                  <h3 className="project_box-item-text-header">
+                    Lorem ipsum, dolor sit amet consectetur elit.
+                  </h3>
+                </div>
+              </div>
+              <div className="project_box-item">
+                <div className="project_box-item-img">
+                  <img src={solVert} alt="" />
+                </div>
+                <div className="project_box-item-text">
+                  <p className="project_box-item-text-title">Appartment</p>
+                  <h3 className="project_box-item-text-header">
+                    Lorem ipsum, dolor sit amet consectetur elit.
+                  </h3>
+                </div>
+              </div>
+              <div className="project_box-item">
+                <div className="project_box-item-img">
+                  <img src={solbois} alt="" />
+                </div>
+                <div className="project_box-item-text">
+                  <p className="project_box-item-text-title">Appartment</p>
+                  <h3 className="project_box-item-text-header">
+                    Lorem ipsum, dolor sit amet consectetur elit.
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <p className="articles">
+              Lorem ipsum dolor <a href="#">➔</a>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="contactUs">
+          <div className="container">
+            <p className="title">contact us</p>
+            <h2>
+              Discuss our services or
+              <br />
+              make an appointment
+            </h2>
+            <br />
+            <p className="text">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Distinctio quae aperiam,
+              <br />
+              ducimus facere, inventore ut necessitatibus libero sit cupiditate
+              laboriosam
+              <br />
+              voluptatibus magni velit voluptatem.
+            </p>
+            <div className="btn">
+              <button className="hero_btn hero_btn-call">
+                Call: +1-342-342-3424
+              </button>
+              <button className="hero_btn hero_btn-appointment">
+                Make An Appointment
+              </button>
+            </div>
+          </div>
+          <img src={poseCarrelage} alt="" />
+        </div>
+      </section>
+      <section>
+        <div className="footer">
+          <div className="container">
+            <div>
+              <img src={mainLogo} alt="" />
+              <p className="text">
+                Lorem, ipsum dolor sit amet consectetur
+                <br /> adipisicing elit Distinctio quae aperiam.
+              </p>
+              <div className="rights">
+                <p>
+                  Loremfisher <span>© 2025 All Rights Reserved</span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <ul>
+                <li className="header">Company</li>
+                <li></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contacts</a></li>
+              </ul>
+              <ul>
+                <li className="header">Services</li>
+                <li></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Projects</a></li>
+              </ul>
+              <ul>
+                <li className="header">Social</li>
+                <li></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Projects</a></li>
+              </ul>
             </div>
           </div>
         </div>
