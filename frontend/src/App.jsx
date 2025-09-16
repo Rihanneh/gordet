@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import TopBar from "./Components/Header/TopBar";
-import mainLogo from "../assets/logo-Gordet.jpg";
 import logoRSE from "../assets/label-RSE.avif";
 import logoRGE from "../assets/Label-RGE.jpg";
 import spaImg from "../assets/projets/murs-spa.jpg";
@@ -11,6 +10,8 @@ import salleDeBain from "../assets/projets/carlage-salle-de-bain.jpg";
 import solbois from "../assets/projets/sol-bois-arkea.jpg";
 import solVert from "../assets/projets/sol-vert.jpg";
 import poseCarrelage from "../assets/projets/pose-carrelage-vector.png";
+import NavBar from "./Components/Header/NavBar";
+import Footer from "./Components/Footer/footer";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,43 +25,7 @@ function App() {
         <div className="hero_banner">
           <header className="container header">
             {/* Navbar */}
-            <nav className="navbar">
-              <div className="navbar_logo">
-                <img
-                  src={mainLogo}
-                  alt="Logo de l'entreprise Gordet spécialisé en revêtement de sol"
-                />
-              </div>
-              <ul className="navbar_links">
-                <li>
-                  <a href="#">About Us</a>
-                </li>
-                <li>
-                  <a href="#">Servicees</a>
-                </li>
-                <li>
-                  <a href="#">Projects</a>
-                </li>
-                <li>
-                  <a href="#">chez Pas</a>
-                </li>
-                <li>
-                  <a href="#">Contact</a>
-                </li>
-              </ul>
-              <div className="navbar_btn">
-                <div>Make An Appointment</div>
-                <a href="#">
-                  <span>Make An Appointment</span>
-                </a>
-              </div>
-              {/*---- burger menu -----------------------------*/}
-              <span className="nav_burgerMenu">
-                <a href="#">
-                  <img src="/frontend/assets/icons/bar.png" alt="" />
-                </a>
-              </span>
-            </nav>
+          <NavBar />
           </header>
           {/* hero content start ================================*/}
           {/* hero-content-text */}
@@ -368,51 +333,7 @@ function App() {
           <img src={poseCarrelage} alt="" />
         </div>
       </section>
-      <section>
-        <div className="footer">
-          <div className="container">
-            <div>
-              <img src={mainLogo} alt="" />
-              <p className="text">
-                Lorem, ipsum dolor sit amet consectetur
-                <br /> adipisicing elit Distinctio quae aperiam.
-              </p>
-              <div className="rights">
-                <p>
-                  Loremfisher <span>© 2025 All Rights Reserved</span>
-                </p>
-              </div>
-            </div>
-            <div>
-              <ul>
-                <li className="header">Company</li>
-                <li></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contacts</a></li>
-              </ul>
-              <ul>
-                <li className="header">Services</li>
-                <li></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Projects</a></li>
-              </ul>
-              <ul>
-                <li className="header">Social</li>
-                <li></li>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Projects</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+       <Footer />
     </>
   );
 }
