@@ -5,15 +5,19 @@ import TopBar from "../Components/TopBar";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import "./Gallery.css"
+import { useEffect } from "react";
 
 export default function Gallery() {
-    const lightbox = new PhotoSwipeLightbox({
-        gallery: "#my-gallery",
-        children: "a",
-        pswpModule: () => import("photoswipe"),
-    });
-    lightbox.init();
-    console.log(lightbox);
+
+    useEffect( () => {
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: "#my-gallery",
+            children: "a",
+            pswpModule: () => import("photoswipe"),
+        });
+        lightbox.init();
+    }, [])
+
     return (
         <>
             <TopBar />

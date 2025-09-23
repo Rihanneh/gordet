@@ -1,3 +1,17 @@
+/*.switch {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.switch div:hover,
+.switch .active {
+    cursor: pointer;
+    text-decoration: underline;
+}*/
+
 .contactBox {
   padding: 92px 0;
 }
@@ -135,11 +149,10 @@
 RESERVATION
 ================== */
 .reservation {
-  width: 50%;
   background-color: #fafafb;
   border-radius: 15px;
   padding: 45px 35px 15px;
-  
+
 }
 .reservation p {
   font-size: 20px;
@@ -165,8 +178,7 @@ margin-bottom: 10px;
   top: 23px;
   color: rgb(153, 150, 150);
   cursor: pointer;
-  width: 34px;
-  height: 34px;
+  padding: 5px 10px;
   font-size: 13px;
     border-radius:50%;
 
@@ -177,7 +189,7 @@ margin-bottom: 10px;
   height: 34px; */
   /* right: 40px;
   top: 23px; */
-  
+
 }
 
 .reservation .reservation_box .hour {
