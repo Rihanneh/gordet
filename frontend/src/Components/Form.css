@@ -1,0 +1,195 @@
+.contactBox {
+  padding: 92px 0;
+}
+
+.contactBox .title {
+  color: blue;
+  font-weight: 600;
+}
+
+.contactBox .header {
+  font-size: 62px;
+  font-weight: 800;
+}
+
+.formBox {
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+  gap: 90px;
+}
+
+.formBox img {
+  width: 570px;
+  height: 700px;
+  object-fit: cover;
+}
+
+.formBox form {
+  max-width: 50%;
+  background-color: #fafafb;
+  border-radius: 15px;
+  padding: 45px 35px 15px;
+}
+
+.formBox .form .flname {
+  display: flex;
+  gap: 15px;
+}
+
+.formBox .form .flname label {
+  display: block;
+  font-weight: 700;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.formBox .form svg {
+  width: 15px;
+  height: 20px;
+  position: absolute;
+  left: 90px;
+  top: 2px;
+}
+
+.formBox .form .fn {
+  width: 50%;
+}
+
+.formBox .form label {
+  display: block;
+  font-weight: 700;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.formBox .form .email {
+  position: relative;
+}
+
+.formBox .form .email svg {
+  width: 15px;
+  height: 20px;
+  position: absolute;
+  left: 116px;
+  top: 2px;
+}
+
+.formBox .form .companyTel {
+  display: flex;
+  gap: 15px;
+}
+
+.formBox .form input {
+  padding: 18px 20px;
+  border-radius: 15px;
+  color: gray;
+  background-color: white;
+  font-size: large;
+  border: 1px solid rgba(211, 211, 211, 0.639);
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.formBox .form input:hover {
+  /* background-color: #c9c8e94c;
+  color: gray; */
+  background-color: #b5ec8316;
+  color: gray;
+}
+
+.formBox .form input:focus-visible {
+  outline: 2px #5eb01181 solid;
+}
+
+.formBox .form textarea {
+  padding: 18px 20px;
+  border-radius: 15px;
+  color: gray;
+  background-color: white;
+  font-size: large;
+  border: 1px solid rgba(211, 211, 211, 0.639);
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.formBox .form textarea:hover {
+  background-color: #b5ec8316;
+  color: gray;
+}
+
+.formBox .form textarea:focus-visible {
+  outline: 2px #5eb01181 solid;
+}
+
+.formBox .form .fbtn {
+  margin-bottom: 20px;
+  background-color: #586b46;
+}
+
+.formBox .form .fbtn::before {
+  background-color: #a59939da;
+}
+
+/* ==================
+RESERVATION
+================== */
+.reservation {
+  width: 50%;
+  background-color: #fafafb;
+  border-radius: 15px;
+  padding: 45px 35px 15px;
+  
+}
+.reservation p {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px 0;
+}
+.reservation .reservation_box {
+  background-color: white;
+  border: 1px solid rgba(211, 211, 211, 0.639);
+  border-radius: 10px;
+  font-weight: 600;
+  overflow: hidden;
+margin-bottom: 10px;
+}
+.reservation .reservation_box .date {
+  position: relative;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(211, 211, 211, 0.639);
+}
+.reservation .reservation_box .date span {
+  position: absolute;
+  right: 20px;
+  top: 23px;
+  color: rgb(153, 150, 150);
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+    border-radius:50%;
+
+}
+.reservation .reservation_box .date span:hover {
+  background-color: rgba(193, 228, 239, 0.388);
+  /* width: 34px;
+  height: 34px; */
+  /* right: 40px;
+  top: 23px; */
+  
+}
+
+.reservation .reservation_box .hour {
+  /* background-color: lightblue; */
+  padding: 18px 20px;
+
+}
+
+.reservation .reservation_box .hour span {
+  background-color: rgba(193, 228, 239, 0.388);
+  padding: 10px 30px;
+  display: inline-block;
+  margin-inline: 5px;
+  border-radius: 5px;
+}

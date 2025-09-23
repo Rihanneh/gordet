@@ -19,6 +19,12 @@ body {
   color: var(--color-primary-text);
   position: relative;
   background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
 }
 
 .container {
@@ -47,22 +53,22 @@ body {
 }
 
 .btn {
-    background-color: var(--color-appointment-btn);
-    padding: 20px 15px;
-    border-radius: 50px;
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    cursor: pointer;
+  background-color: var(--color-appointment-btn);
+  padding: 25px 35px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .btn * {
-    color: var(--color-secondory-text);
-    font-weight: 1000;
+  color: var(--color-secondory-text);
+  font-weight: 1000;
 }
 
 .btn::before {
-    background-color: darkblue;
+  background-color: darkblue;
   content: "";
   border-radius: 50px;
   width: 100%;
@@ -79,11 +85,11 @@ body {
 }
 
 .btn-secondary::before {
-    background-color: #cba70f;
+  background-color: #cba70f;
 }
 
 .btn-secondary * {
-    color: black;
+  color: black;
 }
 
 .btn:hover::before {
@@ -92,63 +98,21 @@ body {
 }
 
 .btn-small {
-    padding: 12px 15px;
+  padding: 12px 25px;
 }
 
 .btn a {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
-  z-index: 1;
-  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
 /* ==================================================================
 header start
 ===================================================================== */
-.header {
-  z-index: 1;
-}
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-height: 150px;
-}
-
-.navbar_logo {
-  color: var(--color-primary-text);
-  font-weight: 1000;
-  font-size: 20px;
-  display: flex;
-}
-
-.navbar_logo img {
-  margin-right: 10px;
-  padding: 10px 0;
-  max-height: 100px;
-}
-
-.navbar_links {
-  list-style: none;
-}
-
-.navbar_links li {
-  float: left;
-  padding-inline: 25px;
-}
-
-.navbar_links a {
-  color: var(--color-primary-text);
-  text-decoration: none;
-}
-
-.nav_burgerMenu {
-  display: none;
-}
 /* ==================================================================
 hero-banner-content start
 ===================================================================== */
@@ -161,6 +125,14 @@ hero-banner-content start
   height: 90vh;
   z-index: 0;
 }
+/* #heroVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 500px;
+  z-index: -1000;
+} */
 
 .hero_content {
   padding: 60px 0px;
@@ -173,34 +145,34 @@ hero-banner-content start
 .hero_content h1 {
   font-weight: 800;
   font-size: 65px;
-  padding-top: 45px;
+  padding: 45px 0;
 }
 
 .hero_btns {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
+  display: flex;
+  gap: 20px;
 }
 
 .hero_labels-box {
-  z-index: -1;
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 650px;
-  height: 200px;
+  width: 50%;
   background-color: white;
 }
 
 .hero_labels-logo {
-margin-left: 40%;}
+  margin-left: 33%;
+
+  padding: 30px 0;
+}
 
 .hero_labels-logo img {
   width: 150px;
 }
 
 .hero_labels-logo img:nth-child(1) {
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 /* ==================================================================
@@ -340,15 +312,7 @@ aboutUs whoWeAre :
 .aboutUs_whoWeAre-content-workingDays {
   font-weight: 800;
   font-size: var(--font-size-p);
-}
-
-.aboutUs_whoWeAre-content-cta {
-  color: black;
-  background-color: #fed00e;
-  margin-top: 30px;
-  padding: 25px 25px;
-  border-radius: 50px;
-  font-weight: 1000;
+  padding: 30px 0;
 }
 
 /* ==================================================================
@@ -595,6 +559,7 @@ Contact Us start
   font-weight: 600;
   text-transform: uppercase;
   padding-top: 126px;
+  padding-bottom: 15px;
 }
 
 .contactUs h2 {
@@ -605,17 +570,18 @@ Contact Us start
   font-size: var(--font-size-p);
 }
 
-.contactUs .hero_btn-appointment {
-  border: 1px white solid;
+.contactUs .btns {
+  padding: 54px 0 126px;
 }
 
-.contactUs .btn {
-  padding-bottom: 126px;
+.contactUs .btn-border {
+  border: 1px white solid;
+  margin-left: 20px;
 }
 
 .contactUs img {
   position: absolute;
-  right: 100px;
+  right: 10px;
   bottom: 0px;
   width: 50%;
 }
@@ -639,7 +605,6 @@ Footer start
   width: 200px;
   height: 90px;
   object-fit: none;
-  padding: ;
 }
 
 .footer .title {
@@ -666,9 +631,7 @@ Footer start
 
 .footer ul {
   float: left;
-padding: 10px 85px;
-
-
+  padding: 10px 85px;
 }
 
 .footer .header {
@@ -678,9 +641,12 @@ padding: 10px 85px;
 
 .footer li {
   padding: 13px 0;
-list-style: none;
+  list-style: none;
 }
 
 .footer li a {
   color: rgba(255, 255, 255, 0.716);
 }
+
+
+
