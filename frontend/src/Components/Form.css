@@ -12,6 +12,18 @@
     text-decoration: underline;
 }*/
 
+.switch {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+margin-bottom: 30px;
+}
+
+.switch div:hover,
+.switch .active {
+    cursor: pointer;
+    text-decoration: underline;} 
+
 .contactBox {
   padding: 92px 0;
 }
@@ -151,14 +163,16 @@ RESERVATION
 .reservation {
   background-color: #fafafb;
   border-radius: 15px;
-  padding: 45px 35px 15px;
+  padding: 25px;
 
 }
 .reservation p {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  padding: 15px 0;
+padding-bottom: 15px;
+text-align: center;
 }
+
 .reservation .reservation_box {
   background-color: white;
   border: 1px solid rgba(211, 211, 211, 0.639);
@@ -175,20 +189,17 @@ margin-bottom: 10px;
 .reservation .reservation_box .date span {
   position: absolute;
   right: 20px;
-  top: 23px;
-  color: rgb(153, 150, 150);
+  top: 17px;
+  color: #586b46;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 7px 11px 6px;
   font-size: 13px;
     border-radius:50%;
 
 }
 .reservation .reservation_box .date span:hover {
   background-color: rgba(193, 228, 239, 0.388);
-  /* width: 34px;
-  height: 34px; */
-  /* right: 40px;
-  top: 23px; */
+ 
 
 }
 
