@@ -6,8 +6,6 @@ export default function Form() {
   const [isContact, handleswitch] = useState(true);
   const [openIndexes, handleIndexes] = useState([])
 
-  console.log(openIndexes);
-
   const response = {
     dates: [
       {
@@ -154,7 +152,7 @@ export default function Form() {
                             const newOpenIndexes = openIndexes.filter(i => i !== index)
                             handleIndexes(newOpenIndexes)
                           } else {
-                            const newOpenIndexes = openIndexes
+                            const newOpenIndexes = Array.from(openIndexes)
                             newOpenIndexes.push(index)
                             handleIndexes(newOpenIndexes)
                           }
