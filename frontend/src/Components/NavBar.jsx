@@ -17,9 +17,6 @@ export default function NavBar() {
                       </div>
                       <ul className="navbar_links">
                         <li>
-                          <a href="#aboutUs">About Us</a>
-                        </li>
-                        <li>
                           <a href="#">Services</a>
                         </li>
 

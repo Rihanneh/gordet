@@ -7,6 +7,7 @@
   --font-size-h2: 50px;
   --font-size-h3: 26px;
   --font-size-p: 18px;
+  --responsive-desktop: 1024px;
 }
 
 * {
@@ -34,7 +35,7 @@ body {
 
 .hero-topBar {
   text-align: center;
-  background-color: #443dfc;
+  background-color: var(--color-appointment-btn);
   color: var(--color-secondory-text);
   font-weight: 700;
   top: 0;
@@ -85,7 +86,7 @@ body {
 }
 
 .btn-secondary::before {
-  background-color: #cba70f;
+  background-color: var(--color-call-btn);
 }
 
 .btn-secondary * {
@@ -125,14 +126,6 @@ hero-banner-content start
   height: 90vh;
   z-index: 0;
 }
-/* #heroVideo {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 500px;
-  z-index: -1000;
-} */
 
 .hero_content {
   padding: 60px 0px;
@@ -157,22 +150,20 @@ hero-banner-content start
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 50%;
   background-color: white;
+  width: 40%;
+  max-width: 550px;
+  min-width: 180px;
 }
 
 .hero_labels-logo {
-  margin-left: 33%;
-
-  padding: 30px 0;
+  padding-block: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .hero_labels-logo img {
-  width: 150px;
-}
-
-.hero_labels-logo img:nth-child(1) {
-  margin-right: 30px;
+  width: 120px;
 }
 
 /* ==================================================================
@@ -193,20 +184,19 @@ aboutUs start
 }
 
 .aboutUs .aboutUs-left p {
-  color: blue;
+  color: var(--color-appointment-btn);
   text-transform: uppercase;
   font-weight: 500;
 }
 
 .aboutUs .aboutUs-left h2 {
   font-size: 42px;
+  margin-bottom: 20px;
 }
 
 .aboutUs .aboutUs-right {
-  /*width: 50%;*/
   font-size: 18px;
   font-weight: 500;
-  padding-left: 30px;
 }
 
 .aboutUs-services {
@@ -224,7 +214,8 @@ aboutUs start
 }
 
 .aboutUs-services .box {
-  /*width: 33%;*/
+  width: 20%;
+  min-width: 100px;
   display: flex;
   flex-direction: column;
 }
@@ -256,18 +247,20 @@ aboutUs whoWeAre :
 ===================================================================== */
 
 .aboutUs_whoWeAre {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
   padding-bottom: 100px;
   margin-bottom: 80px;
 }
 
 .aboutUs_whoWeAre-img {
-  width: 55%;
   position: relative;
 }
 
 .aboutUs_whoWeAre-img-up {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 500px;
   border-radius: 5px;
   background-image: url("/assets/projets/sol-foncé-vitre.jpg");
@@ -285,17 +278,12 @@ aboutUs whoWeAre :
   height: 300px;
   border-radius: 5px;
   position: absolute;
-  bottom: -85px;
-  left: 300px;
-}
-
-.aboutUs_whoWeAre-content {
-  margin-left: auto;
-  width: 33%;
+  top: 250px;
+  right: 20px;
 }
 
 .aboutUs_whoWeAre-content-title {
-  color: blue;
+  color: var(--color-appointment-btn);
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -340,7 +328,7 @@ aboutUs weDo :
 }
 
 .aboutUs_weDo-content-up .title {
-  color: blue;
+  color: var(--color-appointment-btn);
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -369,22 +357,29 @@ aboutUs weDo :
 .boutUs_weDo-content-down-img {
   height: 446px;
   overflow: hidden;
-  background-color: #443dfc;
+  background-color: var(--color-appointment-btn);
 }
 
 /* =========================== section whatWeDo ========================= */
 
 .aboutUs_whatWeDo {
-  position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .aboutUs_whatWeDo-content {
-  margin-bottom: 286px;
+  margin-left: 20%;
+  margin-bottom: 100px;
+  grid-column: 1 / 3;
+}
+
+.aboutUs_whatWeDo-img {
+    grid-row-start: span 2;
 }
 
 .aboutUs_whatWeDo-content .title {
   font-size: var(--font-size-title);
-  color: blue;
+  color: var(--color-appointment-btn);
   text-transform: uppercase;
   font-weight: 500;
   padding-top: 60px;
@@ -396,39 +391,25 @@ aboutUs weDo :
 
 .aboutUs_whatWeDo-content .text {
   font-size: var(--font-size-p);
-  padding: 0 200px;
-}
-
-.aboutUs_whatWeDo-img {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 40%;
-  overflow: hidden;
-  height: 1130px;
 }
 
 .aboutUs_whatWeDo-img img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .aboutUs_whatWeDo-box {
   height: 451px;
   display: flex;
   overflow: hidden;
-  background-color: #443dfc;
-}
-
-.aboutUs_whatWeDo-box-img {
-  width: 490px;
-  height: 600px;
+  background-color: var(--color-appointment-btn);
 }
 
 .aboutUs_whatWeDo-box-img img {
   width: 100%;
-  position: relative;
-  top: -110px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .aboutUs_whatWeDo-box-text {
@@ -436,8 +417,8 @@ aboutUs weDo :
   align-items: center;
   padding: 30px;
   color: white;
-  background-color: #443dfc;
-  width: 665px;
+  background-color: var(--color-appointment-btn);
+  min-width: 580px;
 }
 
 .aboutUs_whatWeDo-box-text h3 {
@@ -455,6 +436,8 @@ Carousel start
 
 .carousel .companies {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 110px 0;
   gap: 50px;
 }
@@ -483,7 +466,7 @@ Project start
 }
 
 .project .title {
-  color: blue;
+  color: var(--color-appointment-btn);
   font-size: var(--font-size-title);
   text-transform: uppercase;
   padding-top: 126px;
@@ -501,13 +484,16 @@ Project start
 
 .project_box {
   padding: 60px 0 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 25px;
 }
 
 .project_box-item {
-  width: 415px;
+  max-width: 415px;
+  min-width: 250px;
+  width: 30%;
   border-radius: 7px;
   overflow: hidden;
 }
@@ -527,7 +513,7 @@ Project start
 }
 
 .project_box-item-text-title {
-  color: blue;
+  color: var(--color-appointment-btn);
   font-size: var(--font-size-title);
   padding: 10px 0;
 }
@@ -550,7 +536,7 @@ Project start
 Contact Us start
 ===================================================================== */
 .contactUs {
-  background-color: #443dfc;
+  background-color: var(--color-appointment-btn);
   color: white;
   position: relative;
 }
@@ -599,6 +585,7 @@ Footer start
 .footer .container {
   padding: 126px 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -630,9 +617,12 @@ Footer start
   color: rgba(255, 255, 255, 0.611);
 }
 
-.footer ul {
-  float: left;
-  padding: 10px 85px;
+.footer .footer-links {
+  display: flex;
+  margin-top: 40px;
+  gap: 40px;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .footer .header {
@@ -649,5 +639,82 @@ Footer start
   color: rgba(255, 255, 255, 0.716);
 }
 
+/* ==================================================================
+Responsive
+===================================================================== */
 
+/* desktop small */
+@media (max-width: 1024px) {
 
+    .hero_labels-logo img {
+        width: 100px;
+    }
+
+    .aboutUs_whoWeAre {
+        grid-template-columns: 1fr;
+        gap: 120px;
+        margin-bottom: 0;
+    }
+
+    .aboutUs_whatWeDo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .aboutUs_whatWeDo-content {
+      margin-inline: auto;
+      max-width: 70%;
+      grid-column-start: span 2;
+    }
+}
+
+/* tablette */
+@media (max-width: 768px) {
+
+    .container {
+        max-width: 80%;
+        padding-inline: 10px;
+    }
+
+    .aboutUs_whatWeDo-content {
+        max-width: 80%;
+        padding-inline: 10px;
+    }
+
+    .hero_content h1 {
+      font-size: 30px;
+    }
+
+    .hero_content p {
+        font-size: 20px;
+    }
+
+    .aboutUs_whatWeDo-box-text {
+        min-width: 100%;
+    }
+
+    .hero_labels-logo {
+        padding-block: 10px;
+    }
+
+    .hero_labels-logo img {
+        width: 70px;
+    }
+}
+
+/* mobile */
+@media (max-width: 425px) {
+
+    .container {
+        max-width: 100%;
+        padding-inline: 10px;
+    }
+
+    .aboutUs_whatWeDo {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutUs_whatWeDo-content {
+        max-width: 100%;
+        padding-inline: 10px;
+    }
+}
