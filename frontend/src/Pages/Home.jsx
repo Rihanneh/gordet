@@ -1,3 +1,4 @@
+import "./Home.css";
 import TopBar from "../Components/TopBar";
 import logoRSE from "../../assets/label-RSE.avif";
 import logoRGE from "../../assets/Label-RGE.jpg";
@@ -7,11 +8,13 @@ import arkea from "../../assets/companies/arkea.jpg";
 import salleDeBain from "../../assets/projets/carlage-salle-de-bain.jpg";
 import solbois from "../../assets/projets/sol-bois-arkea.jpg";
 import solVert from "../../assets/projets/sol-vert.jpg";
+import aboutImg1 from "../../assets/projets/sol-foncé-vitre.jpg";
+import aboutImg2 from "../../assets/projets/sol-bois-salon.jpg";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import Button from "../Components/Button";
 import ContactUs from "../Components/ContactUs";
-import "../Components/Form.css";
+
 export default function Home() {
     return (
         <>
@@ -26,18 +29,20 @@ export default function Home() {
                     {/* ============================================
       HEADER
       ============================================ */}
-                    <header className="header">
+                    <header>
                         {/* Navbar */}
                         <NavBar />
                     </header>
                     {/* hero content start ================================*/}
                     {/* hero-content-text */}
                     <div className="container hero_content">
-                        <p>Lorem ipsum dolor Lorem sit amet.</p>
-                        <h1>
-                            Lorem Ipsum Oolor Sit amet <br />
-                            Consectetur dolor sit.
-                        </h1>
+                        <div>
+                            <p className="subtitle">Lorem ipsum dolor Lorem sit amet.</p>
+                            <h1>
+                                Lorem Ipsum Oolor Sit amet <br />
+                                Consectetur dolor sit.
+                            </h1>
+                        </div>
                         <div className="hero_btns">
                             <Button
                                 title="Call: +1-342-342-3424"
@@ -90,34 +95,34 @@ export default function Home() {
                 <div className="container aboutUs-services">
                     <div className="box service-dur">
                         <p className="icon">🏠</p>
-                        <p className="text">
+                        <h3>
                             Lorem <br /> ipsum.
-                        </p>
+                        </h3>
                         <p className="arrow">➔</p>
                     </div>
                     <hr />
                     <div className="box service-souple">
 
                         <p className="icon">🏠</p>
-                        <p className="text">
+                        <h3>
                             Lorem <br /> ipsum.
-                        </p>
+                        </h3>
                         <p className="arrow">➔</p>
                     </div>
                     <hr />
                     <div className="box service-carlage">
                         <p className="icon">🏠</p>
-                        <p className="text">
+                        <h3>
                             Lorem <br /> ipsum.
-                        </p>
+                        </h3>
                         <p className="arrow">➔</p>
                     </div>
                     <hr />
                     <div className="box service-carlage">
                         <p className="icon">🏠</p>
-                        <p className="text">
+                        <h3>
                             Lorem <br /> ipsum.
-                        </p>
+                        </h3>
                         <p className="arrow">➔</p>
                     </div>
                 </div>
@@ -130,8 +135,8 @@ export default function Home() {
                 <div className="container">
                     <div className="aboutUs_whoWeAre">
                         <div className="aboutUs_whoWeAre-img">
-                            <div className="aboutUs_whoWeAre-img-up"></div>
-                            <div className="aboutUs_whoWeAre-img-down"></div>
+                            <img src={ aboutImg1 } />
+                            <img src={ aboutImg2 } />
                         </div>
 
                         <div className="aboutUs_whoWeAre-content">
@@ -140,9 +145,9 @@ export default function Home() {
                                 WHO ARE WE
                             </p>
                             <br />
-                            <p className="aboutUs_whoWeAre-content-header">
+                            <h2>
                                 Your comfort is our main priority
-                            </p>
+                            </h2>
                             <br />
                             <p className="aboutUs_whoWeAre-content-texte">
                                 Lorem ipsum dolor sit amet consectetur

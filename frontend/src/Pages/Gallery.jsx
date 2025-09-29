@@ -36,11 +36,13 @@ export default function Gallery() {
         <>
             <TopBar />
             <NavBar />
+<<<<<<< HEAD
 
             <div className="gallery container ">
             <div className="gallery_text">
-                <p>OUR PHOTOS</p>
+                <p className="subtitle">OUR PHOTOS</p>
                 <p>Explore Gallery</p>
+
             </div>
             <div className="gallery_imgs" id="my-gallery">
 
@@ -61,7 +63,7 @@ export default function Gallery() {
         </div >
                 <ContactUs />
                 <Footer />
-                
+
             </>
             );
 }

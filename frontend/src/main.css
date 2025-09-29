@@ -1,0 +1,178 @@
+:root {
+  --color-primary-text: black;
+  --color-secondory-text: white;
+  --color-call-btn: #fed00e;
+  --color-appointment-btn: #443dfc;
+  --responsive-desktop: 1024px;
+  --radius: 5px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--color-primary-text);
+  position: relative;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+}
+
+header {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+h1 {
+    font-size: 4.2rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-appointment-btn);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 70%;
+}
+
+.btn {
+  background-color: var(--color-appointment-btn);
+  padding: 25px 35px;
+  border-radius: 50px;
+  position: relative;
+  overflow: clip;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn * {
+  color: var(--color-secondory-text);
+  font-weight: 1000;
+}
+
+.btn::before {
+  background-color: darkblue;
+  content: "";
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  left: -100%;
+  bottom: -100%;
+  position: absolute;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+.btn-secondary {
+  background-color: var(--color-call-btn);
+}
+
+.btn-secondary::before {
+  background-color: var(--color-call-btn);
+}
+
+.btn-secondary * {
+  color: black;
+}
+
+.btn:hover::before {
+  left: 0;
+  bottom: 0;
+}
+
+.btn-small {
+  padding: 12px 25px;
+}
+
+.btn > div {
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+}
+
+.btn a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+/* ==================================================================
+Responsive
+===================================================================== */
+
+/* desktop small */
+@media (max-width: 1024px) {
+
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+/* tablette */
+@media (max-width: 768px) {
+
+    .container {
+        max-width: 80%;
+        padding-inline: 10px;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* mobile */
+@media (max-width: 425px) {
+
+    .container {
+        max-width: 100%;
+        margin-inline: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,65 @@
+/* ==================================================================
+Footer start
+===================================================================== */
+.footer {
+  background-color: #0e0d39;
+  color: white;
+  position: relative;
+}
+
+.footer .container {
+  padding-block: 120px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer img {
+  width: 200px;
+  height: 90px;
+  object-fit: none;
+}
+
+.footer .title {
+  font-size: var(--font-size-title);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.footer .text {
+  font-size: var(--font-size-p);
+  color: rgba(255, 255, 255, 0.644);
+  padding-top: 25px;
+}
+
+.footer .rights {
+  color: white;
+  font-weight: 700;
+  padding: 126px 0 0;
+}
+
+.footer .rights span {
+  color: rgba(255, 255, 255, 0.611);
+}
+
+.footer .footer-links {
+  display: flex;
+  margin-top: 40px;
+  gap: 40px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.footer .header {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.footer li {
+  padding: 13px 0;
+  list-style: none;
+}
+
+.footer li a {
+  color: rgba(255, 255, 255, 0.716);
+}
