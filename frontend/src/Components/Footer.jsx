@@ -1,5 +1,6 @@
 
 import mainLogo from "../../assets/logo-Gordet.jpg"
+import "./Footer.css"
 
 export default function Footer() {
 

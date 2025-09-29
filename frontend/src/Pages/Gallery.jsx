@@ -22,10 +22,10 @@ export default function Gallery() {
         <>
             <TopBar />
             <NavBar />
-            <div className="gallery container ">
+            <div className="gallery container">
                 <div className="gallery_text">
-                    <p>OUR PHOTOS</p>
-                    <p>Explore Gallery</p>
+                    <p className="subtitle">OUR PHOTOS</p>
+                    <h1>Explore Gallery</h1>
                 </div>
                 <div className="gallery_imgs" id="my-gallery">
                     <a href="../../assets/projets/contactUs.jpg"

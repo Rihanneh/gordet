@@ -50,8 +50,6 @@ export default function Projects() {
                                 </h3>
                             </div>
                         </div>
-                    </div>
-                    <div className="project_box">
                         <div className="project_box-item">
                             <div className="project_box-item-img">
                                 <img src={salleDeBain} alt="" />
@@ -86,9 +84,6 @@ export default function Projects() {
                             </div>
                         </div>
                     </div>
-                    {/* <p className="articles">
-                        Lorem ipsum dolor <a href="#">➔</a>
-                    </p> */}
                 </div>
                 <Footer />
             </div>

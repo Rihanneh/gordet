@@ -1,43 +1,7 @@
-:root {
-  --color-primary-text: black;
-  --color-secondory-text: white;
-  --color-call-btn: #fed00e;
-  --color-appointment-btn: #443dfc;
-  --font-size-title: 18px;
-  --font-size-h2: 50px;
-  --font-size-h3: 26px;
-  --font-size-p: 18px;
-  --responsive-desktop: 1024px;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  color: var(--color-primary-text);
-  position: relative;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-}
-
-#root {
-  width: 100%;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 70%;
-}
-
 .hero-topBar {
   text-align: center;
   background-color: var(--color-appointment-btn);
   color: var(--color-secondory-text);
-  font-weight: 700;
   top: 0;
   width: 100%;
   display: flex;
@@ -49,70 +13,7 @@ body {
 .hero-topBar a {
   color: var(--color-secondory-text);
   margin-left: 20px;
-  font-size: large;
-  font-weight: 700;
 }
-
-.btn {
-  background-color: var(--color-appointment-btn);
-  padding: 25px 35px;
-  border-radius: 50px;
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.btn * {
-  color: var(--color-secondory-text);
-  font-weight: 1000;
-}
-
-.btn::before {
-  background-color: darkblue;
-  content: "";
-  border-radius: 50px;
-  width: 100%;
-  height: 100%;
-  left: -100%;
-  bottom: -100%;
-  position: absolute;
-  transition: 0.5s;
-  z-index: 0;
-}
-
-.btn-secondary {
-  background-color: var(--color-call-btn);
-}
-
-.btn-secondary::before {
-  background-color: var(--color-call-btn);
-}
-
-.btn-secondary * {
-  color: black;
-}
-
-.btn:hover::before {
-  left: 0;
-  bottom: 0;
-}
-
-.btn-small {
-  padding: 12px 25px;
-}
-
-.btn a {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
-}
-
-/* ==================================================================
-header start
-===================================================================== */
 
 /* ==================================================================
 hero-banner-content start
@@ -128,28 +29,24 @@ hero-banner-content start
 }
 
 .hero_content {
-  padding: 60px 0px;
-}
-
-.hero_content p {
-  font-size: 24px;
-}
-
-.hero_content h1 {
-  font-weight: 800;
-  font-size: 65px;
-  padding: 45px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 100px;
+  height: 100%;
 }
 
 .hero_btns {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 20px;
 }
 
 .hero_labels-box {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
   background-color: white;
   width: 40%;
   max-width: 550px;
@@ -173,30 +70,23 @@ aboutUs start
 .aboutUs {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   padding: 100px 0;
 }
 
 .aboutUs .aboutUs-left,
 .aboutUs .aboutUs-right {
-  width: 50%;
-  min-width: 300px;
+  max-width: 420px;
 }
 
 .aboutUs .aboutUs-left p {
   color: var(--color-appointment-btn);
   text-transform: uppercase;
-  font-weight: 500;
 }
 
 .aboutUs .aboutUs-left h2 {
-  font-size: 42px;
   margin-bottom: 20px;
-}
-
-.aboutUs .aboutUs-right {
-  font-size: 18px;
-  font-weight: 500;
 }
 
 .aboutUs-services {
@@ -222,18 +112,10 @@ aboutUs start
 
 .aboutUs-services .box p {
   transform: translateX(30%);
-  font-size: 24px;
-}
-.aboutUs-services .box p:nth-child(1) {
-  font-size: 50px;
-}
-.aboutUs-services .box p:nth-child(2) {
-  font-weight: 700;
-  padding: 15px 0;
 }
 
-.aboutUs-services .box p:nth-child(3) {
-  font-size: 18px;
+.aboutUs-services .box p:nth-child(2) {
+  padding: 15px 0;
 }
 
 @media (max-width: 1250px) {
@@ -255,29 +137,20 @@ aboutUs whoWeAre :
 }
 
 .aboutUs_whoWeAre-img {
-  position: relative;
+    position: relative;
 }
 
-.aboutUs_whoWeAre-img-up {
+.aboutUs_whoWeAre-img img {
   width: 100%;
+  border-radius: var(--radius);
   max-width: 600px;
   height: 500px;
-  border-radius: 5px;
-  background-image: url("/assets/projets/sol-foncé-vitre.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
-.aboutUs_whoWeAre-img-down {
-  background-image: url("/assets/projets/sol-bois-salon.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.aboutUs_whoWeAre-img img:last-child {
+  position: absolute;
   width: 450px;
   height: 300px;
-  border-radius: 5px;
-  position: absolute;
   top: 250px;
   right: 20px;
 }
@@ -285,21 +158,9 @@ aboutUs whoWeAre :
 .aboutUs_whoWeAre-content-title {
   color: var(--color-appointment-btn);
   text-transform: uppercase;
-  font-weight: 500;
-}
-
-.aboutUs_whoWeAre-content-header {
-  font-size: 50px;
-  font-weight: 700;
-}
-
-.aboutUs_whoWeAre-content-texte {
-  font-size: var(--font-size-p);
 }
 
 .aboutUs_whoWeAre-content-workingDays {
-  font-weight: 800;
-  font-size: var(--font-size-p);
   padding: 30px 0;
 }
 
@@ -330,16 +191,6 @@ aboutUs weDo :
 .aboutUs_weDo-content-up .title {
   color: var(--color-appointment-btn);
   text-transform: uppercase;
-  font-weight: 500;
-}
-
-.aboutUs_weDo-content-up .header {
-  font-size: var(--font-size-h2);
-  font-weight: 800;
-}
-
-.aboutUs_weDo-content-up .text {
-  font-size: var(--font-size-p);
 }
 
 .aboutUs_weDo-side-img img {
@@ -378,19 +229,9 @@ aboutUs weDo :
 }
 
 .aboutUs_whatWeDo-content .title {
-  font-size: var(--font-size-title);
   color: var(--color-appointment-btn);
   text-transform: uppercase;
-  font-weight: 500;
   padding-top: 60px;
-}
-
-.aboutUs_whatWeDo-content .header {
-  font-size: var(--font-size-h2);
-}
-
-.aboutUs_whatWeDo-content .text {
-  font-size: var(--font-size-p);
 }
 
 .aboutUs_whatWeDo-img img {
@@ -419,11 +260,6 @@ aboutUs weDo :
   color: white;
   background-color: var(--color-appointment-btn);
   min-width: 580px;
-}
-
-.aboutUs_whatWeDo-box-text h3 {
-  font-size: 23px;
-  font-weight: 800;
 }
 
 /* ==================================================================
@@ -467,19 +303,12 @@ Project start
 
 .project .title {
   color: var(--color-appointment-btn);
-  font-size: var(--font-size-title);
   text-transform: uppercase;
   padding-top: 126px;
 }
 
 .project h2 {
-  font-size: var(--font-size-h2);
   padding-top: 20px;
-}
-
-.project .articles {
-  font-size: 22px;
-  font-weight: 800;
 }
 
 .project_box {
@@ -494,7 +323,7 @@ Project start
   max-width: 415px;
   min-width: 250px;
   width: 30%;
-  border-radius: 7px;
+  border-radius: var(--radius);
   overflow: hidden;
 }
 
@@ -514,12 +343,7 @@ Project start
 
 .project_box-item-text-title {
   color: var(--color-appointment-btn);
-  font-size: var(--font-size-title);
   padding: 10px 0;
-}
-
-.project_box-item-text-header {
-  font-size: var(--font-size-h3);
 }
 
 .project .articles {
@@ -542,28 +366,21 @@ Contact Us start
 }
 
 .contactUs .title {
-  font-size: var(--font-size-title);
-  font-weight: 600;
   text-transform: uppercase;
   padding-top: 126px;
   padding-bottom: 15px;
 }
 
-.contactUs h2 {
-  font-size: var(--font-size-h2);
-}
-
-.contactUs .text {
-  font-size: var(--font-size-p);
-}
-
 .contactUs .btns {
   padding: 54px 0 126px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .contactUs .btn-border {
   border: 1px white solid;
-  margin-left: 20px;
 }
 
 .contactUs img {
@@ -571,72 +388,6 @@ Contact Us start
   right: 10px;
   bottom: 0px;
   width: 50%;
-}
-
-/* ==================================================================
-Footer start
-===================================================================== */
-.footer {
-  background-color: #0e0d39;
-  color: white;
-  position: relative;
-}
-
-.footer .container {
-  padding: 126px 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.footer img {
-  width: 200px;
-  height: 90px;
-  object-fit: none;
-}
-
-.footer .title {
-  font-size: var(--font-size-title);
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.footer .text {
-  font-size: var(--font-size-p);
-  color: rgba(255, 255, 255, 0.644);
-  padding-top: 25px;
-}
-
-.footer .rights {
-  color: white;
-  font-weight: 700;
-  padding: 126px 0 0;
-}
-
-.footer .rights span {
-  color: rgba(255, 255, 255, 0.611);
-}
-
-.footer .footer-links {
-  display: flex;
-  margin-top: 40px;
-  gap: 40px;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.footer .header {
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.footer li {
-  padding: 13px 0;
-  list-style: none;
-}
-
-.footer li a {
-  color: rgba(255, 255, 255, 0.716);
 }
 
 /* ==================================================================
@@ -670,22 +421,9 @@ Responsive
 /* tablette */
 @media (max-width: 768px) {
 
-    .container {
-        max-width: 80%;
-        padding-inline: 10px;
-    }
-
     .aboutUs_whatWeDo-content {
         max-width: 80%;
         padding-inline: 10px;
-    }
-
-    .hero_content h1 {
-      font-size: 30px;
-    }
-
-    .hero_content p {
-        font-size: 20px;
     }
 
     .aboutUs_whatWeDo-box-text {
@@ -699,15 +437,25 @@ Responsive
     .hero_labels-logo img {
         width: 70px;
     }
+
+    .aboutUs_whoWeAre {
+        gap: 20px;
+    }
+
+    .aboutUs_whoWeAre-img img:first-child,
+    .aboutUs_whoWeAre-img img:last-child {
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        object-position: center;
+        position: relative;
+        width: 100%;
+        height: 150px;
+    }
 }
 
 /* mobile */
 @media (max-width: 425px) {
-
-    .container {
-        max-width: 100%;
-        padding-inline: 10px;
-    }
 
     .aboutUs_whatWeDo {
         grid-template-columns: 1fr;
