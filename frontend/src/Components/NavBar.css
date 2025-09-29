@@ -1,7 +1,3 @@
-/* .header {
-  z-index: 1;
-} */
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -39,9 +35,7 @@
 .navbar_links a:hover {
    border-bottom: 2px blue solid;
    padding-bottom: 3px;
-   color: blue;
-   
-  
+   color: var(--color-appointment-btn)
 }
 
 .nav_burgerMenu {

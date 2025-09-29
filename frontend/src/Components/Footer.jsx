@@ -12,16 +12,10 @@ export default function Footer() {
                 Lorem, ipsum dolor sit amet consectetur
                 <br /> adipisicing elit Distinctio quae aperiam.
               </p>
-              <div className="rights">
-                <p>
-                  Loremfisher <span>© 2025 All Rights Reserved</span>
-                </p>
-              </div>
             </div>
-            <div>
+            <div className="footer-links">
               <ul>
                 <li className="header">Company</li>
-                <li></li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">About Us</a></li>
@@ -30,7 +24,6 @@ export default function Footer() {
               </ul>
               <ul>
                 <li className="header">Services</li>
-                <li></li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">About Us</a></li>
@@ -38,12 +31,16 @@ export default function Footer() {
               </ul>
               <ul>
                 <li className="header">Social</li>
-                <li></li>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Projects</a></li>
               </ul>
+            </div>
+            <div className="rights">
+              <p>
+                Loremfisher <span>© 2025 All Rights Reserved</span>
+              </p>
             </div>
           </div>
         </footer>
