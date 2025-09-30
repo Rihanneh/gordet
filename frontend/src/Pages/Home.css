@@ -247,6 +247,11 @@ aboutUs weDo :
   background-color: var(--color-appointment-btn);
 }
 
+.aboutUs_whatWeDo-box-img,
+.aboutUs_whatWeDo-box-text {
+    max-height: 450px;
+}
+
 .aboutUs_whatWeDo-box-img img {
   width: 100%;
   height: 100%;
