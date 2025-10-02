@@ -36,8 +36,6 @@ export default function Gallery() {
         <>
             <TopBar />
             <NavBar />
-<<<<<<< HEAD
-
             <div className="gallery container ">
             <div className="gallery_text">
                 <p className="subtitle">OUR PHOTOS</p>
