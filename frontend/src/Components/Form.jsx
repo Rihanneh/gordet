@@ -169,7 +169,9 @@ export default function Form() {
                       {openIndexes.includes(index) && (
                         <div className="hour">
                           {value.shifts.map((shift, i) => (
-                            <span key={i}>{shift}</span>
+                            <span key={i} >
+                              {shift}
+                            </span>
                           ))}
                         </div>
                       )}

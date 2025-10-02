@@ -8,89 +8,68 @@ import TopBar from "../Components/TopBar";
 
 export default function Projects() {
 
+    const response = {
+        projects: [
+            {
+                image: salleDeBain,
+                title: "Appartement",
+                header: "Lorem ipsum, dolor sit amet consectetur elit."
+            },
+            {
+                image: solbois,
+                title: "Maison",
+                header: "Lorem ipsum, dolor sit amet consectetur elit."
+            },
+            {
+                image: solVert,
+                title: "Salle de Bain",
+                header: "Lorem ipsum, dolor sit amet consectetur elit."
+            },
+            {
+                image: salleDeBain,
+                title: "Toilettes",
+                header: "Lorem ipsum, dolor sit amet consectetur elit."
+            },
+            {
+                image: solbois,
+                title: "Chambre",
+                header: "Lorem ipsum, dolor sit amet consectetur elit."
+            },
+            {
+                image: solVert,
+                title: "Mur",
+                header: "Lorem ipsum, dolor sit amet consectetur elit."
+            }
+        ]
+
+    }
+
     return (
         <>
-        <TopBar />
-        <NavBar />
+            <TopBar />
+            <NavBar />
             <div className="projectBox ">
                 <div className="project container">
                     <p className="title">Lorem ipsum</p>
                     <h2>Lorem ipsum dolor sit amet</h2>
+
                     <div className="project_box">
-                        <div className="project_box-item">
-                            <div className="project_box-item-img">
-                                <img src={salleDeBain} alt="" />
+                        {response.projects.map((value, index) => (
+                            <div className="project_box-item" key={index}>
+                                <div className="project_box-item-img">
+                                    <img src={value.image} alt={value.title} />
+                                </div>
+                                <div className="project_box-item-text">
+                                    <p className="project_box-item-text-title">{value.title}</p>
+                                    <h3 className="project_box-item-text-header">
+                                        {value.header}
+                                    </h3>
+                                </div>
                             </div>
-                            <div className="project_box-item-text">
-                                <p className="project_box-item-text-title">Appartment</p>
-                                <h3 className="project_box-item-text-header">
-                                    Lorem ipsum, dolor sit amet consectetur elit.
-                                </h3>
-                            </div>
-                        </div>
-                        <div className="project_box-item">
-                            <div className="project_box-item-img">
-                                <img src={solVert} alt="" />
-                            </div>
-                            <div className="project_box-item-text">
-                                <p className="project_box-item-text-title">Appartment</p>
-                                <h3 className="project_box-item-text-header">
-                                    Lorem ipsum, dolor sit amet consectetur elit.
-                                </h3>
-                            </div>
-                        </div>
-                        <div className="project_box-item">
-                            <div className="project_box-item-img">
-                                <img src={solbois} alt="" />
-                            </div>
-                            <div className="project_box-item-text">
-                                <p className="project_box-item-text-title">Appartment</p>
-                                <h3 className="project_box-item-text-header">
-                                    Lorem ipsum, dolor sit amet consectetur elit.
-                                </h3>
-                            </div>
-                        </div>
+                        ))}
                     </div>
-                    <div className="project_box">
-                        <div className="project_box-item">
-                            <div className="project_box-item-img">
-                                <img src={salleDeBain} alt="" />
-                            </div>
-                            <div className="project_box-item-text">
-                                <p className="project_box-item-text-title">Appartment</p>
-                                <h3 className="project_box-item-text-header">
-                                    Lorem ipsum, dolor sit amet consectetur elit.
-                                </h3>
-                            </div>
-                        </div>
-                        <div className="project_box-item">
-                            <div className="project_box-item-img">
-                                <img src={solVert} alt="" />
-                            </div>
-                            <div className="project_box-item-text">
-                                <p className="project_box-item-text-title">Appartment</p>
-                                <h3 className="project_box-item-text-header">
-                                    Lorem ipsum, dolor sit amet consectetur elit.
-                                </h3>
-                            </div>
-                        </div>
-                        <div className="project_box-item">
-                            <div className="project_box-item-img">
-                                <img src={solbois} alt="" />
-                            </div>
-                            <div className="project_box-item-text">
-                                <p className="project_box-item-text-title">Appartment</p>
-                                <h3 className="project_box-item-text-header">
-                                    Lorem ipsum, dolor sit amet consectetur elit.
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    {/* <p className="articles">
-                        Lorem ipsum dolor <a href="#">➔</a>
-                    </p> */}
                 </div>
-                <Footer />
             </div>
-              </>  );
+            <Footer />
+        </>);
 }

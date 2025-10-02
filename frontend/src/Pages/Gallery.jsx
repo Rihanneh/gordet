@@ -7,9 +7,14 @@ import "photoswipe/style.css";
 import "./Gallery.css"
 import { useEffect } from "react";
 
+import img1 from "../../assets/projets/contactUs.jpg";
+import img2 from "../../assets/projets/sol-spa2.jpg";
+import img3 from "../../assets/projets/mur-sol-spa.jpg";
+import img4 from "../../assets/projets/paravon.jpg";
+
 export default function Gallery() {
 
-    useEffect( () => {
+    useEffect(() => {
         const lightbox = new PhotoSwipeLightbox({
             gallery: "#my-gallery",
             children: "a",
@@ -18,44 +23,45 @@ export default function Gallery() {
         lightbox.init();
     }, [])
 
+    const response = {
+        gallery: [
+            { src: img1, width: 1280, height: 1707 },
+            { src: img2, width: 1280, height: 1707 },
+            { src: img3, width: 800, height: 1067 },
+            { src: img4, width: 1280, height: 1707 },
+        ]
+    };
+
     return (
         <>
             <TopBar />
             <NavBar />
+
             <div className="gallery container ">
-                <div className="gallery_text">
-                    <p>OUR PHOTOS</p>
-                    <p>Explore Gallery</p>
-                </div>
-                <div className="gallery_imgs" id="my-gallery">
-                    <a href="../../assets/projets/contactUs.jpg"
-                        target="_blank"
-                        data-pswp-width="1280"
-                        data-pswp-height="1707" >
-                        <img src="../../assets/projets/contactUs.jpg" alt="" />
-                    </a>
-                    <a href="../../assets/projets/sol-spa2.jpg"
-                     target="_blank"
-                        data-pswp-width="1280"
-                        data-pswp-height="1707">
-                        <img src="../../assets/projets/sol-spa2.jpg" alt="" />
-                    </a>
-                    <a href="../../assets/projets/mur-sol-spa.jpg"
-                     target="_blank"
-                        data-pswp-width="800"
-                        data-pswp-height="1067">
-                        <img src="../../assets/projets/mur-sol-spa.jpg" alt="" />
-                    </a>
-                    <a href="../../assets/projets/paravon.jpg"
-                     target="_blank"
-                        data-pswp-width="1280"
-                        data-pswp-height="1707">
-                        <img src="../../assets/projets/paravon.jpg" alt="" />
-                    </a>
-                </div>
+            <div className="gallery_text">
+                <p>OUR PHOTOS</p>
+                <p>Explore Gallery</p>
             </div>
-            <ContactUs />
-            <Footer />
-        </>
-    );
+            <div className="gallery_imgs" id="my-gallery">
+
+                {response.gallery.map((img, index) => (
+
+                    <a
+                        key={index}
+                        href={img.src}
+                        target="_blank"
+                        data-pswp-width={img.width}
+                        data-pswp-height={img.height} >
+                        <img src={img.src} alt="" />
+                    </a>
+
+
+                ))}
+            </div>
+        </div >
+                <ContactUs />
+                <Footer />
+                
+            </>
+            );
 }

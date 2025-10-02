@@ -501,7 +501,8 @@ Project start
 
 .project_box {
   padding: 60px 0 50px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
 

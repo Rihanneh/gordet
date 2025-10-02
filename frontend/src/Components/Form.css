@@ -118,8 +118,6 @@ margin-bottom: 30px;
 }
 
 .formBox .form input:hover {
-  /* background-color: #c9c8e94c;
-  color: gray; */
   background-color: #b5ec8316;
   color: gray;
 }
@@ -199,14 +197,10 @@ margin-bottom: 10px;
 }
 .reservation .reservation_box .date span:hover {
   background-color: rgba(193, 228, 239, 0.388);
- 
-
 }
 
 .reservation .reservation_box .hour {
-  /* background-color: lightblue; */
   padding: 18px 20px;
-
 }
 
 .reservation .reservation_box .hour span {
