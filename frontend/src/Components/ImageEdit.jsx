@@ -4,9 +4,7 @@ export const ImageEdit = () => (
     <Edit>
         <SimpleForm>
             <TextInput source="id" readOnly />
-            <ImageInput source="path" label="pictures" >
-                <ImageField source='src' title="title" />
-            </ImageInput>
+            <TextInput source="image" />
             <TextInput source="service" />
             <TextInput source="projects" />
         </SimpleForm>

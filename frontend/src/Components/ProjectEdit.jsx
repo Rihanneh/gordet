@@ -1,4 +1,4 @@
-import { DateInput, Edit, SimpleForm, TextInput } from 'react-admin';
+import { DateInput, Edit, ImageField, ImageInput, SimpleForm, TextInput } from 'react-admin';
 
 export const ProjectEdit = () => (
     <Edit>
@@ -8,7 +8,7 @@ export const ProjectEdit = () => (
             <TextInput source="slug" />
             <TextInput source="description" />
             <DateInput source="date" />
-            <TextInput source="images" />
+            <TextInput source="images" label="Image (URL)" />
         </SimpleForm>
     </Edit>
 );

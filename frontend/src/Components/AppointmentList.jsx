@@ -1,4 +1,4 @@
-import { DataTable, EmailField, List, EditButton, UrlField } from 'react-admin';
+import { DataTable, EmailField, List, EditButton, UrlField, DateField } from 'react-admin';
 
 
 export const AppointmentList = () => (
@@ -11,13 +11,21 @@ export const AppointmentList = () => (
             <DataTable.Col source="email">
                 <EmailField source="email" />
             </DataTable.Col>
-            <DataTable.Col source="appointmentDate" />
-            <DataTable.Col source="appointmentTime" />
+            <DataTable.Col source="appointmentDate" >
+                <DateField source="appointmentDate" />
+            </DataTable.Col>
+            <DataTable.Col source="appointmentTime" >
+                <DateField source="appointmentTime" />
+            </DataTable.Col>
             <DataTable.Col source="subject" />
             <DataTable.Col source="message" />
             <DataTable.Col source="status" />
-            <DataTable.Col source="createdAt" />
-            <DataTable.Col source="updatedAt" />
+            <DataTable.Col source="createdAt" >
+                <DateField source="createdAt" />
+            </DataTable.Col>
+            <DataTable.Col source="updatedAt" >
+                <DateField source="updatedAt" />
+            </DataTable.Col>
             <EditButton />
         </DataTable>
     </List>

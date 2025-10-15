@@ -1,4 +1,4 @@
-import { DataTable, List, EditButton } from 'react-admin';
+import { DataTable, List, EditButton, DateField } from 'react-admin';
 
 
 export const ImageList = () => (
@@ -6,8 +6,12 @@ export const ImageList = () => (
         <DataTable>
             <DataTable.Col source="id" />
             <DataTable.Col source="path" />
-            <DataTable.Col source="createdAt" />
-            <DataTable.Col source="updatedAt" />
+            <DataTable.Col source="createdAt" >
+                <DateField source="createdAt" showTime={true} />
+            </DataTable.Col>
+            <DataTable.Col source="updatedAt" >
+                <DateField source="updatedAt" showTime={true} />
+            </DataTable.Col>
             <DataTable.Col source="service" />
             <DataTable.Col source="projects" />
             <EditButton />

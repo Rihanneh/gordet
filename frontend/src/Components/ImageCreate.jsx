@@ -4,9 +4,7 @@ export const ImageCreate = () => (
     <Create>
         <SimpleForm>
             <TextInput source="id" readOnly />
-            <ImageInput source="path" label="pictures" >
-                <ImageField source='src' title="title" />
-            </ImageInput>
+            <ImageInput source="image" />
             <TextInput source="service" />
             <TextInput source="projects" />
         </SimpleForm>

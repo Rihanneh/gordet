@@ -1,8 +1,8 @@
-import { DateField, Show, SimpleShowLayout, TextField, TextInput } from 'react-admin';
+import { DateField, Show, SimpleShowLayout, TextField } from 'react-admin';
 
 export const UserShow = () => (
     <Show>
-         <SimpleShowLayout>
+        <SimpleShowLayout>
             <TextField source="id" />
             <TextField source="email" />
             <DateField source="createdAt" showTime={true} />

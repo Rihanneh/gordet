@@ -1,4 +1,4 @@
-import { Create, DateInput, SimpleForm, TextInput } from 'react-admin';
+import { Create, DateInput, ImageInput, SimpleForm, TextInput } from 'react-admin';
 
 export const ProjectCreate = () => (
     <Create>
@@ -8,7 +8,7 @@ export const ProjectCreate = () => (
             <TextInput source="slug" />
             <TextInput source="description" />
             <DateInput source="date" />
-            <TextInput source="images" />
+            <TextInput source="images" label="Image (URL)" />
         </SimpleForm>
     </Create>
 );
