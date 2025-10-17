@@ -16,7 +16,7 @@ app.use(cors({
     exposedHeaders: ["X-Total-Count"]
 }));
 app.use(express.json());
-
+app.use(express.static('public'))
 
 // ====================================== USERS ENTITY ======================================
 
@@ -238,103 +238,78 @@ app.post('/images', async (req, res) => {
 
     fs.writeFileSync(filepath, buffer);
 
-    const imagePath = `public/uploads/${filename}`;
-
+    const imagePath = `uploads/${filename}`;
     const image = await prisma.image.create({
         data: {
             path: imagePath,
         },
     });
 
-    console.log('save to db')
     res.json(image);
 });
 
 // ✅ UPDATE - modifier un image
 app.patch('/images/:id', async (req, res) => {
-    try {
-        let imagePath = req.body.path;
+    let imagePath = req.body.path;
 
-        // Si une nouvelle image en base64 est fournie
-        if (req.body.base64) {
-            // Récupérer l'ancienne image pour la supprimer
-            const oldImage = await prisma.image.findUnique({
-                where: { id: Number(req.params.id) },
-            });
 
-            // Créer le dossier uploads s'il n'existe pas
-            const uploadsDir = path.join(__dirname, 'uploads');
-            if (!fs.existsSync(uploadsDir)) {
-                fs.mkdirSync(uploadsDir, { recursive: true });
-            }
+    const oldImage = await prisma.image.findUnique({
+        where: { id: Number(req.params.id) },
+    });
 
-            // Extraire le type d'image et les données base64
-            const matches = req.body.base64.match(/^data:image\/([a-zA-Z]+);base64,(.+)$/);
-            if (!matches) {
-                return res.status(400).json({ error: 'Format base64 invalide' });
-            }
-
-            const imageType = matches[1];
-            const base64Data = matches[2];
-            const buffer = Buffer.from(base64Data, 'base64');
-
-            // Générer un nom de fichier unique
-            const filename = `${Date.now()}-${Math.random().toString(36).substring(7)}.${imageType}`;
-            const filepath = path.join(uploadsDir, filename);
-
-            // Sauvegarder le nouveau fichier
-            fs.writeFileSync(filepath, buffer);
-
-            // Supprimer l'ancien fichier si il existe
-            if (oldImage && oldImage.path) {
-                const oldFilePath = path.join(__dirname, oldImage.path);
-                if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath);
-                }
-            }
-
-            // Stocker le nouveau chemin relatif
-            imagePath = `uploads/${filename}`;
-        }
-
-        const image = await prisma.image.update({
-            where: { id: Number(req.params.id) },
-            data: {
-                path: imagePath,
-            },
-        });
-        res.json(image);
-    } catch (error) {
-        console.error('Erreur lors de la modification de l\'image:', error);
-        res.status(500).json({ error: 'Erreur lors de la modification de l\'image' });
+    const uploadsDir = path.join(__dirname, 'public/uploads');
+    if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
     }
+
+    const matches = req.body.imageContent.match(/^data:image\/([a-zA-Z]+);base64,(.+)$/);
+    if (!matches) {
+        return res.status(400).json({ error: 'Format base64 invalide' });
+    }
+
+    const base64Data = matches[2];
+    const buffer = Buffer.from(base64Data, 'base64');
+    const filename = req.body.path.title;
+    const filepath = path.join(uploadsDir, filename);
+
+    fs.writeFileSync(filepath, buffer);
+
+    if (oldImage && oldImage.path) {
+        const oldFilePath = path.join(__dirname, oldImage.path);
+        if (fs.existsSync(oldFilePath)) {
+            fs.unlinkSync(oldFilePath);
+        }
+    }
+
+    imagePath = `uploads/${filename}`;
+
+    const image = await prisma.image.update({
+        where: { id: Number(req.params.id) },
+        data: {
+            path: imagePath,
+        },
+    });
+    res.json(image);
 });
 
 // ✅ DELETE - supprimer un image
 app.delete('/images/:id', async (req, res) => {
-    try {
-        // Récupérer l'image pour obtenir le chemin du fichier
-        const image = await prisma.image.findUnique({
-            where: { id: Number(req.params.id) },
-        });
+    const image = await prisma.image.findUnique({
+        where: { id: Number(req.params.id) },
+    });
 
-        // Supprimer le fichier physique si il existe
-        if (image && image.path) {
-            const filepath = path.join(__dirname, image.path);
-            if (fs.existsSync(filepath)) {
-                fs.unlinkSync(filepath);
-            }
+    if (image && image.path) {
+        const filepath = path.join(__dirname, `public/${image.path}`);
+        console.log(filepath)
+        if (fs.existsSync(filepath)) {
+            fs.unlinkSync(filepath);
         }
-
-        // Supprimer l'entrée en base de données
-        await prisma.image.delete({
-            where: { id: Number(req.params.id) },
-        });
-        res.json({ message: "Image deleted" });
-    } catch (error) {
-        console.error('Erreur lors de la suppression de l\'image:', error);
-        res.status(500).json({ error: 'Erreur lors de la suppression de l\'image' });
     }
+
+    await prisma.image.delete({
+        where: { id: Number(req.params.id) },
+    });
+    res.json({ message: "Image deleted" });
 });
 
 // ====================================== services ENTITY ======================================
@@ -381,8 +356,4 @@ app.delete('/services/:id', async (req, res) => {
     res.json({ service: "service deleted" });
 });
 
-
-
-
-
-app.listen(port, () => { console.log(`Example app listening on port ${port}`) })
+app.listen(port, () => console.log(`Server listening on port ${port}`))

@@ -1,10 +1,10 @@
-import { Show, SimpleShowLayout, TextField } from 'react-admin';
+import { DateField, ImageField, Show, SimpleShowLayout, TextField } from 'react-admin';
 
 export const ImageShow = () => (
     <Show>
         <SimpleShowLayout>
             <TextField source="id" />
-            <ImageField source="image" />
+            <ImageField source="path" />
             <TextField source="service" />
             <TextField source="projects" />
             <DateField source="updatedAt" showTime={true} />

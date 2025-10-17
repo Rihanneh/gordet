@@ -39,6 +39,27 @@ const convertFileToBase64 = file =>
 
 const dataProvider = {
   ...baseProvider,
+  getList: async (resource, params) => {
+      if (resource === 'images') {
+          const { data, total } = await baseProvider.getList(resource, params);
+          const formattedData = data.map(image => ({
+              ...image,
+              path: `${apiUrl}/${image.path}`
+          }));
+          return { data: formattedData, total };
+      }
+      return baseProvider.getList(resource, params)
+  },
+  getOne: async (resource, params) => {
+      if (resource === 'images') {
+          const { data } = await baseProvider.getOne(resource, params)
+          return { data: {
+              ...data,
+              path: `${apiUrl}/${data.path}`
+          }};
+      }
+      return baseProvider.getOne(resource, params)
+  },
   create: async (resource, params) => {
     // Pour la ressource images, convertir le fichier en base64
     if (resource === 'images' && params.data.path?.rawFile instanceof File) {
