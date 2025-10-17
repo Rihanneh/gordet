@@ -4,7 +4,7 @@ export const ImageShow = () => (
     <Show>
         <SimpleShowLayout>
             <TextField source="id" />
-            <TextField source="image" />
+            <ImageField source="image" />
             <TextField source="service" />
             <TextField source="projects" />
             <DateField source="updatedAt" showTime={true} />
