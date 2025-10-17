@@ -2,8 +2,11 @@ import { PrismaClient } from '@prisma/client';
 import cors from "cors";
 import express from 'express';
 import * as fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 const port = 3000;
 const prisma = new PrismaClient();
@@ -68,7 +71,7 @@ app.get('/projects', async (req, res) => {
     const projects = await prisma.project.findMany();
     const total = await prisma.project.count();
     res.set("X-Total-Count", total.toString());
-    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors() 
+    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors()
     res.json(projects);
 });
 
@@ -115,7 +118,7 @@ app.get('/messages', async (req, res) => {
     const messages = await prisma.message.findMany();
     const total = await prisma.message.count();
     res.set("X-Total-Count", total.toString());
-    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors() 
+    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors()
     res.json(messages);
 });
 
@@ -159,7 +162,7 @@ app.get('/appointments', async (req, res) => {
     const appointments = await prisma.appointment.findMany();
     const total = await prisma.appointment.count();
     res.set("X-Total-Count", total.toString());
-    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors() 
+    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors()
     res.json(appointments);
 });
 
@@ -203,7 +206,7 @@ app.get('/images', async (req, res) => {
     const images = await prisma.image.findMany();
     const total = await prisma.image.count();
     res.set("X-Total-Count", total.toString());
-    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors() 
+    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors()
     res.json(images);
 });
 
@@ -217,38 +220,121 @@ app.get('/images/:id', async (req, res) => {
 
 // ✅ CREATE - créer un image
 app.post('/images', async (req, res) => {
-    
-    const file = new File ([req.body.path.src], req.body.path.title); 
-    console.log(fs);
 
-fs.writeFile("/", file, function(err) {
-    if(err) {
-        return console.log(err);
+    const uploadsDir = path.join(__dirname, 'public/uploads');
+    if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
     }
-    console.log("The file was saved!");
-});    
+
+    const matches = req.body.imageContent.match(/^data:image\/([a-zA-Z]+);base64,(.+)$/);
+    if (!matches) {
+        return res.status(400).json({ error: 'Format base64 invalide' });
+    }
+
+    const base64Data = matches[2];
+    const buffer = Buffer.from(base64Data, 'base64');
+    const filename = req.body.path.title;
+    const filepath = path.join(uploadsDir, filename);
+
+    fs.writeFileSync(filepath, buffer);
+
+    const imagePath = `public/uploads/${filename}`;
 
     const image = await prisma.image.create({
-        data: req.body,
+        data: {
+            path: imagePath,
+        },
     });
+
+    console.log('save to db')
     res.json(image);
 });
 
 // ✅ UPDATE - modifier un image
 app.patch('/images/:id', async (req, res) => {
-    const image = await prisma.image.update({
-        where: { id: Number(req.params.id) },
-        data: req.body,
-    });
-    res.json(image);
+    try {
+        let imagePath = req.body.path;
+
+        // Si une nouvelle image en base64 est fournie
+        if (req.body.base64) {
+            // Récupérer l'ancienne image pour la supprimer
+            const oldImage = await prisma.image.findUnique({
+                where: { id: Number(req.params.id) },
+            });
+
+            // Créer le dossier uploads s'il n'existe pas
+            const uploadsDir = path.join(__dirname, 'uploads');
+            if (!fs.existsSync(uploadsDir)) {
+                fs.mkdirSync(uploadsDir, { recursive: true });
+            }
+
+            // Extraire le type d'image et les données base64
+            const matches = req.body.base64.match(/^data:image\/([a-zA-Z]+);base64,(.+)$/);
+            if (!matches) {
+                return res.status(400).json({ error: 'Format base64 invalide' });
+            }
+
+            const imageType = matches[1];
+            const base64Data = matches[2];
+            const buffer = Buffer.from(base64Data, 'base64');
+
+            // Générer un nom de fichier unique
+            const filename = `${Date.now()}-${Math.random().toString(36).substring(7)}.${imageType}`;
+            const filepath = path.join(uploadsDir, filename);
+
+            // Sauvegarder le nouveau fichier
+            fs.writeFileSync(filepath, buffer);
+
+            // Supprimer l'ancien fichier si il existe
+            if (oldImage && oldImage.path) {
+                const oldFilePath = path.join(__dirname, oldImage.path);
+                if (fs.existsSync(oldFilePath)) {
+                    fs.unlinkSync(oldFilePath);
+                }
+            }
+
+            // Stocker le nouveau chemin relatif
+            imagePath = `uploads/${filename}`;
+        }
+
+        const image = await prisma.image.update({
+            where: { id: Number(req.params.id) },
+            data: {
+                path: imagePath,
+            },
+        });
+        res.json(image);
+    } catch (error) {
+        console.error('Erreur lors de la modification de l\'image:', error);
+        res.status(500).json({ error: 'Erreur lors de la modification de l\'image' });
+    }
 });
 
 // ✅ DELETE - supprimer un image
 app.delete('/images/:id', async (req, res) => {
-    await prisma.image.delete({
-        where: { id: Number(req.params.id) },
-    });
-    res.json({ image: "image deleted" });
+    try {
+        // Récupérer l'image pour obtenir le chemin du fichier
+        const image = await prisma.image.findUnique({
+            where: { id: Number(req.params.id) },
+        });
+
+        // Supprimer le fichier physique si il existe
+        if (image && image.path) {
+            const filepath = path.join(__dirname, image.path);
+            if (fs.existsSync(filepath)) {
+                fs.unlinkSync(filepath);
+            }
+        }
+
+        // Supprimer l'entrée en base de données
+        await prisma.image.delete({
+            where: { id: Number(req.params.id) },
+        });
+        res.json({ message: "Image deleted" });
+    } catch (error) {
+        console.error('Erreur lors de la suppression de l\'image:', error);
+        res.status(500).json({ error: 'Erreur lors de la suppression de l\'image' });
+    }
 });
 
 // ====================================== services ENTITY ======================================
@@ -258,7 +344,7 @@ app.get('/services', async (req, res) => {
     const services = await prisma.service.findMany();
     const total = await prisma.service.count();
     res.set("X-Total-Count", total.toString());
-    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors() 
+    res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors()
     res.json(services);
 });
 

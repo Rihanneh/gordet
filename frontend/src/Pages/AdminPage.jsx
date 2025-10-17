@@ -29,13 +29,49 @@ const apiUrl = "http://localhost:3000";
 const httpClient = fetchUtils.fetchJson;
 const baseProvider = jsonServerProvider(apiUrl, httpClient);
 
+const convertFileToBase64 = file =>
+    new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file.rawFile);
+    });
+
 const dataProvider = {
   ...baseProvider,
-  update: (resource, params) =>
-    httpClient(`${apiUrl}/${resource}/${params.id}`, {
+  create: async (resource, params) => {
+    // Pour la ressource images, convertir le fichier en base64
+    if (resource === 'images' && params.data.path?.rawFile instanceof File) {
+      const base64 = await convertFileToBase64(params.data.path);
+      return httpClient(`${apiUrl}/${resource}`, {
+        method: "POST",
+        body: JSON.stringify({
+          ...params.data,
+          imageContent: base64,
+        }),
+      }).then(({ json }) => ({ data: json }));
+    }
+    // Pour les autres ressources, utiliser le comportement par défaut
+    return baseProvider.create(resource, params);
+  },
+  update: async (resource, params) => {
+    // Pour la ressource images, convertir le fichier en base64 si présent
+    if (resource === 'images' && params.data.path?.rawFile instanceof File) {
+      const base64 = await convertFileToBase64(params.data.path);
+      return httpClient(`${apiUrl}/${resource}/${params.id}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          ...params.data,
+          imageContent: base64,
+        }),
+      }).then(({ json }) => ({ data: json }));
+    }
+    // Si pas de nouveau fichier, utiliser le comportement standard
+    return httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: "PATCH",
       body: JSON.stringify(params.data),
-    }).then(({ json }) => ({ data: json })),
+    }).then(({ json }) => ({ data: json }));
+  },
   updateMany: (resource, params) =>
     Promise.all(
       params.ids.map((id) =>
@@ -61,4 +97,3 @@ export default function AdminPage() {
     </Admin>
   );
 }
- 
