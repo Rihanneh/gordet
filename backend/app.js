@@ -68,39 +68,126 @@ app.delete('/users/:id', async (req, res) => {
 
 // ✅ READ - lire tous les projects
 app.get('/projects', async (req, res) => {
-    const projects = await prisma.project.findMany();
+    const projects = await prisma.project.findMany({
+        include: {
+            images: {
+                include: {
+                    image: true,
+                },
+            },
+        },
+    });
     const total = await prisma.project.count();
     res.set("X-Total-Count", total.toString());
     res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors()
-    res.json(projects);
+    const formattedProjects = projects.map(project => ({
+        ...project,
+        imageIds: project.images?.map(relation => relation.imageId) ?? [],
+        images: project.images?.map(relation => relation.image) ?? [],
+    }));
+    res.json(formattedProjects);
 });
 
 // ✅ READ ONE - lire un projet par ID
 app.get('/projects/:id', async (req, res) => {
     const project = await prisma.project.findUnique({
         where: { id: Number(req.params.id) },
+        include: {
+            images: {
+                include: {
+                    image: true,
+                },
+            },
+        },
     });
-    res.json(project)
+    if (!project) {
+        return res.status(404).json({ message: "Project not found" });
+    }
+    res.json({
+        ...project,
+        imageIds: project.images?.map(relation => relation.imageId) ?? [],
+        images: project.images?.map(relation => relation.image) ?? [],
+    })
 });
 
 // ✅ CREATE - créer un projet
 app.post('/projects', async (req, res) => {
-    const date = new Date(req.body.date)
-    req.body.date = date
+    const { imageIds, ...projectData } = req.body;
+    if (projectData.date) {
+        projectData.date = new Date(projectData.date);
+    }
 
     const project = await prisma.project.create({
-        data: req.body,
+        data: {
+            ...projectData,
+            images: imageIds?.length
+                ? {
+                    create: imageIds.map((imageId) => ({ imageId })),
+                }
+                : undefined,
+        },
+        include: {
+            images: {
+                include: {
+                    image: true,
+                },
+            },
+        },
     });
-    res.json(project);
+    res.json({
+        ...project,
+        imageIds: project.images?.map(relation => relation.imageId) ?? [],
+        images: project.images?.map(relation => relation.image) ?? [],
+    });
 });
 
 // ✅ UPDATE - modifier un projet
 app.patch('/projects/:id', async (req, res) => {
-    const project = await prisma.project.update({
-        where: { id: Number(req.params.id) },
-        data: req.body,
+    const projectId = Number(req.params.id);
+    const { imageIds, ...projectData } = req.body;
+    if (projectData.date) {
+        projectData.date = new Date(projectData.date);
+    }
+
+    const updatedProject = await prisma.$transaction(async (tx) => {
+        await tx.project.update({
+            where: { id: projectId },
+            data: projectData,
+        });
+
+        if (Array.isArray(imageIds)) {
+            await tx.projectImages.deleteMany({
+                where: { projectId },
+            });
+
+            if (imageIds.length > 0) {
+                await tx.projectImages.createMany({
+                    data: imageIds.map((imageId) => ({ projectId, imageId })),
+                });
+            }
+        }
+
+        return tx.project.findUnique({
+            where: { id: projectId },
+            include: {
+                images: {
+                    include: {
+                        image: true,
+                    },
+                },
+            },
+        });
     });
-    res.json(project);
+
+    if (!updatedProject) {
+        return res.status(404).json({ message: "Project not found" });
+    }
+
+    res.json({
+        ...updatedProject,
+        imageIds: updatedProject.images?.map(relation => relation.imageId) ?? [],
+        images: updatedProject.images?.map(relation => relation.image) ?? [],
+    });
 });
 
 // ✅ DELETE - supprimer un projet

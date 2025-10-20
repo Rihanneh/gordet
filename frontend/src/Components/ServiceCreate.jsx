@@ -1,4 +1,4 @@
-import { Create, SimpleForm, TextInput } from 'react-admin';
+import { Create, ReferenceInput, SimpleForm, TextInput } from 'react-admin';
 
 export const ServiceCreate = () => (
     <Create>
@@ -7,8 +7,8 @@ export const ServiceCreate = () => (
             <TextInput source="title" />
             <TextInput source="slug" />
             <TextInput source="content" />
-            <TextInput source="imageId" />
-            <TextInput source="image" />
+            <ReferenceInput source="imageId" reference="images" label="image" link="show" />
+
         </SimpleForm>
     </Create>
 );

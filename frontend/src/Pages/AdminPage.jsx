@@ -37,6 +37,18 @@ const convertFileToBase64 = file =>
         reader.readAsDataURL(file.rawFile);
     });
 
+const toImageResource = (image) => {
+    if (!image) {
+        return image;
+    }
+    const absolutePath = image.path?.startsWith('http') ? image.path : `${apiUrl}/${image.path}`;
+    return {
+        ...image,
+        src: absolutePath,
+        title: image.title ?? image.path ?? `image-${image.id}`,
+    };
+};
+
 const dataProvider = {
   ...baseProvider,
   getList: async (resource, params) => {
@@ -44,7 +56,17 @@ const dataProvider = {
           const { data, total } = await baseProvider.getList(resource, params);
           const formattedData = data.map(image => ({
               ...image,
-              path: `${apiUrl}/${image.path}`
+              path: `${apiUrl}/${image.path}`,
+              src: `${apiUrl}/${image.path}`,
+          }));
+          return { data: formattedData, total };
+      }
+      if (resource === 'projects') {
+          const { data, total } = await baseProvider.getList(resource, params);
+          const formattedData = data.map(project => ({
+              ...project,
+              imageIds: project.imageIds ?? [],
+              images: (project.images ?? []).map(toImageResource),
           }));
           return { data: formattedData, total };
       }
@@ -55,8 +77,19 @@ const dataProvider = {
           const { data } = await baseProvider.getOne(resource, params)
           return { data: {
               ...data,
-              path: `${apiUrl}/${data.path}`
+              path: `${apiUrl}/${data.path}`,
+              src: `${apiUrl}/${data.path}`,
           }};
+      }
+      if (resource === 'projects') {
+          const { data } = await baseProvider.getOne(resource, params);
+          return {
+              data: {
+                  ...data,
+                  imageIds: data.imageIds ?? [],
+                  images: (data.images ?? []).map(toImageResource),
+              },
+          };
       }
       return baseProvider.getOne(resource, params)
   },

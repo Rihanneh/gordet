@@ -17,9 +17,6 @@ export const ProjectList = () => (
             <DataTable.Col source="updatedAt" > 
                 <DateField source="updatedAt" showTime={true} />
             </DataTable.Col>
-            <DataTable.Col source="images" > 
-                <ImageField source='images' />
-            </DataTable.Col>
             <EditButton />
         </DataTable>
     </List>

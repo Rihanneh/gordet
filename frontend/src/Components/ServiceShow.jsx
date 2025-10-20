@@ -1,4 +1,4 @@
-import { ReferenceField, Show, SimpleShowLayout, TextField } from 'react-admin';
+import { DateField, ReferenceField, Show, SimpleShowLayout, TextField } from 'react-admin';
 
 export const ServiceShow = () => (
     <Show>
@@ -9,7 +9,6 @@ export const ServiceShow = () => (
             <TextField source="content" />
             <DateField source="createdAt" showTime={true} />
             <DateField source="updatedAt" showTime={true} />
-            <ReferenceField source="imageId" reference="images" label="Image" link="show"/>
         </SimpleShowLayout>
     </Show>
 );

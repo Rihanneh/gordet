@@ -1,4 +1,4 @@
-import { DataTable, List, EditButton } from 'react-admin';
+import { DataTable, List, EditButton, DateField } from 'react-admin';
 
 
 export const ServiceList = () => (
@@ -8,8 +8,12 @@ export const ServiceList = () => (
             <DataTable.Col source="title" />
             <DataTable.Col source="slug" />
             <DataTable.Col source="content" />
-            <DataTable.Col source="createdAt" />
-            <DataTable.Col source="updatedAt" />
+            <DataTable.Col source="createdAt" >
+                <DateField source="createdAt" showTime={true} />
+            </DataTable.Col>
+            <DataTable.Col source="updatedAt" >
+                <DateField source="updatedAt" showTime={true} />
+            </DataTable.Col>
             <DataTable.Col source="imageId" />
             <DataTable.Col source="image" />
             <EditButton />

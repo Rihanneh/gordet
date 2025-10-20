@@ -19,6 +19,7 @@ export const MessageList = () => (
             <DataTable.Col source="updatedAt" >
                 <DateField source="updatedAt" showTime={true} />
             </DataTable.Col>
+            
             <EditButton />
         </DataTable>
     </List>

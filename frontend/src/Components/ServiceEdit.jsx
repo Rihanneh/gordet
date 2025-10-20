@@ -1,4 +1,4 @@
-import { Edit, SimpleForm, TextInput } from 'react-admin';
+import { Edit, ReferenceInput, SimpleForm, TextInput } from 'react-admin';
 
 export const ServiceEdit = () => (
     <Edit>
@@ -9,6 +9,8 @@ export const ServiceEdit = () => (
             <TextInput source="content" />
             <TextInput source="imageId" />
             <TextInput source="image" />
+            <ReferenceInput source="imageId" reference="images" label="image" link="show" />
+
         </SimpleForm>
     </Edit>
 );

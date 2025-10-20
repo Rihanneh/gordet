@@ -7,8 +7,6 @@ export const ImageCreate = () => (
             <ImageInput source="path" >
                 <ImageField source="src" />
             </ImageInput>
-            <TextInput source="service" />
-            <TextInput source="projects" />
         </SimpleForm>
     </Create>
 );

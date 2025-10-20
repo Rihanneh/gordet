@@ -1,14 +1,15 @@
-import { DateInput, Edit, ImageField, ImageInput, SimpleForm, TextInput } from 'react-admin';
+import { DateInput, Edit, SimpleForm, TextInput } from 'react-admin';
+import { ProjectImagesInput, transformProjectPayload } from './ProjectImagesInput';
 
 export const ProjectEdit = () => (
-    <Edit>
+    <Edit transform={transformProjectPayload}>
         <SimpleForm>
             <TextInput source="id" readOnly />
             <TextInput source="title" />
             <TextInput source="slug" />
             <TextInput source="description" />
             <DateInput source="date" />
-            <TextInput source="images" label="Image (URL)" />
+            <ProjectImagesInput />
         </SimpleForm>
     </Edit>
 );
