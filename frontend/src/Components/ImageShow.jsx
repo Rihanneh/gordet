@@ -1,4 +1,4 @@
-import { DateField, ImageField, Show, SimpleShowLayout, TextField } from 'react-admin';
+import { DateField, ImageField, ReferenceField, Show, SimpleShowLayout, TextField } from 'react-admin';
 
 export const ImageShow = () => (
     <Show>
