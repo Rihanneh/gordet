@@ -15,7 +15,7 @@ app.use(cors({
     origin: "http://localhost:5173",
     exposedHeaders: ["X-Total-Count"]
 }));
-app.use(express.json());
+app.use(express.json({limit: '10mb'}));
 app.use(express.static('public'))
 
 // ====================================== USERS ENTITY ======================================
