@@ -3,12 +3,14 @@ import cors from "cors";
 import express from 'express';
 import * as fs from 'fs';
 import path from 'path';
+import probe from 'probe-image-size';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
 const port = 3000;
+const host = `http://localhost:${port}`;
 const prisma = new PrismaClient();
 
 app.use(cors({
@@ -291,10 +293,21 @@ app.delete('/appointments/:id', async (req, res) => {
 // ✅ READ - lire tous les images
 app.get('/images', async (req, res) => {
     const images = await prisma.image.findMany();
+    const formatedImages = await Promise.all(
+        images.map(async function(image) {
+            const metaData = await probe(host + "/" + image.path)
+
+            return {
+                ...image,
+                ...metaData
+            };
+        })
+    );
+
     const total = await prisma.image.count();
     res.set("X-Total-Count", total.toString());
     res.set("Access-Control-Expose-Headers", "X-Total-Count"); // si pas géré par cors()
-    res.json(images);
+    res.json(formatedImages);
 });
 
 // ✅ READ ONE - lire un image par ID

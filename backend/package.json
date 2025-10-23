@@ -33,6 +33,7 @@
     "pathe": "^2.0.3",
     "perfect-debounce": "^1.0.0",
     "pkg-types": "^2.3.0",
+    "probe-image-size": "^7.2.3",
     "pure-rand": "^6.1.0",
     "ra-input-rich-text": "^5.12.0",
     "rc9": "^2.1.2",

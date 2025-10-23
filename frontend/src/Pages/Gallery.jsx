@@ -7,11 +7,6 @@ import "photoswipe/style.css";
 import "./Gallery.css"
 import { useEffect, useState } from "react";
 
-import img1 from "../../assets/projets/contactUs.jpg";
-import img2 from "../../assets/projets/sol-spa2.jpg";
-import img3 from "../../assets/projets/mur-sol-spa.jpg";
-import img4 from "../../assets/projets/paravon.jpg";
-
 export default function Gallery() {
 
     const [images, addImage] = useState([]);
@@ -38,15 +33,6 @@ export default function Gallery() {
         lightbox.init();
     }, [])
 
-    // const response = {
-    //     gallery: [
-    //         { src: img1, width: 1280, height: 1707 },
-    //         { src: img2, width: 1280, height: 1707 },
-    //         { src: img3, width: 800, height: 1067 },
-    //         { src: img4, width: 1280, height: 1707 },
-    //     ]
-    // };
-
     return (
         <>
             <TopBar />
@@ -58,9 +44,7 @@ export default function Gallery() {
 
                 </div>
                 <div className="gallery_imgs" id="my-gallery">
-
-                    {images.map(function (img, index) {
-
+                    {images.map(function (image, index) {
                         return (
                             <a
                                 key={index}
