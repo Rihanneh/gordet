@@ -48,13 +48,12 @@ export default function Gallery() {
                         return (
                             <a
                                 key={index}
-                                href={img.src}
+                                href={image.url}
                                 target="_blank"
-                                data-pswp-width={img.width}
-                                data-pswp-height={img.height} >
-                                <img src={img.src} alt="" />
+                                data-pswp-width={image.width}
+                                data-pswp-height={image.height} >
+                                <img src={image.url} alt="" />
                             </a>
-
                         )
                     }
                     )}
