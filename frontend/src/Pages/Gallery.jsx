@@ -55,6 +55,7 @@ export default function Gallery() {
                                 <img src={image.url} alt="" />
                             </a>
                         )
+
                     }
                     )}
 
