@@ -1,8 +1,9 @@
-import { Create, maxLength, ReferenceInput, required, SimpleForm, TextInput } from 'react-admin';
+import { AutocompleteInput, Create, maxLength, ReferenceInput, regex, required, SimpleForm, TextInput } from 'react-admin';
 
 const validateTitle = [required("Ce champ est obligatoire"), maxLength(50)];
-const validateSlug = [required("Ce champ est obligatoire"), maxLength(50)];
+const validateSlug = [required("Ce champ est obligatoire"), maxLength(50), regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Le slug est invalide')];
 const validateContent = required("Ce champ est obligatoire");
+const validateImage = required("Ce champ est obligatoire");
 
 
 export const ServiceCreate = () => (
@@ -12,7 +13,9 @@ export const ServiceCreate = () => (
             <TextInput source="title" validate={validateTitle} />
             <TextInput source="slug" validate={validateSlug} />
             <TextInput source="content" validate={validateContent} />
-            <ReferenceInput source="imageId" reference="images" label="image" link="show" />
+            <ReferenceInput source="imageId" reference="images" label="image" link="show" >
+                <AutocompleteInput validate={validateImage} />
+            </ReferenceInput>
         </SimpleForm>
     </Create>
 );
