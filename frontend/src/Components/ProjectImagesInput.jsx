@@ -10,8 +10,9 @@ export const ProjectImagesInput = ({ source = 'imageIds' }) => (
     </ReferenceArrayInput>
 );
 
-export const TransformProjectPayload = ({ data }) => {
-    const { imageIds, ...rest } = data;
+export const TransformProjectPayload = (data) => {
+    // eslint-disable-next-line no-unused-vars
+    const { imageIds, images, ...rest } = data;
 
     return {
         ...rest,
