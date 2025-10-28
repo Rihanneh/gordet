@@ -10,8 +10,8 @@ export const ProjectImagesInput = ({ source = 'imageIds' }) => (
     </ReferenceArrayInput>
 );
 
-export const transformProjectPayload = (data) => {
-    const { imageIds, images, ...rest } = data;
+export const TransformProjectPayload = ({ data }) => {
+    const { imageIds, ...rest } = data;
 
     return {
         ...rest,
