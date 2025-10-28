@@ -1,0 +1,106 @@
+// fichier de Rey
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model Project {
+    id          Int             @id @default(autoincrement())
+    title       String          @db.VarChar(50)
+    slug        String          @db.VarChar(50)
+    description String?         @db.Text
+    date        DateTime        @db.DateTime(0)
+    createdAt   DateTime        @default(now()) @map("created_at") @db.DateTime(0)
+    updatedAt   DateTime        @updatedAt @map("updated_at")
+    images      ProjectImages[]
+
+    @@map("projects")
+}
+
+model Message {
+    id          Int      @id @default(autoincrement())
+    firstName   String   @map("first_name") @db.VarChar(150)
+    lastName    String   @map("last_name") @db.VarChar(150)
+    companyName String?  @map("company_name") @db.VarChar(150)
+    email       String   @db.VarChar(150)
+    subject     String   @db.VarChar(255)
+    message     String   @db.Text
+    createdAt   DateTime @default(now()) @map("created_at") @db.DateTime(0)
+    updatedAt   DateTime @updatedAt @map("updated_at")
+
+    @@map("messages")
+}
+
+model Appointment {
+    id              Int      @id @default(autoincrement())
+    firstName       String   @map("first_name") @db.VarChar(150)
+    lastName        String   @map("last_name") @db.VarChar(150)
+    companyName     String?  @map("company_name") @db.VarChar(150)
+    email           String   @db.VarChar(150)
+    appointmentDate DateTime @map("appointment_date") @db.DateTime(0)
+    appointmentTime DateTime @map("appointment_time") @db.DateTime(0)
+    subject         String   @db.VarChar(255)
+    message         String   @db.Text
+    status          Status   @default(PENDING)
+    createdAt       DateTime @default(now()) @map("created_at") @db.DateTime(0)
+    updatedAt       DateTime @updatedAt @map("updated_at")
+
+    @@map("appointments")
+}
+
+model User {
+    id        Int      @id @default(autoincrement())
+    email     String   @unique @db.VarChar(150)
+    password  String   @db.VarChar(255)
+    createdAt DateTime @default(now()) @map("created_at") @db.DateTime(0)
+    updatedAt DateTime @updatedAt @map("updated_at")
+
+    @@map("users")
+}
+
+model Image {
+    id        Int             @id @default(autoincrement())
+    path      String          @db.VarChar(255)
+    createdAt DateTime        @default(now()) @map("created_at") @db.DateTime(0)
+    updatedAt DateTime        @updatedAt @map("updated_at")
+    service   Service?
+    projects  ProjectImages[]
+
+    @@map("images")
+}
+
+model ProjectImages {
+    projectId Int     @map("id_project")
+    imageId   Int     @map("id_image")
+    project   Project @relation(fields: [projectId], references: [id])
+    image     Image   @relation(fields: [imageId], references: [id])
+
+    @@id([projectId, imageId])
+    @@index([projectId])
+    @@index([imageId])
+    @@map("project_images")
+}
+
+model Service {
+    id        Int      @id @default(autoincrement())
+    title     String   @db.VarChar(50)
+    slug      String   @db.VarChar(50)
+    content   String   @db.Text
+    createdAt DateTime @default(now()) @map("created_at") @db.DateTime(0)
+    updatedAt DateTime @updatedAt @map("updated_at")
+    imageId   Int      @unique(map: "id_image") @map("id_image")
+    image     Image    @relation(fields: [imageId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+    @@map("services")
+}
+
+enum Status {
+    PENDING
+    CANCELED
+    CONFIRMED
+}
