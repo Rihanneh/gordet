@@ -34,19 +34,19 @@ export default function Projects() {
 
                     <div className="project_box">
                         {projects.map(function (project, index) {
-                            console.log(project.images[0].path);
 
                             return (
-                                <div className="project_box-item" key={index}>
+                                <a href={ '/projects/' + project.slug } className="project_box-item" key={index}>
                                     <div className="project_box-item-img">
                                         <img src={"http://localhost:3000/" + project.images[0].path} alt={project.title} />
                                     </div>
                                     <div className="project_box-item-text">
                                         <p className="project_box-item-text-title">{project.title}</p>
                                         <h3 className="project_box-item-text-header">
-                                            {project.description }                                         </h3>
+                                            {project.description }
+                                        </h3>
                                     </div>
-                                </div>
+                                </a>
                             )
                         }
                         )}

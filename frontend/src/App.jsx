@@ -5,6 +5,7 @@ import Projects from "./Pages/Projects";
 import Contact from "./Pages/Contact";
 import Gallery from "./Pages/Gallery";
 import AdminPage from "./Pages/AdminPage";
+import Project from "./Components/Project";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:slug" element={<Project />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/admin/*" element={<AdminPage />} />
