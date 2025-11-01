@@ -11,8 +11,7 @@ export const ProjectImagesInput = ({ source = 'imageIds' }) => (
 );
 
 export const TransformProjectPayload = (data) => {
-    // eslint-disable-next-line no-unused-vars
-    const { imageIds, images, ...rest } = data;
+    const { imageIds, ...rest } = data;
 
     return {
         ...rest,

@@ -5,15 +5,13 @@ import logoRGE from "../../assets/Label-RGE.jpg";
 import spaImg from "../../assets/projets/murs-spa.jpg";
 import escaliers from "../../assets/projets/escalier2.jpg";
 import arkea from "../../assets/companies/arkea.jpg";
-import salleDeBain from "../../assets/projets/carlage-salle-de-bain.jpg";
-import solbois from "../../assets/projets/sol-bois-arkea.jpg";
-import solVert from "../../assets/projets/sol-vert.jpg";
 import aboutImg1 from "../../assets/projets/sol-foncé-vitre.jpg";
 import aboutImg2 from "../../assets/projets/sol-bois-salon.jpg";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import Button from "../Components/Button";
 import ContactUs from "../Components/ContactUs";
+import ProjectsSection from "../Components/ProjectsSection";
 
 export default function Home() {
     return (
@@ -240,61 +238,7 @@ export default function Home() {
             {/* ============================================
       PROJECT SECTION
       ============================================ */}
-            <section>
-                <div className="projectBox">
-                    <div className="project container">
-                        <p className="title">Lorem ipsum</p>
-                        <h2>Lorem ipsum dolor sit amet</h2>
-                        <div className="project_box">
-                            <div className="project_box-item">
-                                <div className="project_box-item-img">
-                                    <img src={salleDeBain} alt="" />
-                                </div>
-                                <div className="project_box-item-text">
-                                    <p className="project_box-item-text-title">
-                                        Appartment
-                                    </p>
-                                    <h3 className="project_box-item-text-header">
-                                        Lorem ipsum, dolor sit amet consectetur
-                                        elit.
-                                    </h3>
-                                </div>
-                            </div>
-                            <div className="project_box-item">
-                                <div className="project_box-item-img">
-                                    <img src={solVert} alt="" />
-                                </div>
-                                <div className="project_box-item-text">
-                                    <p className="project_box-item-text-title">
-                                        Appartment
-                                    </p>
-                                    <h3 className="project_box-item-text-header">
-                                        Lorem ipsum, dolor sit amet consectetur
-                                        elit.
-                                    </h3>
-                                </div>
-                            </div>
-                            <div className="project_box-item">
-                                <div className="project_box-item-img">
-                                    <img src={solbois} alt="" />
-                                </div>
-                                <div className="project_box-item-text">
-                                    <p className="project_box-item-text-title">
-                                        Appartment
-                                    </p>
-                                    <h3 className="project_box-item-text-header">
-                                        Lorem ipsum, dolor sit amet consectetur
-                                        elit.
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <p className="articles">
-                            Lorem ipsum dolor <a href="#">➔</a>
-                        </p>
-                    </div>
-                </div>
-            </section>
+            <ProjectsSection />
             {/* ============================================
       CONTACT US SECTION
       ============================================ */}

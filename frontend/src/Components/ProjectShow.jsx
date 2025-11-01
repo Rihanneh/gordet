@@ -1,4 +1,4 @@
-import { ArrayField, DateField, ImageField, Show, SimpleShowLayout, SingleFieldList, TextField } from 'react-admin';
+import { ArrayField, DateField, ImageField, RichTextField, Show, SimpleShowLayout, SingleFieldList, TextField } from 'react-admin';
 
 export const ProjectShow = () => (
     <Show>
@@ -6,7 +6,7 @@ export const ProjectShow = () => (
             <TextField source="id" />
             <TextField source="title" />
             <TextField source="slug" />
-            <TextField source="description" />
+            <RichTextField source="description" />
             <DateField source="date" />
             <DateField source="createdAt" showTime={true} />
             <DateField source="updatedAt" showTime={true} />

@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import cors from "cors";
+import { number } from 'effect/Equivalence';
 import express from 'express';
 import * as fs from 'fs';
 import path from 'path';
@@ -92,8 +93,34 @@ app.get('/projects', async (req, res) => {
 
 // ✅ READ ONE - lire un projet par ID
 app.get('/projects/:id', async (req, res) => {
+    const projectId = Number(req.params.id);
+    if (Number.isNaN(projectId)) {
+        return res.status(400).json({ message: "Invalid project ID" });
+    }
     const project = await prisma.project.findUnique({
-        where: { id: Number(req.params.id) },
+        where: { id: projectId },
+        include: {
+            images: {
+                include: {
+                    image: true,
+                },
+            },
+        },
+    });
+    if (!project) {
+        return res.status(404).json({ message: "Project not found" });
+    }
+    res.json({
+        ...project,
+        imageIds: project.images?.map(relation => relation.imageId) ?? [],
+        images: project.images?.map(relation => relation.image) ?? [],
+    })
+});
+
+// ✅ READ ONE - lire un projet par slug
+app.get('/projects/slug/:slug', async (req, res) => {
+    const project = await prisma.project.findFirst({
+        where: { slug: req.params.slug },
         include: {
             images: {
                 include: {
@@ -146,7 +173,17 @@ app.post('/projects', async (req, res) => {
 // ✅ UPDATE - modifier un projet
 app.patch('/projects/:id', async (req, res) => {
     const projectId = Number(req.params.id);
-    const { imageIds, ...projectData } = req.body;
+    if (Number.isNaN(projectId)) {
+        return res.status(400).json({ message: "Invalid project ID" });
+    }
+    const {
+        imageIds,
+        id,
+        createdAt,
+        updatedAt,
+        images,
+        ...projectData
+    } = req.body;
     if (projectData.date) {
         projectData.date = new Date(projectData.date);
     }

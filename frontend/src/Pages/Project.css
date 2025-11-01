@@ -1,0 +1,61 @@
+.projectBox {
+  background-color: #fafafb;
+  text-align: center;
+  padding: 50px;
+  background-color: white;
+}
+
+.projectBox span {
+  margin-inline: 10px;
+  font-size: 20px;
+
+}
+
+.projectBox .paragraphs .title {
+  color: rgb(187, 178, 16);
+  font-weight: 700;
+}
+
+.projectBox .paragraphs .date {
+  color: rgba(183, 174, 174, 0.605);
+
+}
+
+.projectBox h2 {
+  padding: 30px 0 70px;
+}
+
+.project_box-item-img {
+  border-radius: 5px;
+  overflow: hidden;
+  height: 550px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.project_box-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project_box_item_description {
+  text-align: start;
+  padding: 60px 0;
+}
+
+.project_box_item_description h1,
+.project_box_item_description h2,
+.project_box_item_description h3,
+.project_box_item_description h4,
+.project_box_item_description h5,
+.project_box_item_description h6 {
+  margin-bottom: 20px;
+}
+
+.project_box_item_description p {
+  font-size: clamp(18px, 1.1rem, 24px );
+}

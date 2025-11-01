@@ -5,7 +5,7 @@ import Projects from "./Pages/Projects";
 import Contact from "./Pages/Contact";
 import Gallery from "./Pages/Gallery";
 import AdminPage from "./Pages/AdminPage";
-import Project from "./Components/Project";
+import Project from "./Pages/Project";
 
 
 function App() {
