@@ -89,6 +89,7 @@ app.get('/projects', async (req, res) => {
         images: project.images?.map(relation => relation.image) ?? [],
     }));
     res.json(formattedProjects);
+    res.send('<strong> Hello </strong>')
 });
 
 // ✅ READ ONE - lire un projet par ID
