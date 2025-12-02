@@ -36,11 +36,14 @@ export default function Hero() {
     return (
         <div
             className="hero-banner"
-            style={{ 
+            style={{
                 backgroundColor: heroImages[currentImageIndex].color,
                 '--overlay-color': heroImages[currentImageIndex].color
             }}
         >
+            <header>
+                <NavBar />
+            </header>
             {heroImages.map((item, index) => (
                 <div
                     key={index}
@@ -64,9 +67,6 @@ export default function Hero() {
                     }}
                 />
             ))}
-            <header>
-                <NavBar />
-            </header>
             <div className="container hero-content">
                 <div className="hero-title">
                     <p className="subtitle black">Entreprise GORDET</p>

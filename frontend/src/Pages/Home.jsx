@@ -1,5 +1,4 @@
 import "./Home.css";
-import TopBar from "../Components/TopBar";
 import Hero from "../Components/Hero";
 import arkea from "../../assets/companies/arkea.jpg";
 import salleDeBain from "../../assets/projets/carlage-salle-de-bain.jpg";
@@ -12,72 +11,109 @@ import spaImg from "../../assets/projets/murs-spa.jpg";
 import Footer from "../Components/Footer";
 import Button from "../Components/Button";
 import ContactUs from "../Components/ContactUs";
+import { ReactSVG } from "react-svg";
+import textDecoration from "../../assets/icons/text-decoration.svg";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
         <>
             <section>
-                <TopBar />
                 <Hero />
             </section>
             <section>
-                <div className="container about">
-                    <div className="about-left" id="aboutUs">
-                        <p className="subtitle">Lorem ipsum dolor sit amet.</p>
-                        <br />
-                        <h2>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing.
-                            Lorem, ipsum.
-                        </h2>
+                <div className="container">
+                    <div className="about">
+                        <div className="about-title">
+                            <p className="subtitle">Nos actions</p>
+                            <h2>
+                                Pour les{" "}
+                                <span className="text-decorated">
+                                    <span className="text-decoration">
+                                        <ReactSVG src={textDecoration} />
+                                    </span>
+                                    <span className="text-decorated">
+                                        professionnels
+                                    </span>{" "}
+                                </span>{" "}
+                                et les{" "}
+                                <span className="text-decorated">
+                                    <span className="text-decoration">
+                                        <ReactSVG src={textDecoration} />
+                                    </span>
+                                    <span className="text-decorated">
+                                        collectivités
+                                    </span>
+                                </span>
+                            </h2>
+                        </div>
+                        <div className="about-text">
+                            <p>
+                                Depuis plus de 30 ans l’entreprise Gordet est
+                                rodée aux marchés publics tout comme aux marchés
+                                privés/promotion immobilière
+                            </p>
+                            <p>
+                                Entreprise certifiée Qualibat, nous nous formons
+                                en continu à la qualité et veillons à la
+                                sécurité de nos poseurs.
+                            </p>
+                        </div>
                     </div>
-                    <div className="about-right">
-                        <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Esse modi magnam architecto corporis nam
-                            aspernatur labore, laborum dicta tempora voluptatum
-                            enim vero autem eaque, aliquam, adipisci facere
-                            earum unde ipsam!
-                        </p>
-                        <br />
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Error voluptatibus saepe tempora provident,
-                            commodi nobis, eligendi libero modi ex, assumenda
-                            cumque ad.
-                        </p>
+                    <div className="about">
+                        <div className="about-text">
+                            <p>
+                                En neuf ou rénovation, le savoir-faire artisanal
+                                de nos carreleurs vous garantit une pose
+                                soignée, des joints fins et un rendu harmonieux
+                                dans le respect des normes en vigueur et de
+                                l’environnement.
+                            </p>
+                            <p>
+                                Nous pouvons poser tous types de
+                                revêtements&nbsp;: grès cérame, grès émaillé,
+                                faïence, marbre, pierre. Mais aussi des sols
+                                souple vinyle en lames ou lès, des sols textile,
+                                moquette.
+                            </p>
+                        </div>
+                        <div className="about-title">
+                            <h2>
+                                Pour les{" "}
+                                <span className="text-decorated">
+                                    <span className="text-decoration">
+                                        <ReactSVG src={textDecoration} />
+                                    </span>
+                                    <span className="text-decorated">
+                                        particuliers
+                                    </span>
+                                </span>
+                            </h2>
+                        </div>
                     </div>
                 </div>
                 <div className="container services">
                     <div className="box service-dur">
                         <p className="icon">🏠</p>
-                        <h3>
-                            Lorem <br /> ipsum.
-                        </h3>
+                        <h3>Lorem ipsum.</h3>
                         <p className="arrow">➔</p>
                     </div>
                     <hr />
                     <div className="box service-souple">
-
                         <p className="icon">🏠</p>
-                        <h3>
-                            Lorem <br /> ipsum.
-                        </h3>
+                        <h3>Lorem ipsum.</h3>
                         <p className="arrow">➔</p>
                     </div>
                     <hr />
                     <div className="box service-carlage">
                         <p className="icon">🏠</p>
-                        <h3>
-                            Lorem <br /> ipsum.
-                        </h3>
+                        <h3>Lorem ipsum.</h3>
                         <p className="arrow">➔</p>
                     </div>
                     <hr />
                     <div className="box service-carlage">
                         <p className="icon">🏠</p>
-                        <h3>
-                            Lorem <br /> ipsum.
-                        </h3>
+                        <h3>Lorem ipsum.</h3>
                         <p className="arrow">➔</p>
                     </div>
                 </div>
@@ -86,31 +122,30 @@ export default function Home() {
                 <div className="container">
                     <div className="who-we-are">
                         <div className="who-we-are-images">
-                            <img src={ aboutImg1 } />
-                            <img src={ aboutImg2 } />
+                            <img src={aboutImg1} />
+                            <img src={aboutImg2} />
                         </div>
 
                         <div className="who-we-are-content">
-                            <p className="subtitle">
-                                WHO ARE WE
-                            </p>
+                            <p className="subtitle">Notre force</p>
                             <br />
-                            <h2>
-                                Your comfort is our main priority
-                            </h2>
+                            <h2>Une équipe dédiée</h2>
                             <br />
                             <p className="who-we-are-text">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Quas sit accusamus vero
-                                veritatis, repellat nobis uos praesentium
-                                excepturi veniam unde, aliquam repellendus!
-                                Possimus.
+                                Dans les bureaux, notre équipe se charge du
+                                respect des normes et reste en permanence à
+                                l’écoute de l’évolution de notre métier en
+                                matière d’innovation, mais aussi de
+                                développement durable.
                             </p>
                             <p className="who-we-are-hours">
-                                MON-FRI 9 AM – 22 PM <br />
-                                SATURDAY 9 AM – 20 PM
+                                Du lundi au vendredi de 9H à 18H
                             </p>
-                            <Button extraClass="btn-secondary" />
+                            <Button
+                                title="Prendre rendez-vous"
+                                path="/contact"
+                                extraClass="btn-secondary"
+                            />
                         </div>
                     </div>
                 </div>
@@ -118,22 +153,25 @@ export default function Home() {
             <section>
                 <div className="what-we-do">
                     <div className="what-we-do-content">
-                        <p className="subtitle">WHAT WE DO</p>
+                        <p className="subtitle">Notre accompagnement</p>
                         <br />
                         <h2 className="header">
-                            Lorem ipsum <br /> dolor sit amet consectetur
+                            Une expérience de{" "}
+                            <span className="text-decorated">
+                                <span className="text-decoration">
+                                    <ReactSVG src={textDecoration} />
+                                </span>
+                                <span className="text-decorated">+30 ans</span>
+                            </span>
                         </h2>
                         <br />
                         <p className="text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Saepe
-                            <br />
-                            non aspernatur similique aperiam perferendis modi
-                            sit nulla
-                            <br />
-                            labore enim molestiae quisquam, repellat id quidem
-                            deleniti
-                            <br /> quosullam, velit soluta tenetur?
+                            Notre structure à taille humaine ainsi que nos
+                            effectifs, permettent de répondre à des appels
+                            d’offre de tailles variées. Ecoles, gymnases, salles
+                            polyvalentes, piscines municipales, complexes
+                            hôteliers, bailleurs sociaux, notre expérience vous
+                            assure un chantier toujours mené à bien.
                         </p>
                     </div>
                     <div className="what-we-do-image">
@@ -144,19 +182,20 @@ export default function Home() {
                     </div>
                     <div className="what-we-do-box-text">
                         <div>
-                            <h3>Lorem, ipsum dolor.</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. br Iure, vel voluptatum
-                                pariatur quod nobis nostrum.
+                            <h3 className="white">Expérience</h3>
+                            <p className="white">
+                                Une partie de nos équipes se consacre aux
+                                particuliers et aux commerces, l’autre est
+                                spécialisée dans les chantiers de collectivités
+                                (mairies, écoles, hôpitaux, logements, ...)
                             </p>
-                            <br />
-                            <br />
-                            <h3>Lorem, ipsum dolor.</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Fugit culpa porro
-                                reprehenderit laboriosam.
+                        </div>
+                        <div>
+                            <h3 className="white">Savoir-faire</h3>
+                            <p className="white">
+                                Nous sommes en mesure de vous proposer des
+                                calepinages esthétiques et originaux ou de
+                                réaliser celui que vous souhaitez.
                             </p>
                         </div>
                     </div>
@@ -230,7 +269,7 @@ export default function Home() {
                             </div>
                         </div>
                         <p className="projects-link">
-                            Lorem ipsum dolor <a href="#">➔</a>
+                            <Link to="/projects">Voir plus</Link>
                         </p>
                     </div>
                 </div>

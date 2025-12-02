@@ -1,12 +1,24 @@
+.navbar ::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+.navbar ::-moz-selection {
+  background-color: var(--primary);
+  color: white;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-height: 150px;
+  position: relative;
+  z-index: 10;
 }
 
 .navbar_logo {
-  color: var(--color-primary-text);
+  color: var(--black);
   font-weight: 1000;
   font-size: 20px;
   display: flex;
@@ -20,25 +32,101 @@
 
 .navbar_links {
   list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar_links li {
-  float: left;
   padding-inline: 25px;
 }
 
 .navbar_links a {
-     color: var(--color-primary-text);
-     text-decoration: none;
+  color: var(--black);
+  text-decoration: none;
 }
 
 .navbar_links a:hover {
+  border-bottom: 2px var(--primary) solid;
+  padding-bottom: 3px;
+  color: var(--primary);
+}
 
-   border-bottom: 2px var(--primary) solid;
-   padding-bottom: 3px;
-   color: var(--primary)
+.navbar_links_button {
+  display: none;
 }
 
 .nav_burgerMenu {
   display: none;
+  align-items: center;
+  justify-content: center;
+  padding: .4rem;
+  background: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 15;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav_burgerMenu:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav_burgerMenu:focus {
+  outline-color: none;
+}
+
+.nav_burgerMenu:focus-visible {
+  outline-color: none;
+}
+
+.nav_burgerMenu img {
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.2s ease;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar_desktop_button {
+    display: none;
+  }
+
+  .nav_burgerMenu {
+    display: flex;
+  }
+
+  .navbar_links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--background, #fff);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 10;
+  }
+
+  .navbar_links.active {
+    right: 0;
+  }
+
+  .navbar_links li {
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar_links_button {
+    display: block;
+  }
 }

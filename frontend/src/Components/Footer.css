@@ -30,6 +30,7 @@ Footer start
   font-size: var(--font-size-p);
   color: rgba(255, 255, 255, 0.644);
   padding-top: 25px;
+  max-width: 24rem;
 }
 
 .footer .rights {

@@ -1,7 +1,6 @@
 import ContactUs from "../Components/ContactUs";
 import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
-import TopBar from "../Components/TopBar";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import "./Gallery.css"
@@ -35,7 +34,6 @@ export default function Gallery() {
 
     return (
         <>
-            <TopBar />
             <NavBar />
             <div className="gallery container ">
                 <div className="gallery_text">

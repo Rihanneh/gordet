@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
-import TopBar from "../Components/TopBar";
 
 export default function Projects() {
 
@@ -25,7 +24,6 @@ export default function Projects() {
 
     return (
         <>
-            <TopBar />
             <NavBar />
             <div className="projectBox ">
                 <div className="project container">
