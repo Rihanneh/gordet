@@ -22,14 +22,14 @@ margin-bottom: 30px;
 .switch div:hover,
 .switch .active {
     cursor: pointer;
-    text-decoration: underline;} 
+    text-decoration: underline;}
 
 .contactBox {
   padding: 92px 0;
 }
 
 .contactBox .title {
-  color: blue;
+  color: var(--info);
   font-weight: 600;
 }
 
@@ -53,7 +53,7 @@ margin-bottom: 30px;
 
 .formBox form {
   max-width: 50%;
-  background-color: #fafafb;
+  background-color: var(--light);
   border-radius: 15px;
   padding: 45px 35px 15px;
 }
@@ -159,7 +159,7 @@ margin-bottom: 30px;
 RESERVATION
 ================== */
 .reservation {
-  background-color: #fafafb;
+  background-color: var(--light);
   border-radius: 15px;
   padding: 25px;
 

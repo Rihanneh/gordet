@@ -1,9 +1,16 @@
 :root {
-  --color-primary-text: black;
-  --color-secondory-text: white;
-  --color-call-btn: #fed00e;
-  --color-appointment-btn: #443dfc;
+  --text-color: black;
+  --white: #FFFFFF;
+  --primary: #FCDF01;
+  --primary-dark: #DFC501;
+  --secondary: #414241;
+  --secondary-dark: #323432;
+  --warning: #BA3B46;
+  --info: #599B7C;
+  --light: #F2F5F7;
   --responsive-desktop: 1024px;
+  --responsive-tablette: 768px;
+  --responsive-tablette: px;
   --radius: 5px;
 }
 
@@ -14,9 +21,9 @@
 }
 
 body {
-  color: var(--color-primary-text);
+  color: var(--text-color);
   position: relative;
-  background-color: white;
+  background-color: var(--white);
   display: flex;
   justify-content: center;
 }
@@ -33,14 +40,17 @@ header {
 
 h1 {
     font-size: 4.2rem;
+    color: var(--secondary-dark);
 }
 
 h2 {
     font-size: 2.8rem;
+    color: var(--secondary-dark);
 }
 
 h3 {
     font-size: 2rem;
+    color: var(--secondary-dark);
 }
 
 p {
@@ -51,7 +61,7 @@ p {
 .subtitle {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--color-appointment-btn);
+    color: var(--secondary);
 }
 
 .container {
@@ -60,7 +70,7 @@ p {
 }
 
 .btn {
-  background-color: var(--color-appointment-btn);
+  background-color: var(--primary);
   padding: 25px 35px;
   border-radius: 50px;
   position: relative;
@@ -70,12 +80,12 @@ p {
 }
 
 .btn * {
-  color: var(--color-secondory-text);
-  font-weight: 1000;
+  color: var(--text-color);
+  font-weight: bold;
 }
 
 .btn::before {
-  background-color: darkblue;
+  background-color: var(--primary-dark);
   content: "";
   border-radius: 50px;
   width: 100%;
@@ -88,15 +98,16 @@ p {
 }
 
 .btn-secondary {
-  background-color: var(--color-call-btn);
+  background-color: var(--secondary);
+  color: var(--white);
 }
 
 .btn-secondary::before {
-  background-color: var(--color-call-btn);
+  background-color: var(--secondary-dark);
 }
 
 .btn-secondary * {
-  color: black;
+  color: var(--white);
 }
 
 .btn:hover::before {
@@ -122,9 +133,27 @@ p {
   white-space: nowrap;
 }
 
-/* ==================================================================
-Responsive
-===================================================================== */
+.subtitle {
+    color: var(--info);
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.black {
+    color: var(--black) !important;
+}
+
+.white {
+    color: var(--white) !important;
+}
+
+.primar-primary-dark {
+    color: var(--primary-dark) !important;
+}
+
+.secondary-dark {
+    color: var(--secondary-dark) !important;
+}
 
 /* desktop small */
 @media (max-width: 1024px) {

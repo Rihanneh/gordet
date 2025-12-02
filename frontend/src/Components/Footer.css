@@ -2,7 +2,7 @@
 Footer start
 ===================================================================== */
 .footer {
-  background-color: #0e0d39;
+  background-color: var(--secondary);
   color: white;
   position: relative;
 }

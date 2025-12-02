@@ -34,9 +34,9 @@
 
 .navbar_links a:hover {
 
-   border-bottom: 2px blue solid;
+   border-bottom: 2px var(--primary) solid;
    padding-bottom: 3px;
-   color: var(--color-appointment-btn)
+   color: var(--primary)
 }
 
 .nav_burgerMenu {

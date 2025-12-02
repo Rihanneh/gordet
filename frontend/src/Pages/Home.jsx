@@ -1,16 +1,14 @@
 import "./Home.css";
 import TopBar from "../Components/TopBar";
-import logoRSE from "../../assets/label-RSE.avif";
-import logoRGE from "../../assets/Label-RGE.jpg";
-import spaImg from "../../assets/projets/murs-spa.jpg";
-import escaliers from "../../assets/projets/escalier2.jpg";
+import Hero from "../Components/Hero";
 import arkea from "../../assets/companies/arkea.jpg";
 import salleDeBain from "../../assets/projets/carlage-salle-de-bain.jpg";
 import solbois from "../../assets/projets/sol-bois-arkea.jpg";
 import solVert from "../../assets/projets/sol-vert.jpg";
 import aboutImg1 from "../../assets/projets/sol-foncé-vitre.jpg";
 import aboutImg2 from "../../assets/projets/sol-bois-salon.jpg";
-import NavBar from "../Components/NavBar";
+import escaliers from "../../assets/projets/escalier2.jpg";
+import spaImg from "../../assets/projets/murs-spa.jpg";
 import Footer from "../Components/Footer";
 import Button from "../Components/Button";
 import ContactUs from "../Components/ContactUs";
@@ -18,64 +16,21 @@ import ContactUs from "../Components/ContactUs";
 export default function Home() {
     return (
         <>
-            {/*---- hero_banner -----------------------------*/}
             <section>
                 <TopBar />
-                {/* Hero Section */}
-                <div className="hero_banner">
-                    {/* <video  muted loop controls
-            id="heroVideo" >
-          <source src="../../assets/video/tile.mp4" />NO VIDEOS</video> */}
-                    {/* ============================================
-      HEADER
-      ============================================ */}
-                    <header>
-                        {/* Navbar */}
-                        <NavBar />
-                    </header>
-                    {/* hero content start ================================*/}
-                    {/* hero-content-text */}
-                    <div className="container hero_content">
-                        <div>
-                            <p className="subtitle">Lorem ipsum dolor Lorem sit amet.</p>
-                            <h1>
-                                Lorem Ipsum Oolor Sit amet <br />
-                                Consectetur dolor sit.
-                            </h1>
-                        </div>
-                        <div className="hero_btns">
-                            <Button
-                                title="Call: +1-342-342-3424"
-                                href="#"
-                                extraClass="btn-secondary"
-                            />
-                            <Button title="Make An Appointment" href="#" />
-                        </div>
-                        {/* hero-labels */}
-                        <div className="hero_labels-box ">
-                            <div className=" hero_labels-logo ">
-                                <img src={logoRSE} alt="rse label" />
-                                <img src={logoRGE} alt="rge label" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Hero />
             </section>
-            {/* ============================================
-      ABOUT US SECTION
-      ============================================ */}
-            {/* About Us part1 - services */}
             <section>
-                <div className="container aboutUs">
-                    <div className="aboutUs-left" id="aboutUs">
-                        <p>Lorem ipsum dolor sit amet.</p>
+                <div className="container about">
+                    <div className="about-left" id="aboutUs">
+                        <p className="subtitle">Lorem ipsum dolor sit amet.</p>
                         <br />
                         <h2>
                             Lorem ipsum, dolor sit amet consectetur adipisicing.
                             Lorem, ipsum.
                         </h2>
                     </div>
-                    <div className="aboutUs-right">
+                    <div className="about-right">
                         <p>
                             Lorem ipsum dolor sit, amet consectetur adipisicing
                             elit. Esse modi magnam architecto corporis nam
@@ -92,7 +47,7 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
-                <div className="container aboutUs-services">
+                <div className="container services">
                     <div className="box service-dur">
                         <p className="icon">🏠</p>
                         <h3>
@@ -127,21 +82,16 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            {/* About Us part2 - who we are */}
-            {/* ============================================
-      WHO WE ARE SECTION
-      ============================================ */}
             <section>
                 <div className="container">
-                    <div className="aboutUs_whoWeAre">
-                        <div className="aboutUs_whoWeAre-img">
+                    <div className="who-we-are">
+                        <div className="who-we-are-images">
                             <img src={ aboutImg1 } />
                             <img src={ aboutImg2 } />
                         </div>
 
-                        <div className="aboutUs_whoWeAre-content">
-                            <p className="aboutUs_whoWeAre-content-title">
-
+                        <div className="who-we-are-content">
+                            <p className="subtitle">
                                 WHO ARE WE
                             </p>
                             <br />
@@ -149,14 +99,14 @@ export default function Home() {
                                 Your comfort is our main priority
                             </h2>
                             <br />
-                            <p className="aboutUs_whoWeAre-content-texte">
+                            <p className="who-we-are-text">
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Quas sit accusamus vero
                                 veritatis, repellat nobis uos praesentium
                                 excepturi veniam unde, aliquam repellendus!
                                 Possimus.
                             </p>
-                            <p className="aboutUs_whoWeAre-content-workingDays">
+                            <p className="who-we-are-hours">
                                 MON-FRI 9 AM – 22 PM <br />
                                 SATURDAY 9 AM – 20 PM
                             </p>
@@ -165,17 +115,13 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            {/* About Us part3 - what we do */}
-            {/* ============================================
-      WHAT WE DO SECTION
-      ============================================ */}
             <section>
-                <div className="aboutUs_whatWeDo">
-                    <div className="aboutUs_whatWeDo-content">
-                        <p className="title">WHAT WE DO</p>
+                <div className="what-we-do">
+                    <div className="what-we-do-content">
+                        <p className="subtitle">WHAT WE DO</p>
                         <br />
                         <h2 className="header">
-                            Lorem ipsumloup <br /> dolor sit amet consectetur
+                            Lorem ipsum <br /> dolor sit amet consectetur
                         </h2>
                         <br />
                         <p className="text">
@@ -190,13 +136,13 @@ export default function Home() {
                             <br /> quosullam, velit soluta tenetur?
                         </p>
                     </div>
-                    <div className="aboutUs_whatWeDo-img">
+                    <div className="what-we-do-image">
                         <img src={escaliers} alt="" />
                     </div>
-                    <div className="aboutUs_whatWeDo-box-img">
+                    <div className="what-we-do-box-image">
                         <img src={spaImg} alt="" />
                     </div>
-                    <div className="aboutUs_whatWeDo-box-text">
+                    <div className="what-we-do-box-text">
                         <div>
                             <h3>Lorem, ipsum dolor.</h3>
                             <p>
@@ -216,92 +162,80 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            {/* ============================================
-      CAROUSEL
-      ============================================ */}
             <section>
                 <div className="carousel">
-                    <div className="companies">
-                        <div className="item1">
+                    <div className="carousel-items">
+                        <div className="carousel-item">
                             <img src={arkea} alt="" />
                         </div>
-                        <div className="item1">
+                        <div className="carousel-item">
                             <img src={arkea} alt="" />
                         </div>
-                        <div className="item1">
+                        <div className="carousel-item">
                             <img src={arkea} alt="" />
                         </div>
-                        <div className="item1">
+                        <div className="carousel-item">
                             <img src={arkea} alt="" />
                         </div>
                     </div>
                 </div>
             </section>
-            {/* ============================================
-      PROJECT SECTION
-      ============================================ */}
             <section>
-                <div className="projectBox">
-                    <div className="project container">
-                        <p className="title">Lorem ipsum</p>
+                <div className="projects-wrapper">
+                    <div className="projects container">
+                        <p className="subtitle">Lorem ipsum</p>
                         <h2>Lorem ipsum dolor sit amet</h2>
-                        <div className="project_box">
-                            <div className="project_box-item">
-                                <div className="project_box-item-img">
+                        <div className="projects-grid">
+                            <div className="project-card">
+                                <div className="project-card-image">
                                     <img src={salleDeBain} alt="" />
                                 </div>
-                                <div className="project_box-item-text">
-                                    <p className="project_box-item-text-title">
+                                <div className="project-card-content">
+                                    <p className="project-card-label">
                                         Appartment
                                     </p>
-                                    <h3 className="project_box-item-text-header">
+                                    <h3 className="project-card-title">
                                         Lorem ipsum, dolor sit amet consectetur
                                         elit.
                                     </h3>
                                 </div>
                             </div>
-                            <div className="project_box-item">
-                                <div className="project_box-item-img">
+                            <div className="project-card">
+                                <div className="project-card-image">
                                     <img src={solVert} alt="" />
                                 </div>
-                                <div className="project_box-item-text">
-                                    <p className="project_box-item-text-title">
+                                <div className="project-card-content">
+                                    <p className="project-card-label">
                                         Appartment
                                     </p>
-                                    <h3 className="project_box-item-text-header">
+                                    <h3 className="project-card-title">
                                         Lorem ipsum, dolor sit amet consectetur
                                         elit.
                                     </h3>
                                 </div>
                             </div>
-                            <div className="project_box-item">
-                                <div className="project_box-item-img">
+                            <div className="project-card">
+                                <div className="project-card-image">
                                     <img src={solbois} alt="" />
                                 </div>
-                                <div className="project_box-item-text">
-                                    <p className="project_box-item-text-title">
+                                <div className="project-card-content">
+                                    <p className="project-card-label">
                                         Appartment
                                     </p>
-                                    <h3 className="project_box-item-text-header">
+                                    <h3 className="project-card-title">
                                         Lorem ipsum, dolor sit amet consectetur
                                         elit.
                                     </h3>
                                 </div>
                             </div>
                         </div>
-                        <p className="articles">
+                        <p className="projects-link">
                             Lorem ipsum dolor <a href="#">➔</a>
                         </p>
                     </div>
                 </div>
             </section>
-            {/* ============================================
-      CONTACT US SECTION
-      ============================================ */}
             <ContactUs />
-            {/* ============================================
-      FOOTER SECTION
-      ============================================ */}
             <Footer />
         </>
     );

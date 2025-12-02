@@ -25,13 +25,13 @@ export default function ContactUs() {
             </p>
             <div className="btns">
               <Button
-                title="Call: +1-342-342-3424"
-                href="#"
+                title="Nous joindre par téléphone"
+                path="tel:+33298077047"
                 extraClass="btn-secondary"
               />
               <Button
                 title="Make An Appointment"
-                href="#"
+                path="/contact"
                 extraClass="btn-border"
               />
             </div>
@@ -39,6 +39,6 @@ export default function ContactUs() {
           <img src={poseCarrelage} alt="" />
         </div>
       </section>
-   
+
     );
 }

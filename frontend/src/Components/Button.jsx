@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
+
 export default function Button({
    title = "Make An Appointment",
-   href = '#',
+   path = '#',
    extraClass = '',
 }) {
 
     return(
         <div className={ "btn " + extraClass }>
             <div>{ title }</div>
-            <a href={ href }>
+            <Link to={ path }>
                 <span>{ title }</span>
-            </a>
+            </Link>
         </div>
     )
 }

@@ -1,454 +1,339 @@
 .hero-topBar {
-  text-align: center;
-  background-color: var(--color-appointment-btn);
-  color: var(--color-secondory-text);
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  gap: 20px;
+    text-align: center;
+    background-color: var(--primary);
+    color: var(--color-secondory-text);
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 20px;
 }
 
 .hero-topBar a {
-  color: var(--color-secondory-text);
-  margin-left: 20px;
+    color: var(--color-secondory-text);
+    margin-left: 20px;
 }
 
-/* ==================================================================
-hero-banner-content start
-===================================================================== */
-.hero_banner {
-  position: relative;
-  background-image: url("https://picsum.photos/seed/picsum/1920/1800");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 90vh;
-  z-index: 0;
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
 }
 
-.hero_content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 100px;
-  height: 100%;
+.about .about-left,
+.about .about-right {
+    max-width: 420px;
 }
 
-.hero_btns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 20px;
+.about .about-left h2 {
+    margin-bottom: 20px;
 }
 
-.hero_labels-box {
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  background-color: white;
-  width: 40%;
-  max-width: 550px;
-  min-width: 180px;
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-bottom: 120px;
 }
 
-.hero_labels-logo {
-  padding-block: 30px;
-  display: flex;
-  justify-content: center;
+.services hr {
+    color: rgb(211, 211, 211, 0.3);
+    height: 150px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
-.hero_labels-logo img {
-  width: 120px;
+.services .box {
+    width: 20%;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
-/* ==================================================================
-aboutUs start
-===================================================================== */
-
-.aboutUs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 0;
+.services .box p {
+    transform: translateX(30%);
 }
 
-.aboutUs .aboutUs-left,
-.aboutUs .aboutUs-right {
-  max-width: 420px;
-}
-
-.aboutUs .aboutUs-left p {
-  color: var(--color-appointment-btn);
-  text-transform: uppercase;
-}
-
-.aboutUs .aboutUs-left h2 {
-  margin-bottom: 20px;
-}
-
-.aboutUs-services {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding-bottom: 120px;
-}
-
-.aboutUs-services hr {
-  color: rgb(211, 211, 211, 0.3);
-  height: 150px;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.aboutUs-services .box {
-  width: 20%;
-  min-width: 100px;
-  display: flex;
-  flex-direction: column;
-}
-
-.aboutUs-services .box p {
-  transform: translateX(30%);
-}
-
-.aboutUs-services .box p:nth-child(2) {
-  padding: 15px 0;
+.services .box p:nth-child(2) {
+    padding: 15px 0;
 }
 
 @media (max-width: 1250px) {
-  .nav_burgerMenu {
-    display: block;
-  }
+    .nav_burgerMenu {
+        display: block;
+    }
 }
 
-/* ==================================================================
-aboutUs whoWeAre :
-===================================================================== */
-
-.aboutUs_whoWeAre {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  padding-bottom: 100px;
-  margin-bottom: 80px;
+.who-we-are {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding-bottom: 100px;
+    margin-bottom: 80px;
 }
 
-.aboutUs_whoWeAre-img {
+.who-we-are-images {
     position: relative;
 }
 
-.aboutUs_whoWeAre-img img {
-  width: 100%;
-  border-radius: var(--radius);
-  max-width: 600px;
-  height: 500px;
+.who-we-are-images img {
+    width: 100%;
+    border-radius: var(--radius);
+    max-width: 600px;
+    height: 500px;
 }
 
-.aboutUs_whoWeAre-img img:last-child {
-  position: absolute;
-  width: 450px;
-  height: 300px;
-  top: 250px;
-  right: 20px;
+.who-we-are-images img:last-child {
+    position: absolute;
+    width: 450px;
+    height: 300px;
+    top: 250px;
+    right: 20px;
 }
 
-.aboutUs_whoWeAre-content-title {
-  color: var(--color-appointment-btn);
-  text-transform: uppercase;
+.who-we-are-hours {
+    padding: 30px 0;
 }
 
-.aboutUs_whoWeAre-content-workingDays {
-  padding: 30px 0;
+.what-we-do-unused {
+    border: 1px red solid;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-rows: 1fr;
 }
 
-/* ==================================================================
-aboutUs weDo :
-===================================================================== */
-
-.aboutUs_weDo {
-  border: 1px red solid;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr 1.2fr;
-  grid-template-rows: 1fr 1fr;
-  grid-auto-rows: 1fr;
+.what-we-do-unused > div {
+    border: 5px solid black;
 }
 
-.aboutUs_weDo > div {
-  border: 5px solid black;
+.what-we-do-unused-content-up {
+    grid-column-start: span 2;
 }
 
-.aboutUs_weDo-content-up {
-  grid-column-start: span 2;
+.what-we-do-unused-side-img {
+    grid-row-start: span 2;
 }
 
-.aboutUs_weDo-side-img {
-  grid-row-start: span 2;
+.what-we-do-unused-side-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: none;
 }
 
-.aboutUs_weDo-content-up .title {
-  color: var(--color-appointment-btn);
-  text-transform: uppercase;
+.what-we-do-unused-content-down {
+    border: 3px orange solid;
+    display: flex;
+    width: 100%;
 }
 
-.aboutUs_weDo-side-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: none;
+.what-we-do-unused-content-down-img {
+    height: 446px;
+    overflow: hidden;
+    background-color: var(--primary);
 }
 
-.aboutUs_weDo-content-down {
-  border: 3px orange solid;
-  display: flex;
-  width: 100%;
-}
-
-.boutUs_weDo-content-down-img {
-  height: 446px;
-  overflow: hidden;
-  background-color: var(--color-appointment-btn);
-}
-
-/* =========================== section whatWeDo ========================= */
-
-.aboutUs_whatWeDo {
+.what-we-do {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
 
-.aboutUs_whatWeDo-content {
-  margin-left: 20%;
-  margin-bottom: 100px;
-  grid-column: 1 / 3;
+.what-we-do-content {
+    margin-left: 20%;
+    margin-bottom: 100px;
+    grid-column: 1 / 3;
 }
 
-.aboutUs_whatWeDo-img {
+.what-we-do-image {
     grid-row-start: span 2;
 }
 
-.aboutUs_whatWeDo-content .title {
-  color: var(--color-appointment-btn);
-  text-transform: uppercase;
-  padding-top: 60px;
+.what-we-do-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.aboutUs_whatWeDo-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.what-we-do-box {
+    height: 451px;
+    display: flex;
+    overflow: hidden;
+    background-color: var(--primary);
 }
 
-.aboutUs_whatWeDo-box {
-  height: 451px;
-  display: flex;
-  overflow: hidden;
-  background-color: var(--color-appointment-btn);
-}
-
-.aboutUs_whatWeDo-box-img,
-.aboutUs_whatWeDo-box-text {
+.what-we-do-box-image,
+.what-we-do-box-text {
     max-height: 450px;
 }
 
-.aboutUs_whatWeDo-box-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.what-we-do-box-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.aboutUs_whatWeDo-box-text {
-  display: flex;
-  align-items: center;
-  padding: 30px;
-  color: white;
-  background-color: var(--color-appointment-btn);
-  min-width: 580px;
+.what-we-do-box-text {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    color: white;
+    background-color: var(--primary);
+    min-width: 580px;
 }
 
-/* ==================================================================
-Carousel start
-===================================================================== */
 .carousel {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
-.carousel .companies {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 110px 0;
-  gap: 50px;
+.carousel-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 110px 0;
+    gap: 50px;
 }
 
-.carousel .item1 {
-  width: 200px;
-  height: 70px;
+.carousel-item {
+    width: 200px;
+    height: 70px;
 }
 
-.carousel .item1 img {
-  width: 100%;
-  height: 100%;
+.carousel-item img {
+    width: 100%;
+    height: 100%;
 }
 
-/* ==================================================================
-Project start
-===================================================================== */
-.projectBox {
-  background-color: #fafafb;
+.projects-wrapper {
+    background-color: var(--light);
 }
 
-.project {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.project .title {
-  color: var(--color-appointment-btn);
-  text-transform: uppercase;
-  padding-top: 126px;
+.projects h2 {
+    padding-top: 20px;
 }
 
-.project h2 {
-  padding-top: 20px;
+.projects-grid {
+    padding: 60px 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
 
-.project_box {
-  padding: 60px 0 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
+.project-card {
+    max-width: 415px;
+    min-width: 250px;
+    width: 30%;
+    border-radius: var(--radius);
+    overflow: hidden;
 }
 
-.project_box-item {
-  max-width: 415px;
-  min-width: 250px;
-  width: 30%;
-  border-radius: var(--radius);
-  overflow: hidden;
+.project-card-image {
+    height: 295px;
 }
 
-.project_box-item-img {
-  height: 295px;
+.project-card-image img {
+    width: 100%;
+    height: 295px;
+    object-fit: cover;
 }
 
-.project_box-item-img img {
-  width: 100%;
-  height: 295px;
-  object-fit: cover;
+.project-card-content {
+    padding: 30px;
 }
 
-.project_box-item-text {
-  padding: 30px;
+.project-card-label {
+    color: var(--primary);
+    padding: 10px 0;
 }
 
-.project_box-item-text-title {
-  color: var(--color-appointment-btn);
-  padding: 10px 0;
+.projects-link {
+    padding-bottom: 126px;
 }
 
-.project .articles {
-  padding-bottom: 126px;
-}
-.project .articles a {
-  color: black;
-  position: relative;
-  bottom: -2px;
-  padding-left: 7px;
+.projects-link a {
+    color: black;
+    position: relative;
+    bottom: -2px;
+    padding-left: 7px;
 }
 
-/* ==================================================================
-Contact Us start
-===================================================================== */
 .contactUs {
-  background-color: var(--color-appointment-btn);
-  color: white;
-  position: relative;
+    background-color: var(--primary);
+    color: white;
+    position: relative;
 }
 
 .contactUs .title {
-  text-transform: uppercase;
-  padding-top: 126px;
-  padding-bottom: 15px;
+    text-transform: uppercase;
+    padding-top: 126px;
+    padding-bottom: 15px;
 }
 
 .contactUs .btns {
-  padding: 54px 0 126px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+    padding: 54px 0 126px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .contactUs .btn-border {
-  border: 1px white solid;
+    border: 1px white solid;
 }
 
 .contactUs img {
-  position: absolute;
-  right: 10px;
-  bottom: 0px;
-  width: 50%;
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    width: 50%;
 }
-
-/* ==================================================================
-Responsive
-===================================================================== */
 
 /* desktop small */
 @media (max-width: 1024px) {
-
-    .hero_labels-logo img {
-        width: 100px;
-    }
-
-    .aboutUs_whoWeAre {
+    .who-we-are {
         grid-template-columns: 1fr;
         gap: 120px;
         margin-bottom: 0;
     }
 
-    .aboutUs_whatWeDo {
+    .what-we-do {
         grid-template-columns: 1fr 1fr;
     }
 
-    .aboutUs_whatWeDo-content {
-      margin-inline: auto;
-      max-width: 70%;
-      grid-column-start: span 2;
+    .what-we-do-content {
+        margin-inline: auto;
+        max-width: 70%;
+        grid-column-start: span 2;
     }
 }
 
 /* tablette */
 @media (max-width: 768px) {
-
-    .aboutUs_whatWeDo-content {
+    .what-we-do-content {
         max-width: 80%;
         padding-inline: 10px;
     }
 
-    .aboutUs_whatWeDo-box-text {
+    .what-we-do-box-text {
         min-width: 100%;
     }
 
-    .hero_labels-logo {
-        padding-block: 10px;
-    }
-
-    .hero_labels-logo img {
-        width: 70px;
-    }
-
-    .aboutUs_whoWeAre {
+    .who-we-are {
         gap: 20px;
     }
 
-    .aboutUs_whoWeAre-img img:first-child,
-    .aboutUs_whoWeAre-img img:last-child {
+    .who-we-are-images img:first-child,
+    .who-we-are-images img:last-child {
         top: 0;
         left: 0;
         object-fit: cover;
@@ -461,12 +346,11 @@ Responsive
 
 /* mobile */
 @media (max-width: 425px) {
-
-    .aboutUs_whatWeDo {
+    .what-we-do {
         grid-template-columns: 1fr;
     }
 
-    .aboutUs_whatWeDo-content {
+    .what-we-do-content {
         max-width: 100%;
         padding-inline: 10px;
     }
