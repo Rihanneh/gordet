@@ -224,6 +224,10 @@ p {
     h3 {
         font-size: 1.5rem;
     }
+
+    .text-decoration {
+      bottom: 0rem;
+    }
 }
 
 /* mobile */
@@ -245,5 +249,9 @@ p {
 
     h3 {
         font-size: 1.2rem;
+    }
+
+    .text-decoration {
+      bottom: -.5rem;
     }
 }

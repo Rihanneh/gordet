@@ -1,5 +1,11 @@
-import "./Home.css";
+import { ReactSVG } from "react-svg";
+import { Link } from "react-router-dom";
 import Hero from "../Components/Hero";
+import Footer from "../Components/Footer";
+import Button from "../Components/Button";
+import ContactUs from "../Components/ContactUs";
+import "./Home.css";
+
 import arkea from "../../assets/companies/arkea.jpg";
 import salleDeBain from "../../assets/projets/carlage-salle-de-bain.jpg";
 import solbois from "../../assets/projets/sol-bois-arkea.jpg";
@@ -8,12 +14,11 @@ import aboutImg1 from "../../assets/projets/sol-foncé-vitre.jpg";
 import aboutImg2 from "../../assets/projets/sol-bois-salon.jpg";
 import escaliers from "../../assets/projets/escalier2.jpg";
 import spaImg from "../../assets/projets/murs-spa.jpg";
-import Footer from "../Components/Footer";
-import Button from "../Components/Button";
-import ContactUs from "../Components/ContactUs";
-import { ReactSVG } from "react-svg";
 import textDecoration from "../../assets/icons/text-decoration.svg";
-import { Link } from "react-router-dom";
+import triangleCarrelage from "../../assets/triangle-carrelage.png";
+import triangleDur from "../../assets/triangle-dur.png";
+import triangleSouple from "../../assets/triangle-souple.png";
+import triangleMoquette from "../../assets/triangle-moquette.png";
 
 export default function Home() {
     return (
@@ -94,26 +99,23 @@ export default function Home() {
                 </div>
                 <div className="container services">
                     <div className="box service-dur">
-                        <p className="icon">🏠</p>
-                        <h3>Lorem ipsum.</h3>
+                        <img src={triangleCarrelage} alt="Faïence" className="icon" />
+                        <h3>Faïences, grès, marbres</h3>
                         <p className="arrow">➔</p>
                     </div>
-                    <hr />
                     <div className="box service-souple">
-                        <p className="icon">🏠</p>
-                        <h3>Lorem ipsum.</h3>
+                        <img src={triangleDur} alt="Sols durs" className="icon" />
+                        <h3>Sols durs</h3>
                         <p className="arrow">➔</p>
                     </div>
-                    <hr />
                     <div className="box service-carlage">
-                        <p className="icon">🏠</p>
-                        <h3>Lorem ipsum.</h3>
+                        <img src={triangleSouple} alt="Sols souples" className="icon" />
+                        <h3>Sols souples</h3>
                         <p className="arrow">➔</p>
                     </div>
-                    <hr />
                     <div className="box service-carlage">
-                        <p className="icon">🏠</p>
-                        <h3>Lorem ipsum.</h3>
+                        <img src={triangleMoquette} alt="Sols textiles" className="icon" />
+                        <h3>Sols textiles</h3>
                         <p className="arrow">➔</p>
                     </div>
                 </div>
