@@ -36,6 +36,8 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem;
+    background-color: var(--light);
+    border-radius: var(--radius);
 }
 
 .services .box .icon {
@@ -51,12 +53,6 @@
 
 .services .box .arrow {
     font-size: 1.5rem;
-}
-
-@media (max-width: 1250px) {
-    .nav_burgerMenu {
-        display: block;
-    }
 }
 
 .who-we-are {
@@ -275,7 +271,7 @@
     }
 
     .what-we-do {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     .what-we-do-content {
@@ -319,10 +315,6 @@
     }
 
     .services {
-        grid-template-columns: 1fr;
-    }
-
-    .what-we-do {
         grid-template-columns: 1fr;
     }
 

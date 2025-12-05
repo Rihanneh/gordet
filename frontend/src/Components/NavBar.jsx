@@ -1,10 +1,12 @@
-import { useState } from "react";
-import mainLogo from "../../assets/logo-Gordet.jpg";
-import menuIcon from "../../assets/icons/menu.svg";
-import closeIcon from "../../assets/icons/close.svg";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+
 import "./NavBar.css";
+
+import { useState } from "react";
+import mainLogo from "../../assets/logo_sm.png";
+import menuIcon from "../../assets/icons/menu.svg";
+import closeIcon from "../../assets/icons/close.svg";
 
 export default function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +37,7 @@ export default function NavBar() {
                     <Link to="/projects" onClick={closeMenu}>Projects</Link>
                 </li>
                 <li>
-                    <Link to="/gallery" onClick={closeMenu}>Gallery</Link>
+                    <Link to="/gallery" onClick={closeMenu}>Inspirations</Link>
                 </li>
                 <li>
                     <Link to="/contact" onClick={closeMenu}>Contact</Link>
@@ -45,13 +47,13 @@ export default function NavBar() {
                 </li>
             </ul>
             <Button title="Contact Us" path="/contact" extraClass="btn-small navbar_desktop_button" />
-            <button 
+            <button
                 className={`nav_burgerMenu ${isMenuOpen ? "active" : ""}`}
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
             >
-                <img 
-                    src={isMenuOpen ? closeIcon : menuIcon} 
+                <img
+                    src={isMenuOpen ? closeIcon : menuIcon}
                     alt={isMenuOpen ? "Close menu" : "Open menu"}
                 />
             </button>

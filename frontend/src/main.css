@@ -4,15 +4,31 @@
   --primary-light: #FEE948;
   --primary: #FCDF01;
   --primary-dark: #DFC501;
+  --secondary-light: #656765;
   --secondary: #414241;
   --secondary-dark: #323432;
   --warning: #BA3B46;
   --info: #599B7C;
   --light: #F2F5F7;
+  --light-dark: #D9E2E8;
   --responsive-desktop: 1024px;
   --responsive-tablette: 768px;
   --responsive-tablette: px;
   --radius: 5px;
+  --radius-large: 15px;
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -34,9 +50,13 @@
 body {
   color: var(--text-color);
   position: relative;
-  background-color: var(--white);
   display: flex;
   justify-content: center;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--white);
 }
 
 #root {
@@ -51,6 +71,7 @@ header {
 
 h1 {
     font-size: 4.2rem;
+    line-height: 1.1;
     color: var(--secondary-dark);
 }
 
@@ -67,6 +88,11 @@ h3 {
 p {
     font-size: 1rem;
     text-align: justify;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
 }
 
 .text-decorated {

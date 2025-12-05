@@ -28,26 +28,25 @@ Footer start
 
 .footer .text {
   font-size: var(--font-size-p);
-  color: rgba(255, 255, 255, 0.644);
+  color: var(--light-dark);
   padding-top: 25px;
   max-width: 24rem;
 }
 
 .footer .rights {
-  color: white;
+  color: var(--white);
   font-weight: 700;
   padding: 126px 0 0;
 }
 
 .footer .rights span {
-  color: rgba(255, 255, 255, 0.611);
+  color: var(--light-dark);
 }
 
 .footer .footer-links {
   display: flex;
   margin-top: 40px;
-  gap: 40px;
-  justify-content: space-around;
+  gap: 9rem;
   width: 100%;
 }
 
@@ -62,5 +61,5 @@ Footer start
 }
 
 .footer li a {
-  color: rgba(255, 255, 255, 0.716);
+  color: var(--light-dark);
 }

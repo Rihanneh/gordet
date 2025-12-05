@@ -1,11 +1,11 @@
 .navbar ::selection {
   background-color: var(--primary);
-  color: white;
+  color: var(--white);
 }
 
 .navbar ::-moz-selection {
   background-color: var(--primary);
-  color: white;
+  color: var(--white);
 }
 
 .navbar {
@@ -62,7 +62,7 @@
   align-items: center;
   justify-content: center;
   padding: .4rem;
-  background: white;
+  background: var(--white);
   border: none;
   cursor: pointer;
   border-radius: 50%;

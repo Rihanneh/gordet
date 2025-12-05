@@ -1,5 +1,8 @@
-import mainLogo from "../../assets/logo-Gordet.jpg";
+import { Link } from "react-router-dom";
+
 import "./Footer.css";
+
+import mainLogo from "../../assets/logo_sm_white.png";
 
 export default function Footer() {
     return (
@@ -14,58 +17,35 @@ export default function Footer() {
                 </div>
                 <div className="footer-links">
                     <ul>
-                        <li className="header">Company</li>
+                        <li className="header">Navigation</li>
                         <li>
-                            <a href="#">Home</a>
+                            <Link to="/">Accueil</Link>
                         </li>
                         <li>
-                            <a href="#">Services</a>
+                            <Link to="#">Services</Link>
                         </li>
                         <li>
-                            <a href="#">About Us</a>
+                            <Link to="/projects">Projets</Link>
                         </li>
                         <li>
-                            <a href="#">Projects</a>
+                            <Link to="/gallery">Inspirations</Link>
                         </li>
                         <li>
-                            <a href="#">Contacts</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li className="header">Services</li>
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">Services</a>
-                        </li>
-                        <li>
-                            <a href="#">About Us</a>
-                        </li>
-                        <li>
-                            <a href="#">Projects</a>
+                            <Link to="/contact">Contact</Link>
                         </li>
                     </ul>
                     <ul>
-                        <li className="header">Social</li>
+                        <li className="header">Liens rapides</li>
                         <li>
-                            <a href="#">Home</a>
+                            <a href="#">Mentions légales</a>
                         </li>
                         <li>
-                            <a href="#">Services</a>
+                            <a href="#">Protection des données</a>
                         </li>
                         <li>
-                            <a href="#">About Us</a>
-                        </li>
-                        <li>
-                            <a href="#">Projects</a>
+                            <a href="#">Sitemap</a>
                         </li>
                     </ul>
-                </div>
-                <div className="rights">
-                    <p>
-                        Loremfisher <span>© 2025 All Rights Reserved</span>
-                    </p>
                 </div>
             </div>
         </footer>

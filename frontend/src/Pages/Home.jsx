@@ -224,8 +224,8 @@ export default function Home() {
             <section>
                 <div className="projects-wrapper">
                     <div className="projects container">
-                        <p className="subtitle">Lorem ipsum</p>
-                        <h2>Lorem ipsum dolor sit amet</h2>
+                        <p className="subtitle">Nos projets</p>
+                        <h2>Découvrez nos dernières réalisations</h2>
                         <div className="projects-grid">
                             <div className="project-card">
                                 <div className="project-card-image">

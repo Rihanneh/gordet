@@ -13,11 +13,6 @@ export default function Contact() {
             <ContactUs />
             <Footer />
         </section>
-        <section>
-            <div className="rdvBox">
-                Prenez voutre rendez-vous en ligne
-            </div>
-        </section>
         </>
     )
 }
