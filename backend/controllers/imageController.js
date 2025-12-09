@@ -10,7 +10,7 @@ const prisma = new PrismaClient();
 
 // READ - lire tous les images
 export const getImages = async (req, res) => {
-    const host = process.env.HOST || `http://localhost:${process.env.PORT || 3000}`;
+    const host = process.env.HOST;
     const images = await prisma.image.findMany();
     const formatedImages = await Promise.all(
         images.map(async function(image) {
