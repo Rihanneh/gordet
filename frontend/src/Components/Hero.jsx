@@ -41,9 +41,7 @@ export default function Hero() {
                 '--overlay-color': heroImages[currentImageIndex].color
             }}
         >
-            <header>
-                <NavBar />
-            </header>
+            <NavBar />
             {heroImages.map((item, index) => (
                 <div
                     key={index}

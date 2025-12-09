@@ -52,6 +52,7 @@
 }
 
 .services .box .arrow {
+    color: var(--secondary);
     font-size: 1.5rem;
 }
 
@@ -117,7 +118,7 @@
 
 .what-we-do-box-image,
 .what-we-do-box-text {
-    max-height: 450px;
+    max-height: 525px;
 }
 
 .what-we-do-box-image img {

@@ -47,6 +47,46 @@
   color: var(--text-color);
 }
 
+@font-face {
+    font-family: 'gidole-regular';
+    src: url('../assets/fonts/gidole-regular.woff2') format('woff2'),
+         url('../assets/fonts/gidole-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'verano_sans';
+    src: url('../assets/fonts/veranosans-regular.woff2') format('woff2'),
+         url('../assets/fonts/veranosans-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'verano_sansbold';
+    src: url('../assets/fonts/veranosans-bold.woff2') format('woff2'),
+         url('../assets/fonts/veranosans-bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'verano_sansitalic';
+    src: url('../assets/fonts/veranosans-italic.woff2') format('woff2'),
+         url('../assets/fonts/veranosans-italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'verano_sanslight';
+    src: url('../assets/fonts/veranosans-light.woff2') format('woff2'),
+         url('../assets/fonts/veranosans-light.woff') format('woff');
+    font-weight: light;
+    font-style: normal;
+}
+
 body {
   color: var(--text-color);
   position: relative;
@@ -70,23 +110,27 @@ header {
 }
 
 h1 {
+    font-family: 'verano_sansbold', sans-serif;
     font-size: 4.2rem;
     line-height: 1.1;
     color: var(--secondary-dark);
 }
 
 h2 {
+    font-family: 'verano_sansbold', sans-serif;
     font-size: 2.8rem;
     color: var(--secondary-dark);
 }
 
 h3 {
+    font-family: 'verano_sans', sans-serif;
     font-size: 2rem;
     color: var(--secondary-dark);
 }
 
 p {
-    font-size: 1rem;
+    font-family: 'gidole-regular', sans-serif;
+    font-size: 1.1rem;
     text-align: justify;
 }
 
@@ -201,6 +245,10 @@ a {
   white-space: nowrap;
 }
 
+.text-center {
+    text-align: center !important;
+}
+
 .subtitle {
     color: var(--info);
     text-transform: uppercase;
@@ -221,6 +269,10 @@ a {
 
 .secondary-dark {
     color: var(--secondary-dark) !important;
+}
+
+.bg-light {
+    background-color: var(--light) !important;
 }
 
 /* desktop small */

@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
 import ContactUs from "../Components/ContactUs";
 import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
+
 import "photoswipe/style.css";
 import "./Gallery.css"
-import { useEffect, useState } from "react";
 
 export default function Gallery() {
 
@@ -61,7 +62,6 @@ export default function Gallery() {
             </div >
             <ContactUs />
             <Footer />
-
         </>
     );
 }

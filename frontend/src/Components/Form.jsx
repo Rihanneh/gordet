@@ -30,7 +30,6 @@ export default function Form() {
             <div className="container">
                 <div className="contactBox">
                     <p className="subtitle">Nous contacter</p>
-                    <br />
                     <p className="header">Discutons de votre projet</p>
                     <div className="form-container">
                         <form action="">

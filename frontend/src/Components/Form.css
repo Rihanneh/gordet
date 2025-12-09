@@ -95,6 +95,7 @@
     font-size: 4rem;
     font-weight: 800;
     text-align: left;
+    margin-block: 2rem 4rem;
 }
 
 .form-container .flname,
@@ -134,12 +135,6 @@
     margin-bottom: 30px;
 }
 
-.form-container input:hover,
-.form-container textarea:hover {
-    background-color: var(--light-dark);
-    color: var(--secondary-light);
-}
-
 .form-container input:focus-visible,
 .form-container textarea:focus-visible {
     outline: 2px var(--info) solid;
@@ -160,7 +155,7 @@
 
 .reservation_box {
     background-color: white;
-    border: 1px solid rgba(211, 211, 211, 0.639);
+    border: 1px solid var(--light-dark);
     border-radius: var(--radius-large);
     font-weight: bold;
     overflow: hidden;
@@ -170,7 +165,7 @@
 .reservation_box .date {
     position: relative;
     padding: 18px 20px;
-    border-bottom: 1px solid rgba(211, 211, 211, 0.639);
+    border-bottom: 1px solid var(--light-dark);
     cursor: pointer;
 }
 

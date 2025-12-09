@@ -98,26 +98,26 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="container services">
-                    <div className="box service-dur">
+                    <Link to="/prestations#faiences-gres-marbres" className="box service-dur">
                         <img src={triangleCarrelage} alt="Faïence" className="icon" />
                         <h3>Faïences, grès, marbres</h3>
                         <p className="arrow">➔</p>
-                    </div>
-                    <div className="box service-souple">
+                    </Link>
+                    <Link to="/prestations#sols-durs" className="box service-souple">
                         <img src={triangleDur} alt="Sols durs" className="icon" />
                         <h3>Sols durs</h3>
                         <p className="arrow">➔</p>
-                    </div>
-                    <div className="box service-carlage">
+                    </Link>
+                    <Link to="/prestations#sols-souples" className="box service-carlage">
                         <img src={triangleSouple} alt="Sols souples" className="icon" />
                         <h3>Sols souples</h3>
                         <p className="arrow">➔</p>
-                    </div>
-                    <div className="box service-carlage">
+                    </Link>
+                    <Link to="/prestations#sols-textiles" className="box service-carlage">
                         <img src={triangleMoquette} alt="Sols textiles" className="icon" />
                         <h3>Sols textiles</h3>
                         <p className="arrow">➔</p>
-                    </div>
+                    </Link>
                 </div>
             </section>
             <section>
