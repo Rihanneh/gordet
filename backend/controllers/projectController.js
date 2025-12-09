@@ -131,8 +131,17 @@ export const updateProject = async (req, res) => {
 
 // DELETE - supprimer un projet
 export const deleteProject = async (req, res) => {
-    await prisma.project.delete({
-        where: { id: Number(req.params.id) },
+    const projectId = Number(req.params.id);
+    
+    await prisma.$transaction(async (tx) => {
+        await tx.projectImages.deleteMany({
+            where: { projectId },
+        });
+        
+        await tx.project.delete({
+            where: { id: projectId },
+        });
     });
+    
     res.json({ message: "Project deleted" });
 };
