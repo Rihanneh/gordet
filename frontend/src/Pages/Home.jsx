@@ -128,7 +128,6 @@ export default function Home() {
 
                         <div className="who-we-are-content">
                             <p className="subtitle">Notre force</p>
-                            <br />
                             <h2>Une équipe dédiée</h2>
                             <br />
                             <p className="who-we-are-text">
@@ -154,7 +153,6 @@ export default function Home() {
                 <div className="what-we-do">
                     <div className="what-we-do-content">
                         <p className="subtitle">Notre accompagnement</p>
-                        <br />
                         <h2 className="header">
                             Une expérience de{" "}
                             <span className="text-decorated">

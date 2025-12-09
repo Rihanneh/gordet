@@ -95,7 +95,7 @@
 
 .what-we-do-content {
     margin-inline: 20% 2rem;
-    margin-bottom: 100px;
+    margin-block: 20px 100px;
     grid-column: 1 / 3;
 }
 

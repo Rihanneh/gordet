@@ -8,10 +8,10 @@ Footer start
 }
 
 .footer .container {
-  padding-block: 120px 20px;
+  padding-block: 60px 20px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 .footer img {
@@ -43,13 +43,6 @@ Footer start
   color: var(--light-dark);
 }
 
-.footer .footer-links {
-  display: flex;
-  margin-top: 40px;
-  gap: 9rem;
-  width: 100%;
-}
-
 .footer .header {
   font-size: 18px;
   font-weight: 800;
@@ -62,4 +55,15 @@ Footer start
 
 .footer li a {
   color: var(--light-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer .container {
+        flex-wrap: wrap;
+    }
+
+    .footer .container ul {
+        width: 100%;
+    }
 }

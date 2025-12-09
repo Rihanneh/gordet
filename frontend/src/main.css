@@ -139,6 +139,10 @@ a {
   text-decoration: inherit;
 }
 
+p {
+    margin-bottom: .8rem;
+}
+
 .text-decorated {
   position: relative;
   display: inline-block;
@@ -170,15 +174,12 @@ a {
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--secondary);
+    margin-bottom: .4rem;
 }
 
 .container {
   margin: 0 auto;
   max-width: 70%;
-}
-
-.container p {
-    margin-bottom: .8rem;
 }
 
 .btn {

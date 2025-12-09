@@ -23,12 +23,20 @@ export default function ProjectsList({ showLink = false, limit = null }) {
 
     const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    };
+
     return (
         <>
             <div className="projects-grid">
                 {displayedProjects.map((project, index) => (
                     <a
-                        href={'/projects/' + project.slug}
+                        href={'/projets/' + project.slug}
                         className="project-card"
                         key={index}
                     >
@@ -41,6 +49,11 @@ export default function ProjectsList({ showLink = false, limit = null }) {
                         <div className="project-card-content">
                             <p className="project-card-label">
                                 {project.label || project.type || "Projet"}
+                                {project.date && (
+                                    <span className="project-card-date">
+                                        {" - " + formatDate(project.date)}
+                                    </span>
+                                )}
                             </p>
                             <h3 className="project-card-title">
                                 {project.title || project.description}

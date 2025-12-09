@@ -15,38 +15,36 @@ export default function Footer() {
                         revêtements de sols.
                     </p>
                 </div>
-                <div className="footer-links">
-                    <ul>
-                        <li className="header">Navigation</li>
-                        <li>
-                            <Link to="/">Accueil</Link>
-                        </li>
-                        <li>
-                            <Link to="#">Services</Link>
-                        </li>
-                        <li>
-                            <Link to="/projects">Projets</Link>
-                        </li>
-                        <li>
-                            <Link to="/gallery">Inspirations</Link>
-                        </li>
-                        <li>
-                            <Link to="/contact">Contact</Link>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li className="header">Liens rapides</li>
-                        <li>
-                            <a href="#">Mentions légales</a>
-                        </li>
-                        <li>
-                            <a href="#">Protection des données</a>
-                        </li>
-                        <li>
-                            <a href="#">Sitemap</a>
-                        </li>
-                    </ul>
-                </div>
+                <ul>
+                    <li className="header">Navigation</li>
+                    <li>
+                        <Link to="/">Accueil</Link>
+                    </li>
+                    <li>
+                        <Link to="#">Services</Link>
+                    </li>
+                    <li>
+                        <Link to="/projects">Projets</Link>
+                    </li>
+                    <li>
+                        <Link to="/gallery">Inspirations</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">Contact</Link>
+                    </li>
+                </ul>
+                <ul>
+                    <li className="header">Liens rapides</li>
+                    <li>
+                        <a href="#">Mentions légales</a>
+                    </li>
+                    <li>
+                        <a href="#">Protection des données</a>
+                    </li>
+                    <li>
+                        <a href="#">Sitemap</a>
+                    </li>
+                </ul>
             </div>
         </footer>
     );

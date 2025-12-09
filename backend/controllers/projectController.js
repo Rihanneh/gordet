@@ -46,6 +46,29 @@ export const getProjectById = async (req, res) => {
     });
 };
 
+// READ ONE - lire un projet par SLUG
+export const getProjectBySlug = async (req, res) => {
+    console.log(req.params.slug)
+    const project = await prisma.project.findUnique({
+        where: { slug: req.params.slug },
+        include: {
+            images: {
+                include: {
+                    image: true,
+                },
+            },
+        },
+    });
+    if (!project) {
+        return res.status(404).json({ message: "Project not found" });
+    }
+    res.json({
+        ...project,
+        imageIds: project.images?.map(relation => relation.imageId) ?? [],
+        images: project.images?.map(relation => relation.image) ?? [],
+    });
+};
+
 // CREATE - créer un projet
 export const createProject = async (req, res) => {
     const { imageIds, ...projectData } = req.body;
@@ -81,7 +104,7 @@ export const createProject = async (req, res) => {
 export const updateProject = async (req, res) => {
     const projectId = Number(req.params.id);
     const { imageIds, images, createdAt, updatedAt, ...projectData } = req.body;
-    
+
     if (projectData.date) {
         projectData.date = new Date(projectData.date);
     }
@@ -132,16 +155,16 @@ export const updateProject = async (req, res) => {
 // DELETE - supprimer un projet
 export const deleteProject = async (req, res) => {
     const projectId = Number(req.params.id);
-    
+
     await prisma.$transaction(async (tx) => {
         await tx.projectImages.deleteMany({
             where: { projectId },
         });
-        
+
         await tx.project.delete({
             where: { id: projectId },
         });
     });
-    
+
     res.json({ message: "Project deleted" });
 };

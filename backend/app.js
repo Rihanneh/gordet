@@ -31,6 +31,7 @@ app.delete('/users/:id', userController.deleteUser);
 
 // ====================================== PROJECTS ROUTES ======================================
 app.get('/projects', projectController.getProjects);
+app.get('/projects/slug/:slug', projectController.getProjectBySlug);
 app.get('/projects/:id', projectController.getProjectById);
 app.post('/projects', projectController.createProject);
 app.patch('/projects/:id', projectController.updateProject);

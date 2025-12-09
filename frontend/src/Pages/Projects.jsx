@@ -6,14 +6,14 @@ export default function Projects() {
     return (
         <>
             <NavBar />
-            <main className="projectBox ">
+            <main className="projectBox">
                 <section className="secondary-hero">
                     <div className="container">
                         <h1>Les projets</h1>
                         <p className="subtitle text-center">Pour les professionnels, les collectivités et les particuliers</p>
                     </div>
                 </section>
-                <section>
+                <section className="projects-section">
                     <div>
                         <div className="projects container">
                             <ProjectsList showLink={false} />
