@@ -7,6 +7,7 @@ import ContactUs from "../Components/ContactUs";
 import "photoswipe/style.css";
 import "./Services.css";
 
+import textDecoration from "../../assets/icons/text-decoration.svg";
 import prestationService1 from "../../assets/prestation-dur-1.jpeg"
 import prestationService2 from "../../assets/prestation-dur-2.jpeg"
 import prestationService3 from "../../assets/prestation-dur-3.jpeg"
@@ -19,6 +20,7 @@ import prestationService9 from "../../assets/prestation-souple-3.jpeg"
 import prestationService10 from "../../assets/prestation-textile-1.jpeg"
 import prestationService11 from "../../assets/prestation-textile-2.jpeg"
 import prestationService12 from "../../assets/prestation-textile-3.jpeg"
+import { ReactSVG } from "react-svg";
 
 export default function Services() {
     useEffect(() => {
@@ -39,7 +41,7 @@ export default function Services() {
             <NavBar />
 
             <main>
-                <section className="services-hero">
+                <section className="secondary-hero">
                     <div className="container">
                         <h1>Les prestations</h1>
                         <p className="subtitle text-center">Excellence et savoir-faire depuis plus de 30 ans</p>
@@ -50,7 +52,17 @@ export default function Services() {
                     <div className="container">
                         <div className="service-content">
                             <div className="service-text">
-                                <h2>Faïences, grès, marbres</h2>
+                                <h2>
+                                    <span className="text-decorated">
+                                        <span className="text-decoration">
+                                            <ReactSVG src={textDecoration} />
+                                        </span>
+                                        <span className="text-decorated">
+                                            Faïences
+                                        </span>{" "}
+                                    </span>{" "}
+                                    , grès, marbres
+                                </h2>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -107,7 +119,17 @@ export default function Services() {
                     <div className="container">
                         <div className="service-content">
                             <div className="service-text">
-                                <h2>Sols durs</h2>
+                                <h2>
+                                    Sols{" "}
+                                    <span className="text-decorated">
+                                        <span className="text-decoration">
+                                            <ReactSVG src={textDecoration} />
+                                        </span>
+                                        <span className="text-decorated">
+                                            durs
+                                        </span>
+                                    </span>
+                                </h2>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -164,7 +186,17 @@ export default function Services() {
                     <div className="container">
                         <div className="service-content">
                             <div className="service-text">
-                                <h2>Sols souples</h2>
+                                <h2>
+                                    Sols{" "}
+                                    <span className="text-decorated">
+                                        <span className="text-decoration">
+                                            <ReactSVG src={textDecoration} />
+                                        </span>
+                                        <span className="text-decorated">
+                                            souples
+                                        </span>
+                                    </span>
+                                </h2>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -221,7 +253,17 @@ export default function Services() {
                     <div className="container">
                         <div className="service-content">
                             <div className="service-text">
-                                <h2>Sols textiles</h2>
+                                <h2>
+                                    Sols{" "}
+                                    <span className="text-decorated">
+                                        <span className="text-decoration">
+                                            <ReactSVG src={textDecoration} />
+                                        </span>
+                                        <span className="text-decorated">
+                                            textiles
+                                        </span>
+                                    </span>
+                                </h2>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

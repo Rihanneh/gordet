@@ -4,12 +4,10 @@ import Hero from "../Components/Hero";
 import Footer from "../Components/Footer";
 import Button from "../Components/Button";
 import ContactUs from "../Components/ContactUs";
+import ProjectsList from "../Components/ProjectsList";
 import "./Home.css";
 
 import arkea from "../../assets/companies/arkea.jpg";
-import salleDeBain from "../../assets/projets/carlage-salle-de-bain.jpg";
-import solbois from "../../assets/projets/sol-bois-arkea.jpg";
-import solVert from "../../assets/projets/sol-vert.jpg";
 import aboutImg1 from "../../assets/projets/sol-foncé-vitre.jpg";
 import aboutImg2 from "../../assets/projets/sol-bois-salon.jpg";
 import escaliers from "../../assets/projets/escalier2.jpg";
@@ -222,57 +220,14 @@ export default function Home() {
                 </div>
             </section>
             <section>
-                <div className="projects-wrapper">
-                    <div className="projects container">
-                        <p className="subtitle">Nos projets</p>
-                        <h2>Découvrez nos dernières réalisations</h2>
-                        <div className="projects-grid">
-                            <div className="project-card">
-                                <div className="project-card-image">
-                                    <img src={salleDeBain} alt="" />
-                                </div>
-                                <div className="project-card-content">
-                                    <p className="project-card-label">
-                                        Appartment
-                                    </p>
-                                    <h3 className="project-card-title">
-                                        Lorem ipsum, dolor sit amet consectetur
-                                        elit.
-                                    </h3>
-                                </div>
-                            </div>
-                            <div className="project-card">
-                                <div className="project-card-image">
-                                    <img src={solVert} alt="" />
-                                </div>
-                                <div className="project-card-content">
-                                    <p className="project-card-label">
-                                        Appartment
-                                    </p>
-                                    <h3 className="project-card-title">
-                                        Lorem ipsum, dolor sit amet consectetur
-                                        elit.
-                                    </h3>
-                                </div>
-                            </div>
-                            <div className="project-card">
-                                <div className="project-card-image">
-                                    <img src={solbois} alt="" />
-                                </div>
-                                <div className="project-card-content">
-                                    <p className="project-card-label">
-                                        Appartment
-                                    </p>
-                                    <h3 className="project-card-title">
-                                        Lorem ipsum, dolor sit amet consectetur
-                                        elit.
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <p className="projects-link">
-                            <Link to="/projects">Voir plus</Link>
-                        </p>
+                <div className="projects-wrapper bg-light">
+                    <div className="container">
+                        <p className="subtitle text-center">Nos projets</p>
+                        <h2 className="text-center">Découvrez nos dernières réalisations</h2>
+                        <ProjectsList
+                            showLink={true}
+                            limit={3}
+                        />
                     </div>
                 </div>
             </section>

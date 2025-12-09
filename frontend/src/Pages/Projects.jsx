@@ -1,55 +1,26 @@
-import { useState } from "react";
 import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
+import ProjectsList from "../Components/ProjectsList";
 
 export default function Projects() {
-
-    const [projects, addProject] = useState([]);
-
-    const getProject = async function () {
-        return await fetch("http://localhost:3000/projects")
-            .then(function (res) {
-                return res.json()
-            })
-            .then(function (json) {
-                addProject(json)
-            })
-    }
-
-    if (projects.length === 0) {
-        getProject()
-    }
-
-
     return (
         <>
             <NavBar />
-            <div className="projectBox ">
-                <div className="project container">
-                    <p className="title">Lorem ipsum</p>
-                    <h2>Lorem ipsum dolor sit amet</h2>
-
-                    <div className="project_box">
-                        {projects.map(function (project, index) {
-
-                            return (
-                                <a href={ '/projects/' + project.slug } className="project_box-item" key={index}>
-                                    <div className="project_box-item-img">
-                                        <img src={"http://localhost:3000/" + project.images[0].path} alt={project.title} />
-                                    </div>
-                                    <div className="project_box-item-text">
-                                        <p className="project_box-item-text-title">{project.title}</p>
-                                        <h3 className="project_box-item-text-header">
-                                            {project.description }
-                                        </h3>
-                                    </div>
-                                </a>
-                            )
-                        }
-                        )}
+            <main className="projectBox ">
+                <section className="secondary-hero">
+                    <div className="container">
+                        <h1>Les projets</h1>
+                        <p className="subtitle text-center">Pour les professionnels, les collectivités et les particuliers</p>
                     </div>
-                </div>
-            </div>
+                </section>
+                <section>
+                    <div>
+                        <div className="projects container">
+                            <ProjectsList showLink={false} />
+                        </div>
+                    </div>
+                </section>
+            </main>
             <Footer />
         </>);
 }

@@ -5,23 +5,24 @@ import NavBar from "../Components/NavBar";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 
 import "photoswipe/style.css";
-import "./Gallery.css"
+import "./Gallery.css";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Gallery() {
-
     const [images, addImage] = useState([]);
 
     const getGallery = async function () {
-        return await fetch("http://localhost:3000/images")
+        return await fetch(`${API_URL}/images`)
             .then(function (res) {
-                return res.json()
+                return res.json();
             })
             .then(function (json) {
-                addImage(json)
-            })
-    }
+                addImage(json);
+            });
+    };
     if (images.length === 0) {
-        getGallery()
+        getGallery();
     }
 
     useEffect(() => {
@@ -31,35 +32,39 @@ export default function Gallery() {
             pswpModule: () => import("photoswipe"),
         });
         lightbox.init();
-    }, [])
+    }, []);
 
     return (
         <>
             <NavBar />
-            <div className="gallery container ">
-                <div className="gallery_text">
-                    <p className="subtitle">OUR PHOTOS</p>
-                    <p>Explore Gallery</p>
-
-                </div>
-                <div className="gallery_imgs" id="my-gallery">
-                    {images.map(function (image, index) {
-                        return (
-                            <a
-                                key={index}
-                                href={image.url}
-                                target="_blank"
-                                data-pswp-width={image.width}
-                                data-pswp-height={image.height} >
-                                <img src={image.url} alt="" />
-                            </a>
-                        )
-
-                    }
-                    )}
-
-                </div>
-            </div >
+            <main>
+                <section className="secondary-hero">
+                    <div className="container">
+                        <h1>Les inspirations</h1>
+                        <p className="subtitle text-center">
+                            Photos des réalisations Gordet
+                        </p>
+                    </div>
+                </section>
+                <section className="gallery_imgs" id="my-gallery">
+                    <div className="container masonry-grid">
+                        {images.map(function (image, index) {
+                            return (
+                                <a
+                                    key={index}
+                                    href={image.url}
+                                    target="_blank"
+                                    data-pswp-width={image.width}
+                                    data-pswp-height={image.height}
+                                    className="masonry-item"
+                                >
+                                    <img src={image.url} alt="" />
+                                </a>
+                            );
+                        })}
+                    </div>
+                </section>
+            </main>
             <ContactUs />
             <Footer />
         </>

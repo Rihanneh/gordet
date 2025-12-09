@@ -1,4 +1,4 @@
-import poseCarrelage from "../../assets/projets/pose-carrelage-vector.png";
+import poseCarrelage from "../../assets/pose-carrelage-vector.png";
 import Button from "../Components/Button";
 
 export default function ContactUs() {

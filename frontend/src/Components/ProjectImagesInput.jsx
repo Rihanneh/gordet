@@ -10,7 +10,11 @@ export const ProjectImagesInput = ({ source = 'imageIds' }) => (
     </ReferenceArrayInput>
 );
 
-export const TransformProjectPayload = ({ data }) => {
+export const TransformProjectPayload = (data, options) => {
+    if (!data) {
+        return (options && options.previousData) || {};
+    }
+    
     const { imageIds, ...rest } = data;
 
     return {

@@ -275,6 +275,17 @@ a {
     background-color: var(--light) !important;
 }
 
+.secondary-hero {
+    padding: 80px 20px 60px;
+    text-align: center;
+    background-color: var(--light);
+}
+
+.secondary-hero h1 {
+    font-size: 3rem;
+    margin-block: 4rem 1rem;
+}
+
 /* desktop small */
 @media (max-width: 1024px) {
 

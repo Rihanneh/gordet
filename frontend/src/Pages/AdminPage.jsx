@@ -25,7 +25,7 @@ import { AppointmentShow } from "../Components/AppointmentShow";
 import { ImageShow } from "../Components/ImageShow";
 import { ServiceShow } from "../Components/ServiceShow";
 
-const apiUrl = "http://localhost:3000";
+const apiUrl = import.meta.env.VITE_API_URL;
 const httpClient = fetchUtils.fetchJson;
 const baseProvider = jsonServerProvider(apiUrl, httpClient);
 
