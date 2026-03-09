@@ -48,7 +48,6 @@ export const getProjectById = async (req, res) => {
 
 // READ ONE - lire un projet par SLUG
 export const getProjectBySlug = async (req, res) => {
-    console.log(req.params.slug)
     const project = await prisma.project.findUnique({
         where: { slug: req.params.slug },
         include: {
