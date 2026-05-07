@@ -236,14 +236,21 @@ p {
     white-space: nowrap;
     width: 100%;
     text-align: center;
+    visibility: hidden;
 }
 
-.btn a {
+.btn a,
+.btn button {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
 }
 
 .text-center {

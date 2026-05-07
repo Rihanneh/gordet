@@ -2,16 +2,19 @@ import { Link } from "react-router-dom";
 
 export default function Button({
    title = "Make An Appointment",
-   path = '#',
+   path,
    extraClass = '',
+   onClick,
+   type,
+   disabled = false,
 }) {
-
     return(
         <div className={ "btn " + extraClass }>
             <div>{ title }</div>
-            <Link to={ path }>
-                <span>{ title }</span>
-            </Link>
+            { path
+                ? <Link to={ path }><span>{ title }</span></Link>
+                : <button type={ type || "button" } onClick={ onClick } disabled={ disabled }><span>{ title }</span></button>
+            }
         </div>
     )
 }
