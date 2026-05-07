@@ -47,7 +47,8 @@
   text-decoration: none;
 }
 
-.navbar_links a:hover {
+.navbar_links a:hover,
+.navbar_links a.active {
   border-bottom: 2px var(--primary) solid;
   padding-bottom: 3px;
   color: var(--primary);

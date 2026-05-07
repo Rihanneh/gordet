@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 
 import mainLogo from "../../assets/logo_sm_white.png";
+import { navLinks } from "../config/navLinks";
 
 export default function Footer() {
     return (
@@ -17,32 +18,22 @@ export default function Footer() {
                 </div>
                 <ul>
                     <li className="header">Navigation</li>
-                    <li>
-                        <Link to="/">Accueil</Link>
-                    </li>
-                    <li>
-                        <Link to="#">Services</Link>
-                    </li>
-                    <li>
-                        <Link to="/projects">Projets</Link>
-                    </li>
-                    <li>
-                        <Link to="/gallery">Inspirations</Link>
-                    </li>
-                    <li>
-                        <Link to="/contact">Contact</Link>
-                    </li>
+                    {navLinks.map(({ label, path }) => (
+                        <li key={path}>
+                            <Link to={path}>{label}</Link>
+                        </li>
+                    ))}
                 </ul>
                 <ul>
                     <li className="header">Liens rapides</li>
                     <li>
-                        <a href="#">Mentions légales</a>
+                        <Link to="/mentions-legales">Mentions légales</Link>
                     </li>
                     <li>
-                        <a href="#">Protection des données</a>
+                        <Link to="/protection-des-donnees">Protection des données</Link>
                     </li>
                     <li>
-                        <a href="#">Sitemap</a>
+                        <Link to="/sitemap">Plan du site</Link>
                     </li>
                 </ul>
             </div>

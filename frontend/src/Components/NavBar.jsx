@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import "./NavBar.css";
 
@@ -7,6 +7,7 @@ import { useState } from "react";
 import mainLogo from "../../assets/logo_sm.png";
 import menuIcon from "../../assets/icons/menu.svg";
 import closeIcon from "../../assets/icons/close.svg";
+import { navLinks } from "../config/navLinks";
 
 export default function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,26 +32,19 @@ export default function NavBar() {
                     </Link>
                 </div>
                 <ul className={`navbar_links ${isMenuOpen ? "active" : ""}`}>
-                    <li>
-                        <Link to="/" onClick={closeMenu}>
-                            Accueil
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/prestations" onClick={closeMenu}>
-                            Prestations
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/projets" onClick={closeMenu}>
-                            Projets
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/inspirations" onClick={closeMenu}>
-                            Inspirations
-                        </Link>
-                    </li>
+                    {navLinks
+                        .filter(({ path }) => path !== "/contact")
+                        .map(({ label, path }) => (
+                            <li key={path}>
+                                <NavLink
+                                    to={path}
+                                    end={path === "/"}
+                                    onClick={closeMenu}
+                                >
+                                    {label}
+                                </NavLink>
+                            </li>
+                        ))}
                     <li className="navbar_links_button">
                         <Button
                             title="Nous contacter"
