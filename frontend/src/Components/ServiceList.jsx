@@ -16,7 +16,9 @@ export const ServiceList = () => (
             </DataTable.Col>
             <DataTable.Col source="imageId" />
             <DataTable.Col source="image" />
-            <EditButton />
+            <DataTable.Col label="">
+                <EditButton />
+            </DataTable.Col>
         </DataTable>
     </List>
 );

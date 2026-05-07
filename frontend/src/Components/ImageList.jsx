@@ -18,7 +18,9 @@ export const ImageList = () => (
             <DataTable.Col source="serviceId">
                 <ReferenceField source="serviceId" reference="services" label="service" link="show" />
             </DataTable.Col>
-            <EditButton />
+            <DataTable.Col label="">
+                <EditButton />
+            </DataTable.Col>
         </DataTable>
     </List>
 );

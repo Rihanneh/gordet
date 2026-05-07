@@ -4,6 +4,7 @@ Makefile
 compose.yaml
 docker/*
 CLAUDE.md
+.claude/*
 
 # Libraries
 node_modules/*

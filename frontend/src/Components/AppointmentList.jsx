@@ -26,7 +26,9 @@ export const AppointmentList = () => (
             <DataTable.Col source="updatedAt" >
                 <DateField source="updatedAt" />
             </DataTable.Col>
-            <EditButton />
+            <DataTable.Col label="">
+                <EditButton />
+            </DataTable.Col>
         </DataTable>
     </List>
 );
