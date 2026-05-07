@@ -30,6 +30,7 @@
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.0.2",
     "node-fetch-native": "^1.6.7",
+    "nodemailer": "^8.0.7",
     "nypm": "^0.6.1",
     "ohash": "^2.0.11",
     "pathe": "^2.0.3",
@@ -45,6 +46,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
+    "create-admin": "node scripts/create-admin.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

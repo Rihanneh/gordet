@@ -26,6 +26,8 @@ import { requireAuth } from './middleware/auth.js';
 
 // ====================================== AUTH ROUTES ======================================
 app.post('/auth/login', authController.login);
+app.post('/auth/forgot-password', authController.forgotPassword);
+app.post('/auth/reset-password', authController.resetPassword);
 
 // ====================================== USERS ROUTES (protected) ======================================
 app.get('/users', requireAuth, userController.getUsers);

@@ -1,4 +1,7 @@
-import { Admin, EditGuesser, ListGuesser, Resource, ShowGuesser, fetchUtils } from "react-admin";
+import { Admin, EditGuesser, ListGuesser, Resource, ShowGuesser, fetchUtils, CustomRoutes } from "react-admin";
+import { Route } from "react-router-dom";
+import { AdminForgotPassword } from "../Components/AdminForgotPassword";
+import { AdminResetPassword } from "../Components/AdminResetPassword";
 import { houseLightTheme, houseDarkTheme } from "ra-ui-materialui";
 import polyglotI18nProvider from "ra-i18n-polyglot";
 import frenchMessages from "ra-language-french";
@@ -205,6 +208,10 @@ export default function AdminPage() {
       <Resource name="appointments" list={AppointmentList} edit={AppointmentEdit} create={AppointmentCreate} show={AppointmentShow} icon={EventIcon} />
       <Resource name="images" list={ImageList} edit={ImageEdit} create={ImageCreate} show={ImageShow} icon={CollectionsIcon} />
       <Resource name="services" list={ServiceList} edit={ServiceEdit} create={ServiceCreate} show={ServiceShow} icon={SpaIcon} />
+      <CustomRoutes noLayout>
+        <Route path="/forgot-password" element={<AdminForgotPassword />} />
+        <Route path="/reset-password" element={<AdminResetPassword />} />
+      </CustomRoutes>
     </Admin>
   );
 }

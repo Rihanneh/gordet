@@ -54,11 +54,13 @@ model Appointment {
 }
 
 model User {
-    id        Int      @id @default(autoincrement())
-    email     String   @unique @db.VarChar(150)
-    password  String   @db.VarChar(255)
-    createdAt DateTime @default(now()) @map("created_at") @db.DateTime(0)
-    updatedAt DateTime @updatedAt @map("updated_at")
+    id               Int       @id @default(autoincrement())
+    email            String    @unique @db.VarChar(150)
+    password         String    @db.VarChar(255)
+    resetToken       String?   @map("reset_token") @db.VarChar(255)
+    resetTokenExpiry DateTime? @map("reset_token_expiry") @db.DateTime(0)
+    createdAt        DateTime  @default(now()) @map("created_at") @db.DateTime(0)
+    updatedAt        DateTime  @updatedAt @map("updated_at")
 
     @@map("users")
 }
