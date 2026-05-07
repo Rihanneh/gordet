@@ -1,14 +1,14 @@
 {
   "devDependencies": {
     "nodemon": "^3.1.10",
-    "prisma": "^6.14.0"
+    "prisma": "^7.8.0"
   },
   "name": "gordet",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@prisma/client": "^6.17.0",
+    "@prisma/client": "^7.8.0",
     "bcryptjs": "^3.0.3",
     "c12": "^3.1.0",
     "chokidar": "^4.0.3",
@@ -47,6 +47,8 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "create-admin": "node scripts/create-admin.js",
+    "db:push": "prisma db push --env-file .env.local",
+    "db:pull": "prisma db pull --env-file .env.local",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,10 +1,8 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma.js';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import { sendPasswordResetEmail } from '../utils/mailer.js';
-
-const prisma = new PrismaClient();
 
 export const login = async (req, res) => {
     const { email, password } = req.body;

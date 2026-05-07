@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma.js';
 import bcrypt from 'bcryptjs';
-
-const prisma = new PrismaClient();
 
 const safeSelect = { id: true, email: true, createdAt: true, updatedAt: true };
 

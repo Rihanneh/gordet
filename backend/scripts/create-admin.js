@@ -1,6 +1,11 @@
-import bcrypt from 'bcryptjs';
-import { PrismaClient } from '@prisma/client';
+import dotenv from 'dotenv';
 import readline from 'readline';
+
+dotenv.config({ path: `${process.cwd()}/.env.local`, override: true });
+
+
+const { default: bcrypt } = await import('bcryptjs');
+const { PrismaClient } = await import('@prisma/client');
 
 function prompt(rl, question) {
   return new Promise((resolve) => rl.question(question, resolve));
@@ -21,9 +26,9 @@ function promptHidden(question) {
         process.stdin.removeListener('data', handler);
         process.stdout.write('\n');
         resolve(input);
-      } else if (char === '') {
+      } else if (char === '') {
         process.exit();
-      } else if (char === '') {
+      } else if (char === '') {
         if (input.length > 0) {
           input = input.slice(0, -1);
           process.stdout.write('\b \b');
