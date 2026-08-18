@@ -18,6 +18,24 @@
     overflow: hidden;
     text-decoration: none;
     background-color: var(--light);
+    transition: background-color 0.25s ease;
+}
+
+/* Sur l'accueil la liste est posée sur un fond gris : on inverse la carte
+   pour qu'elle reste détachée du conteneur. */
+.bg-light .project-card {
+    background-color: var(--white);
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+    background-color: var(--light-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card {
+        transition: none;
+    }
 }
 
 .project-card-image {

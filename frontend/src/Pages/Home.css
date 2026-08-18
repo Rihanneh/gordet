@@ -38,6 +38,12 @@
     padding: 1rem;
     background-color: var(--light);
     border-radius: var(--radius);
+    transition: background-color 0.25s ease;
+}
+
+.services .box:hover,
+.services .box:focus-visible {
+    background-color: var(--light-dark);
 }
 
 .services .box .icon {
@@ -54,6 +60,25 @@
 .services .box .arrow {
     color: var(--secondary);
     font-size: 1.5rem;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.services .box:hover .arrow,
+.services .box:focus-visible .arrow {
+    color: var(--secondary-dark);
+    transform: translateX(8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .services .box,
+    .services .box .arrow {
+        transition: none;
+    }
+
+    .services .box:hover .arrow,
+    .services .box:focus-visible .arrow {
+        transform: none;
+    }
 }
 
 .who-we-are {

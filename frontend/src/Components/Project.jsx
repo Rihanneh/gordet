@@ -94,7 +94,7 @@ export default function Project() {
                 <section className="project-gallery-section">
                     <div className="container">
                         <h2>Autres projets</h2>
-                        <ProjectsList showLink={false} limit={null} />
+                        <ProjectsList showLink={false} limit={null} excludeSlug={slug} />
                     </div>
                 </section>
             </main>

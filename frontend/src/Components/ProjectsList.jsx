@@ -4,7 +4,11 @@ import "./ProjectsList.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-export default function ProjectsList({ showLink = false, limit = null }) {
+export default function ProjectsList({
+    showLink = false,
+    limit = null,
+    excludeSlug = null,
+}) {
     const [projects, setProjects] = useState([]);
 
     useEffect(() => {
@@ -21,7 +25,13 @@ export default function ProjectsList({ showLink = false, limit = null }) {
         getProjects();
     }, []);
 
-    const displayedProjects = limit ? projects.slice(0, limit) : projects;
+    const visibleProjects = excludeSlug
+        ? projects.filter((project) => project.slug !== excludeSlug)
+        : projects;
+
+    const displayedProjects = limit
+        ? visibleProjects.slice(0, limit)
+        : visibleProjects;
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
