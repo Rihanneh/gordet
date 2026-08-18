@@ -7,7 +7,6 @@ import ContactUs from "../Components/ContactUs";
 import ProjectsList from "../Components/ProjectsList";
 import "./Home.css";
 
-import arkea from "../../assets/companies/arkea.jpg";
 import aboutImg1 from "../../assets/projets/sol-foncé-vitre.jpg";
 import aboutImg2 from "../../assets/projets/sol-bois-salon.jpg";
 import escaliers from "../../assets/projets/escalier2.jpg";
@@ -17,6 +16,23 @@ import triangleCarrelage from "../../assets/triangle-carrelage.png";
 import triangleDur from "../../assets/triangle-dur.png";
 import triangleSouple from "../../assets/triangle-souple.png";
 import triangleMoquette from "../../assets/triangle-moquette.png";
+
+const companyLogos = Object.entries(
+    import.meta.glob("../../assets/companies/*.{png,jpg,jpeg,svg,webp}", {
+        eager: true,
+        query: "?url",
+        import: "default",
+    })
+)
+    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .map(([path, src]) => ({
+        src,
+        name: path
+            .split("/")
+            .pop()
+            .replace(/\.\w+$/, "")
+            .replace(/-/g, " "),
+    }));
 
 export default function Home() {
     return (
@@ -96,9 +112,9 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="container services">
-                    <Link to="/prestations#faiences-gres-marbres" className="box service-dur">
+                    <Link to="/prestations#faiences-gres-mosaïque" className="box service-dur">
                         <img src={triangleCarrelage} alt="Faïence" className="icon" />
-                        <h3>Faïences, grès, marbres</h3>
+                        <h3>Faïences, grès, mosaïque</h3>
                         <p className="arrow">➔</p>
                     </Link>
                     <Link to="/prestations#sols-durs" className="box service-souple">
@@ -138,7 +154,7 @@ export default function Home() {
                                 développement durable.
                             </p>
                             <p className="who-we-are-hours">
-                                Du lundi au vendredi de 9H à 18H
+                                Du lundi au vendredi de 8H30 à 17H30
                             </p>
                             <Button
                                 title="Prendre rendez-vous"
@@ -200,20 +216,30 @@ export default function Home() {
                 </div>
             </section>
             <section>
+                <div className="container">
+                    <p className="subtitle text-center carousel-title">
+                        Ils nous ont fait confiance
+                    </p>
+                </div>
                 <div className="carousel">
-                    <div className="carousel-items">
-                        <div className="carousel-item">
-                            <img src={arkea} alt="" />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={arkea} alt="" />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={arkea} alt="" />
-                        </div>
-                        <div className="carousel-item">
-                            <img src={arkea} alt="" />
-                        </div>
+                    <div className="carousel-track">
+                        {[...companyLogos, ...companyLogos].map(
+                            (logo, index) => {
+                                const isClone = index >= companyLogos.length;
+                                return (
+                                    <div
+                                        className="carousel-item"
+                                        key={`${logo.name}-${index}`}
+                                        aria-hidden={isClone}
+                                    >
+                                        <img
+                                            src={logo.src}
+                                            alt={isClone ? "" : logo.name}
+                                        />
+                                    </div>
+                                );
+                            }
+                        )}
                     </div>
                 </div>
             </section>
