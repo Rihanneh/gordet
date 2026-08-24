@@ -1,0 +1,84 @@
+name: CI/CD - PROD (gordet.fr)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Simuler le deploiement sans rien ecrire sur le serveur"
+        type: boolean
+        default: false
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy-frontend:
+    name: Build and Deploy Frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Lint code
+        working-directory: ./frontend
+        run: npm run lint
+
+      - name: Build project
+        working-directory: ./frontend
+        run: npm run build
+        env:
+          # URL publique, presente en clair dans le bundle : pas un secret.
+          VITE_API_URL: https://api.gordet.alexandrechauvin.fr
+
+      - name: Verifier le build
+        working-directory: ./frontend
+        run: |
+          test -f dist/index.html || { echo "::error::dist/index.html manquant"; exit 1; }
+          test -f dist/.htaccess  || { echo "::error::dist/.htaccess manquant (routing SPA casse)"; exit 1; }
+
+          SIZE_KB=$(du -sk dist | cut -f1)
+          echo "Taille du build : $((SIZE_KB / 1024)) Mo"
+          # Le webspace client est cape a 50 Mo, on s'arrete avant.
+          if [ "$SIZE_KB" -gt 46080 ]; then
+            echo "::error::Build de $((SIZE_KB / 1024)) Mo, trop proche du quota de 50 Mo"
+            exit 1
+          fi
+
+      - name: Installer lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Deployer via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.IONOS_SFTP_HOST }}
+          SFTP_USER: ${{ secrets.IONOS_SFTP_USER }}
+          SFTP_PASS: ${{ secrets.IONOS_SFTP_PASSWORD }}
+          TARGET: ${{ secrets.IONOS_TARGET_PATH }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
+          # Les identifiants passent par stdin et non par argv : ils
+          # n'apparaissent pas dans la liste des process du runner.
+          lftp <<EOF
+          set sftp:auto-confirm yes
+          set net:max-retries 3
+          set net:timeout 20
+          open sftp://"$SFTP_HOST"
+          user "$SFTP_USER" "$SFTP_PASS"
+          mirror -R --delete --verbose $DRY_RUN --parallel=4 --exclude '^\.well-known/' ./frontend/dist "$TARGET"
+          bye
+          EOF

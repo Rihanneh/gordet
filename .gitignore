@@ -1,4 +1,6 @@
 # Environment
+backend/.env
+backend/.env.local
 **/.DS_Store
 Makefile
 compose.yaml

@@ -2,12 +2,12 @@ import "./Hero.css";
 import { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import Button from "./Button";
-import hero1 from "../../assets/projets/hero1.png";
-import hero2 from "../../assets/projets/hero2.png";
-import hero3 from "../../assets/projets/hero3.png";
-import hero4 from "../../assets/projets/hero4.png";
-import hero5 from "../../assets/projets/hero5.png";
-import hero6 from "../../assets/projets/hero6.png";
+import hero1 from "../../assets/projets/hero1.webp";
+import hero2 from "../../assets/projets/hero2.webp";
+import hero3 from "../../assets/projets/hero3.webp";
+import hero4 from "../../assets/projets/hero4.webp";
+import hero5 from "../../assets/projets/hero5.webp";
+import hero6 from "../../assets/projets/hero6.webp";
 import logoRSE from "../../assets/label-RSE.avif";
 import logoRGE from "../../assets/Label-RGE.jpg";
 
