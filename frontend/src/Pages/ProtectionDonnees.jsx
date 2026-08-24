@@ -51,13 +51,6 @@ export default function ProtectionDonnees() {
                             ne sont pas transmises à des tiers.
                         </p>
 
-                        <h3>Formulaire de prise de rendez-vous</h3>
-                        <p>
-                            Lors d'une demande de rendez-vous, nous collectons en plus la date et
-                            le créneau souhaités. Ces informations sont utilisées uniquement pour
-                            l'organisation de la visite.
-                        </p>
-
                         <h3>Navigation</h3>
                         <p>
                             Lors de votre visite, des données de navigation peuvent être
@@ -70,7 +63,7 @@ export default function ProtectionDonnees() {
                         <h2>Base légale du traitement</h2>
                         <ul>
                             <li>
-                                <strong>Formulaire de contact / rendez-vous :</strong> exécution de
+                                <strong>Formulaire de contact :</strong> exécution de
                                 mesures précontractuelles ou consentement de l'utilisateur
                                 (art. 6.1.b et 6.1.a du RGPD).
                             </li>
@@ -87,10 +80,6 @@ export default function ProtectionDonnees() {
                             <li>
                                 Données de contact : conservées pendant <strong>3 ans</strong> à
                                 compter du dernier échange, puis supprimées.
-                            </li>
-                            <li>
-                                Données de rendez-vous : conservées pendant la durée de la relation
-                                commerciale, puis supprimées.
                             </li>
                             <li>
                                 Données de navigation : anonymisées et conservées 13 mois maximum.

@@ -166,8 +166,6 @@
 }
 
 .carousel {
-    display: flex;
-    justify-content: center;
     overflow: hidden;
     padding: 40px 0 110px;
     -webkit-mask-image: linear-gradient(
@@ -190,6 +188,7 @@
     display: flex;
     align-items: center;
     width: max-content;
+    flex-shrink: 0;
     gap: 50px;
     animation: carousel-scroll 45s linear infinite;
 }

@@ -157,7 +157,7 @@ export default function Home() {
                                 Du lundi au vendredi de 8H30 à 17H30
                             </p>
                             <Button
-                                title="Prendre rendez-vous"
+                                title="Nous contacter"
                                 path="/contact"
                                 extraClass="btn-secondary"
                             />

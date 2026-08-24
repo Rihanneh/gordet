@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function Button({
-   title = "Make An Appointment",
+   title = "Nous contacter",
    path,
    extraClass = '',
    onClick,

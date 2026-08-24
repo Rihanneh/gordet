@@ -9,7 +9,6 @@ import { AdminLayout } from "../Components/AdminLayout";
 import PeopleIcon from "@mui/icons-material/People";
 import YardIcon from "@mui/icons-material/Yard";
 import EmailIcon from "@mui/icons-material/Email";
-import EventIcon from "@mui/icons-material/Event";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import SpaIcon from "@mui/icons-material/Spa";
 import jsonServerProvider from "ra-data-json-server";
@@ -18,9 +17,6 @@ import { AdminLoginPage } from "../Components/AdminLoginPage";
 import { UserList } from "../Components/UserList";
 import { UserEdit } from "../Components/UserEdit";
 import { UserCreate } from "../Components/UserCreate";
-import { AppointmentList } from "../Components/AppointmentList";
-import { AppointmentEdit } from "../Components/AppointmentEdit";
-import { AppointmentCreate } from "../Components/AppointmentCreate";
 import { ProjectList } from "../Components/ProjectList";
 import { ProjectEdit } from "../Components/ProjectEdit";
 import { ProjectCreate } from "../Components/ProjectCreate";
@@ -36,7 +32,6 @@ import { ServiceCreate } from "../Components/ServiceCreate";
 import { UserShow } from "../Components/UserShow";
 import { ProjectShow } from "../Components/ProjectShow";
 import { MessageShow } from "../Components/MessageShow";
-import { AppointmentShow } from "../Components/AppointmentShow";
 import { ImageShow } from "../Components/ImageShow";
 import { ServiceShow } from "../Components/ServiceShow";
 
@@ -47,7 +42,6 @@ const i18nProvider = polyglotI18nProvider(() => ({
         users: { name: "Utilisateur |||| Utilisateurs", fields: { email: "Email", password: "Mot de passe", createdAt: "Créé le", updatedAt: "Modifié le" } },
         projects: { name: "Projet |||| Projets", fields: { title: "Titre", slug: "Slug", description: "Description", date: "Date", imageIds: "Images" } },
         messages: { name: "Message |||| Messages", fields: { firstName: "Prénom", lastName: "Nom", email: "Email", subject: "Sujet", message: "Message", createdAt: "Reçu le" } },
-        appointments: { name: "Rendez-vous |||| Rendez-vous", fields: { firstName: "Prénom", lastName: "Nom", email: "Email", phone: "Téléphone", date: "Date", status: "Statut", message: "Message", createdAt: "Créé le" } },
         images: { name: "Image |||| Images", fields: { title: "Titre", path: "Fichier", alt: "Texte alternatif", createdAt: "Ajoutée le" } },
         services: { name: "Prestation |||| Prestations", fields: { title: "Titre", slug: "Slug", content: "Contenu", imageId: "Image" } },
     },
@@ -205,7 +199,6 @@ export default function AdminPage() {
       <Resource name="users" list={UserList} edit={UserEdit} create={UserCreate} show={UserShow} icon={PeopleIcon} />
       <Resource name="projects" list={ProjectList} edit={ProjectEdit} create={ProjectCreate} show={ProjectShow} icon={YardIcon} />
       <Resource name="messages" list={MessageList} edit={MessageEdit} create={MessageCreate} show={MessageShow} icon={EmailIcon} />
-      <Resource name="appointments" list={AppointmentList} edit={AppointmentEdit} create={AppointmentCreate} show={AppointmentShow} icon={EventIcon} />
       <Resource name="images" list={ImageList} edit={ImageEdit} create={ImageCreate} show={ImageShow} icon={CollectionsIcon} />
       <Resource name="services" list={ServiceList} edit={ServiceEdit} create={ServiceCreate} show={ServiceShow} icon={SpaIcon} />
       <CustomRoutes noLayout>

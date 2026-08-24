@@ -20,7 +20,7 @@ export default function ContactUs() {
                             path="tel:+33298077047"
                             extraClass="btn-secondary"
                         />
-                        <Button title="Prendre rendez-vous" path="/contact" />
+                        <Button title="Nous contacter" path="/contact" />
                     </div>
                 </div>
             </div>

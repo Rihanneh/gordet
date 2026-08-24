@@ -19,7 +19,6 @@ import * as authController from './controllers/authController.js';
 import * as userController from './controllers/userController.js';
 import * as projectController from './controllers/projectController.js';
 import * as messageController from './controllers/messageController.js';
-import * as appointmentController from './controllers/appointmentController.js';
 import * as imageController from './controllers/imageController.js';
 import * as serviceController from './controllers/serviceController.js';
 import { requireAuth } from './middleware/auth.js';
@@ -54,15 +53,6 @@ app.get('/messages', requireAuth, messageController.getMessages);
 app.get('/messages/:id', requireAuth, messageController.getMessageById);
 app.patch('/messages/:id', requireAuth, messageController.updateMessage);
 app.delete('/messages/:id', requireAuth, messageController.deleteMessage);
-
-// ====================================== APPOINTMENTS ROUTES ======================================
-// Public: POST (appointment booking form)
-app.post('/appointments', appointmentController.createAppointment);
-// Protected: all others
-app.get('/appointments', requireAuth, appointmentController.getAppointments);
-app.get('/appointments/:id', requireAuth, appointmentController.getAppointmentById);
-app.patch('/appointments/:id', requireAuth, appointmentController.updateAppointment);
-app.delete('/appointments/:id', requireAuth, appointmentController.deleteAppointment);
 
 // ====================================== IMAGES ROUTES ======================================
 // Public: GET (used by frontend gallery)
